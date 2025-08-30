@@ -1519,3 +1519,55 @@ body[data-page="home"] .tile:focus-within{
 
 /* Optional: captions don’t steal hover, so hover stays on the circle */
 body[data-page="home"] .tile .body{ pointer-events: none; }
+/* — Shadow system: consistent across the site — */
+:root{
+  --shadow-0: none;
+  --shadow-1: 0 1px 2px rgba(0,0,0,0.06), 0 1px 1px rgba(0,0,0,0.04);
+  --shadow-2: 0 2px 6px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.06);
+  --shadow-3: 0 6px 16px rgba(0,0,0,0.10), 0 2px 6px rgba(0,0,0,0.06);
+  --shadow-4: 0 10px 24px rgba(0,0,0,0.12), 0 4px 10px rgba(0,0,0,0.08);
+}
+
+/* Remove any text shadows sitewide */
+*:where(h1,h2,h3,h4,h5,h6, .title, .hero-title){ text-shadow: none !important; }
+
+/* Default card style */
+.card, .news-card, .funding-card, .footer-logo-card{
+  box-shadow: var(--shadow-2);
+  transition: box-shadow .2s ease, transform .2s ease;
+  will-change: transform;
+}
+.card:hover, .news-card:hover, .funding-card:hover, .footer-logo-card:hover{
+  box-shadow: var(--shadow-3);
+  transform: translateY(-1px);
+}
+
+/* Header buttons */
+.header .btn, .hero .btn{
+  box-shadow: var(--shadow-1);
+}
+.header .btn:hover, .hero .btn:hover{
+  box-shadow: var(--shadow-2);
+}
+
+/* Circular research panels: use box-shadow, not filter */
+.orbit .panel{
+  box-shadow: var(--shadow-2);
+}
+.orbit .panel:hover{
+  box-shadow: var(--shadow-3);
+}
+
+/* Kill legacy shadows and conflicting dropshadows */
+[class*="shadow"], .has-shadow{
+  /* If you used utility classes before, normalize them */
+  box-shadow: var(--shadow-2) !important;
+}
+img, picture{
+  filter: none; /* prevents double shadows from filter: drop-shadow */
+}
+
+/* Avoid clipped shadows on containers */
+.container, .orbit, .grid, .row{
+  overflow: visible;
+}
