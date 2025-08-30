@@ -1485,3 +1485,37 @@ body[data-page="home"] a.emblem-link .round-mask {
     text-align: center;
   }
 }
+/* === HOMEPAGE: keep captions from cutting into the circles === */
+body[data-page="home"] .tile{
+  overflow: visible !important;                 /* let circle + shadow breathe */
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+body[data-page="home"] .tile .body{
+  background: transparent !important;           /* no white card under the text */
+  border: 0 !important;
+  box-shadow: none !important;
+  margin-top: 10px !important;                  /* space between circle and text */
+  padding: 0 !important;
+  line-height: 1.25;                            /* readable but compact */
+}
+
+body[data-page="home"] .tile .body *{
+  background: transparent !important;           /* belt & suspenders */
+}
+
+body[data-page="home"] .tile .round-link{
+  display: block !important;
+  margin: 0 auto 8px !important;                /* ensures extra gap above text */
+}
+
+body[data-page="home"] .tile:hover,
+body[data-page="home"] .tile:focus-within{
+  transform: none !important;                   /* no parent lift = no rectangle */
+  box-shadow: none !important;
+}
+
+/* Optional: captions don’t steal hover, so hover stays on the circle */
+body[data-page="home"] .tile .body{ pointer-events: none; }
