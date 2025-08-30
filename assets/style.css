@@ -1486,14 +1486,34 @@ body[data-page="home"] a.emblem-link .round-mask {
     text-align: center;
   }
 }
-/* === HOME — orbit layout & circular links (moved from index.html) === */
+/* === HOME (moved from index.html) === */
 
-/* Wider canvas on home */
-body[data-page="home"] .container.wide {
-  width: min(1840px, 95%) !important;
+/* Wider canvas */
+body[data-page="home"] .container.wide{ width: min(1840px, 95%) !important; }
+
+/* Header: black animated buttons + current marker */
+body[data-page="home"] header .nav nav > a.navbox{
+  background:#000 !important; color:#fff !important; border:1px solid #000 !important;
+  box-shadow:0 6px 16px rgba(0,0,0,.18) !important;
+  transition: transform .12s ease, box-shadow .12s ease, filter .12s ease !important;
+  transform: translateY(0) !important;
+}
+body[data-page="home"] header .nav nav > a.navbox:hover,
+body[data-page="home"] header .nav nav > a.navbox:focus-visible{
+  transform: translateY(-1px) !important;
+  box-shadow: 0 10px 22px rgba(0,0,0,.24) !important;
+  filter: brightness(1.06) !important;
+}
+body[data-page="home"] header .nav nav > a.navbox[aria-current="page"]{
+  position:relative;
+  box-shadow: inset 0 0 0 2px #fff, 0 6px 16px rgba(0,0,0,.18) !important;
+  outline: none !important;
+}
+body[data-page="home"] header .nav nav > a.navbox[aria-current="page"]::after{
+  content:""; position:absolute; left:12px; right:12px; bottom:6px; height:2px; background:#fff; border-radius:2px;
 }
 
-/* Orbit grid */
+/* Orbit layout, stretched */
 .orbit{
   display:grid;
   grid-template-columns: minmax(360px,1fr) 640px minmax(360px,1fr);
@@ -1506,54 +1526,160 @@ body[data-page="home"] .container.wide {
 .orbit-rt{     grid-column:3; grid-row:1; justify-self:center; text-align:center; }
 .orbit-rb{     grid-column:3; grid-row:2; justify-self:center; text-align:center; }
 
-/* Kill tile chrome on the home orbit */
+/* Remove any tile chrome/hover and clipping */
 body[data-page="home"] .tile,
-body[data-page="home"] .tile .body{
-  border:none !important;
-  background:transparent !important;
-  box-shadow:none !important;
-}
-body[data-page="home"] .tile{
-  overflow: visible !important;
-}
+body[data-page="home"] .tile .body{ border:none !important; background:transparent !important; box-shadow:none !important; }
+body[data-page="home"] .tile{ overflow: visible !important; }
 body[data-page="home"] .tile:hover,
-body[data-page="home"] .tile:focus-within{
-  transform:none !important;
-  box-shadow:none !important;
-  background:transparent !important;
-}
+body[data-page="home"] .tile:focus-within{ transform:none !important; box-shadow:none !important; background:transparent !important; }
 .tile .body{ padding:8px 6px; }
 
-/* Circular links */
+.tagline{ margin:16px 0 4px; font-size:1.35rem; line-height:1.2; }
+.tagline-sub{ margin:0; opacity:.9; line-height:1.25; }
+
+/* Round links (no CSS shadows here; lift only) */
 .round-link{
-  display:block; margin:0 auto 10px; position:relative;
-  border-radius:50%; overflow:visible;
-  text-decoration:none !important; outline:none; background:transparent;
+  display:block; margin:0 auto 10px; position:relative; isolation:isolate;
+  border-radius:50%; overflow:visible !important;
+  text-decoration:none !important; border:none !important; outline:none !important; background:transparent !important;
   -webkit-tap-highlight-color:transparent; cursor:pointer;
-  transition: transform .14s ease;
+  transition: transform .14s ease !important;
 }
 .round-link:hover{ transform: translateY(-3px); }
 .round-link:active{ transform: translateY(-1px); }
-/* Prevent underline from global a:hover */
-body[data-page="home"] a.round-link, 
-body[data-page="home"] a.round-link *{
+body[data-page="home"] a.round-link, body[data-page="home"] a.round-link *{
   text-decoration:none !important; border-bottom:0 !important;
 }
 
-/* Sizes */
+/* Sizes (bigger) */
 a.emblem-link{ width:520px; height:520px; }
 a.circle-card{ width:280px; height:280px; }
 
-/* SVG should fill its box */
+/* SVG fits its box exactly; no overflow */
 .circle-svg{ display:block; width:100%; height:100%; }
+
+/* Hiring banner (animated) */
+.hiring{
+  display:block; text-decoration:none; color:inherit;
+  background:linear-gradient(135deg,#fff7e6,#ffffff);
+  border:1px solid rgba(0,0,0,.06);
+  box-shadow:0 10px 30px rgba(0,0,0,.08);
+  border-radius:18px; padding:24px 22px; margin:26px 0 10px;
+  transition: transform .12s ease, box-shadow .12s ease, filter .12s ease !important;
+}
+.hiring:hover, .hiring:focus-visible{
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0,0,0,.14);
+  filter: brightness(1.02);
+}
+.hiring .row{ display:flex; align-items:center; gap:16px; }
+.hiring .dot{ width:14px; height:14px; border-radius:999px; background:#f59e0b; box-shadow: 0 0 0 6px rgba(245,158,11,.18); }
+.hiring .copy{ font-size:1.6rem; font-weight:800; }
+
+/* Publications / News */
+.pub-grid{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; list-style:none; margin:0; padding:0; }
+.pub-item{ display:block; text-decoration:none; }
+.pub-card{ padding:14px 16px; border-radius:14px; }
+.pub-venue{ font-weight:600; margin-bottom:6px; }
+.pub-title{ margin:0 0 6px; font-size:1.05rem; }
+.pub-meta{ opacity:.85; font-size:.95rem; }
+
+.news-list.clean{
+  display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:16px;
+  list-style:none; margin:0; padding:0;
+}
+.news-list .news-item{ display:block; }
+.news-list .news-body{ padding:14px 16px; }
 
 /* Mobile stack */
 @media (max-width: 1100px){
   body[data-page="home"] .container.wide{ width:96% !important; }
   .orbit{ grid-template-columns:1fr; gap:16px; }
-  .orbit-center, .orbit-left, .orbit-rt, .orbit-rb{
-    grid-column:1; grid-row:auto; justify-self:center; text-align:center;
-  }
+  .orbit-center, .orbit-left, .orbit-rt, .orbit-rb{ grid-column:1; grid-row:auto; justify-self:center; text-align:center; }
   a.emblem-link{ width:320px; height:320px; }
   a.circle-card{ width:220px; height:220px; }
+  .pub-grid{ grid-template-columns:1fr; }
+  .news-list.clean{ grid-template-columns:1fr; }
+  .hiring .row{ flex-direction:column; align-items:start; }
 }
+
+/* HOME — News cards: same shadow behavior as Latest publications */
+body[data-page="home"] .news-list.clean > li > a.cardbox.news-item{
+  display:block;
+  background:#fff;
+  border:1px solid rgba(0,0,0,.06);
+  border-radius:14px;
+  box-shadow:0 10px 30px rgba(0,0,0,.08) !important;  /* override .cardbox none */
+  transition: transform .12s ease, box-shadow .12s ease, filter .12s ease !important;
+}
+body[data-page="home"] .news-list.clean > li > a.cardbox.news-item:hover,
+body[data-page="home"] .news-list.clean > li > a.cardbox.news-item:focus-visible{
+  transform: translateY(-2px);
+  box-shadow:0 12px 30px rgba(0,0,0,.14) !important;
+  filter: brightness(1.02);
+  outline:none;
+}
+
+/* HOMEPAGE — make Latest publications match News card shadow */
+body[data-page="home"] .pub-grid > li > a.cardbox.pub-item{
+  display:block;
+  background:#fff;
+  border:1px solid rgba(0,0,0,.06);
+  border-radius:14px;
+  box-shadow:0 10px 30px rgba(0,0,0,.08) !important;
+  transition: transform .12s ease, box-shadow .12s ease, filter .12s ease !important;
+}
+body[data-page="home"] .pub-grid > li > a.cardbox.pub-item:hover,
+body[data-page="home"] .pub-grid > li > a.cardbox.pub-item:focus-visible{
+  transform: translateY(-2px);
+  box-shadow:0 12px 30px rgba(0,0,0,.14) !important;
+  filter: brightness(1.02);
+  outline:none;
+}
+
+/* Neutralize inner .pub-card so there is only ONE box casting the shadow */
+body[data-page="home"] .pub-grid > li > a.cardbox.pub-item > .pub-card{
+  background:transparent !important;
+  border:0 !important;
+  box-shadow:none !important;
+  border-radius:12px;  /* keep inner rounding for content */
+  padding:14px 16px;   /* preserve spacing */
+}
+
+/* HOMEPAGE — warmer faint orange gradient for Latest publications */
+body[data-page="home"] .pub-grid > li > a.cardbox.pub-item{
+  background: linear-gradient(135deg, #ffe9d6, #ffffff) !important; /* soft warm orange → white */
+}
+
+/* HOMEPAGE — blue gradient for News cards */
+body[data-page="home"] .news-list.clean > li > a.cardbox.news-item{
+  background: linear-gradient(135deg, #e6f2ff, #ffffff) !important; /* pale blue → white */
+}
+
+/* HOMEPAGE — shadow + lift for IGBMC logo card */
+body[data-page="home"] footer .foot-partners .partner-card{
+  display:inline-block;
+  background:#fff;
+  border:1px solid rgba(0,0,0,.06);
+  border-radius:14px;
+  box-shadow:0 10px 30px rgba(0,0,0,.08) !important;
+  transition: transform .12s ease, box-shadow .12s ease, filter .12s ease !important;
+}
+body[data-page="home"] footer .foot-partners .partner-card:hover,
+body[data-page="home"] footer .foot-partners .partner-card:focus-visible{
+  transform: translateY(-2px);
+  box-shadow:0 12px 30px rgba(0,0,0,.14) !important;
+  filter: brightness(1.02);
+  outline:none;
+}
+
+/* Emblem lift only (no CSS shadow so SVG shadow shows) */
+body[data-page="home"] a.emblem-link {
+  box-shadow: 0 10px 30px rgba(0,0,0,.08) !important;
+  transition: box-shadow 0.15s;
+}
+body[data-page="home"] a.emblem-link:hover,
+body[data-page="home"] a.emblem-link:focus-visible {
+  box-shadow: 0 12px 30px rgba(0,0,0,.14) !important;
+}
+
