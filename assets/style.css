@@ -1570,6 +1570,30 @@ img, picture{
 /* Avoid clipped shadows on containers */
 .container, .orbit, .grid, .row{
   overflow: visible;
+/* === Shadow normalizer === */
+:root{
+  --shadow-1: 0 1px 2px rgba(0,0,0,.06), 0 1px 1px rgba(0,0,0,.04);
+  --shadow-2: 0 2px 6px rgba(0,0,0,.08), 0 1px 3px rgba(0,0,0,.06);
+  --shadow-3: 0 6px 16px rgba(0,0,0,.10), 0 2px 6px rgba(0,0,0,.06);
 }
-/* DIAG 1: prove CSS loads */
-html body { outline: 4px solid red !important; }
+
+h1, h2, h3, .title, .hero-title { text-shadow: none !important; }
+
+.orbit .panel {
+  filter: none !important;
+  box-shadow: var(--shadow-2);
+  transition: box-shadow .2s ease, transform .2s ease;
+}
+.orbit .panel:hover {
+  box-shadow: var(--shadow-3);
+  transform: translateY(-1px);
+}
+
+.card, .news-card, .funding-card, .footer-logo-card { box-shadow: var(--shadow-2); }
+.card:hover, .news-card:hover, .funding-card:hover, .footer-logo-card:hover { box-shadow: var(--shadow-3); }
+
+header .btn, .hero .btn { box-shadow: var(--shadow-1); }
+header .btn:hover, .hero .btn:hover { box-shadow: var(--shadow-2); }
+
+.container, .orbit, .grid, .row { overflow: visible !important; }
+
