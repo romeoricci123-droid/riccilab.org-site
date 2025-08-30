@@ -1,8 +1,0 @@
-html::before{
-  content:"";
-  position: fixed;
-  inset: 0;
-  border: 10px solid magenta !important;
-  pointer-events: none;
-  z-index: 2147483647 !important;
-}
