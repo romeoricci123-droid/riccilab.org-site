@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-
   <!-- Favicons and meta -->
   <link rel="icon" href="assets/favicon.png" sizes="32x32">
   <link rel="manifest" href="manifest.webmanifest">
@@ -23,10 +22,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Ricci Lab</title>
 
-  <!-- Global stylesheet -->
-
   <link rel="canonical" href="https://riccilab.org/">
-<link rel="stylesheet" href="/assets/style.css?v=force6">
+  <!-- keep ONLY this stylesheet include -->
+  <link rel="stylesheet" href="/assets/style.css?v=force6">
+
+  <!-- (Optional) keep your inline CSS here instead of inside <body> -->
+  <style>
+    /* your big inline CSS block goes here (unchanged) */
+  </style>
 
   <!-- Schema -->
   <script type="application/ld+json">
@@ -41,7 +44,9 @@
   }
   </script>
 </head>
-<body>
+
+<body data-page="home">
+
   <style>
     /* Wider canvas */
     body[data-page="home"] .container.wide{ width: min(1840px, 95%) !important; }
