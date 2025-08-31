@@ -26,27 +26,6 @@
   <!-- keep ONLY this stylesheet include -->
   <link rel="stylesheet" href="/assets/style.css?v=force6">
 
-  <!-- (Optional) keep your inline CSS here instead of inside <body> -->
-  <style>
-    /* your big inline CSS block goes here (unchanged) */
-  </style>
-
-  <!-- Schema -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"ResearchOrganization",
-    "name":"Ricci Lab",
-    "url":"https://riccilab.org",
-    "logo":"https://riccilab.org/assets/emblem.webp",
-    "parentOrganization":{"@type":"Organization","name":"IGBMC","url":"https://www.igbmc.fr"},
-    "member":[{"@type":"Person","name":"Romeo Ricci","jobTitle":"Principal Investigator","affiliation":{"@type":"Organization","name":"IGBMC"}}]
-  }
-  </script>
-</head>
-
-<body data-page="home">
-
   <style>
     /* Wider canvas */
     body[data-page="home"] .container.wide{ width: min(1840px, 95%) !important; }
@@ -236,11 +215,23 @@ body[data-page="home"] a.emblem-link:hover,
 body[data-page="home"] a.emblem-link:focus-visible {
   box-shadow: 0 12px 30px rgba(0,0,0,.14) !important;
 }
-  <link rel="stylesheet" href="/assets/style.css?v=force3">
-</head>
+  </style>
 
+  <!-- Schema -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"ResearchOrganization",
+    "name":"Ricci Lab",
+    "url":"https://riccilab.org",
+    "logo":"https://riccilab.org/assets/emblem.webp",
+    "parentOrganization":{"@type":"Organization","name":"IGBMC","url":"https://www.igbmc.fr"},
+    "member":[{"@type":"Person","name":"Romeo Ricci","jobTitle":"Principal Investigator","affiliation":{"@type":"Organization","name":"IGBMC"}}]
+  }
+  </script>
+</head>
 <body data-page="home">
-  <style>
+
     /* your inline CSS here is fine (or move it into style.css if you prefer) */
   </style>
   <a href="#main" class="skip">Skip to content</a>
