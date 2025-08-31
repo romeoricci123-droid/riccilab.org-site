@@ -443,26 +443,9 @@ body[data-page="home"] a.emblem-link:focus-visible {
       setCard('nature immunology',  'pub-ni-link', 'pub-ni-title', 'pub-ni-meta');
       setCard('nature metabolism',  'pub-nm-link', 'pub-nm-title', 'pub-nm-meta');
     })();
-
-    // Hover: strengthen SVG shadow (no rectangles). Works without extra CSS:
-   document.querySelectorAll('.round-link:not(.emblem-link)').forEach(function(link){
-      link.addEventListener('mouseenter', function(){
-        var g = link.querySelector('svg .shadow');
-        if (!g) return;
-        // swap to stronger filter if available
-        var svg = link.querySelector('svg');
-        if (svg && svg.querySelector('#ds-hover')) g.setAttribute('filter', 'url(#ds-hover)');
-      });
-      link.addEventListener('mouseleave', function(){
-        var g = link.querySelector('svg .shadow');
-        if (!g) return;
-        // back to base filter
-        var base = g.closest('svg').getAttribute('viewBox') === '0 0 520 520' ? 'url(#ds-strong)' : 'url(#ds-small)';
-        g.setAttribute('filter', base);
-      });
-    });
-  </script>
-  <!-- Mobile nav -->
-  <script src="assets/nav.js?v=2" defer></script>
+<!-- Publications data (cache-busted) -->
+<script src="assets/publications.js?v=10"></script>
+<!-- Mobile nav -->
+<script src="assets/nav.js?v=2" defer></script>
 </body>
 </html>
