@@ -3,7 +3,16 @@
 html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
 a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
 .container{width:min(1200px,92%);margin:0 auto}
-
+:root{
+  --elev-emblem: 0 22px 60px rgba(0,0,0,.28), 0 10px 24px rgba(0,0,0,.16), 0 1px 0 rgba(0,0,0,.06);
+  --elev-emblem-hover: 0 26px 72px rgba(0,0,0,.32), 0 12px 28px rgba(0,0,0,.18), 0 1px 0 rgba(0,0,0,.06);
+}
+:root{
+  --elev-card: 0 10px 30px rgba(0,0,0,.08);
+  --elev-card-hover: 0 12px 30px rgba(0,0,0,.14);
+  --elev-emblem: var(--elev-card);
+  --elev-emblem-hover: var(--elev-card-hover);
+}
 /* Header */
 header{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line)}
 .nav{display:flex;justify-content:space-between;align-items:center;padding:12px 0}
@@ -961,8 +970,7 @@ body[data-page="publications"] #pub-list .paper-card{
   header .nav nav > a{
     flex: 0 0 auto; /* keep each link intact */
   }
-  header .nav nav::-webkit-scrollbar{ display: none; }
-}
+  header .nav nav::-webkit-scrollbar{ display: none; }}
 /* --- Mobile-only hamburger (leaves desktop unchanged) --- */
 .hamburger { display: none; }
 
@@ -1011,7 +1019,7 @@ body[data-page="publications"] #pub-list .paper-card{
     padding: 12px 12px;
     justify-content: flex-start;
     border-radius: 10px;
-  }
+  }}
 /* ===== Publications: solid desktop + phone layout ===== */
 
 /* Desktop/laptop: keep two roomy columns and the fixed cover */
@@ -1043,7 +1051,7 @@ body[data-page="publications"] #pub-list .paper-card{
     width: 100% !important;
     max-width: 100% !important;
     height: auto !important;
-  }
+  }}
 /* Home page — center News cards on phones */
 @media (max-width: 680px){
   body[data-page="home"] .news-list.clean{
@@ -1057,14 +1065,14 @@ body[data-page="publications"] #pub-list .paper-card{
   body[data-page="home"] .news-list.clean > li{
     list-style: none;
     margin: 0;                 /* no extra offsets on items */
-  }
+  }}
 /* Phones: reframe the Join hero so the bands are visible */
 @media (max-width: 680px){
   html body[data-page="join"] section.subhero{
     background-position: 50% 30% !important; /* try 20–40% if you need to nudge */
     background-size: cover !important;
     background-repeat: no-repeat !important;
-  }
+  }}
 /* News: list cards + entry readability */
 .news-list .news-item {
   display: grid;
@@ -1130,41 +1138,6 @@ h1, h2, h3, .title, .hero-title { text-shadow: none !important; }
 header .btn, .hero .btn { box-shadow: var(--shadow-1); }
 header .btn:hover, .hero .btn:hover { box-shadow: var(--shadow-2); }
 
-/* home orbit circles: clean, round, non-clipped */
-body[data-page="home"] .tile,
-body[data-page="home"] .tile .body { overflow: visible !important; background: transparent !important; border: 0 !important; box-shadow: none !important; }
-
-body[data-page="home"] a.round-link { display:block !important; border-radius:50% !important; overflow:hidden !important; background:#000 !important; text-decoration:none !important; }
-
-body[data-page="home"] .round-mask { background: transparent !important; filter: none !important; }
-
-body[data-page="home"] .round-mask .bgfill{
-  clip-path: circle(50% at 50% 50%) !important;
-  background-size: cover !important;
-  background-position: center !important;
-  filter: drop-shadow(0 18px 40px rgba(0,0,0,.28)) !important;
-  transition: filter .14s ease, transform .14s ease !important;
-}
-body[data-page="home"] .round-link:hover .bgfill{
-  filter: drop-shadow(0 22px 54px rgba(0,0,0,.34)) !important;
-  transform: translateY(-1px);
-}
-/* universal for the new circle images */
-.circle-img{
-  display:block;
-  width:100%;
-  height:100%;
-  border-radius:50%;                 /* safety; keeps it perfectly round */
-  box-shadow: 0 18px 42px rgba(0,0,0,.32);
-  image-rendering:auto;              /* smooth downscale from your large originals */
-  background: transparent;           /* keep transparent corners */
-}
-
-/* a touch stronger on hover (like your cards) */
-.round-link:hover .circle-img,
-.round-link:focus-visible .circle-img{
-  box-shadow: 0 24px 56px rgba(0,0,0,.36);
-}
 
 /* === HEADER BUTTONS (black with white text) === */
 header .nav nav > a.navbox {
@@ -1231,47 +1204,6 @@ body[data-page="home"] .news-list.clean > li > a.cardbox.news-item:hover {
   box-shadow: 0 12px 30px rgba(0,0,0,.14) !important;
   filter: brightness(1.02);
 }
-/* Normalize research circle sizes */
-.orbit .circle-card {
-  width: 280px !important;
-  height: 280px !important;
-  flex: 0 0 280px !important;   /* prevents grid/flex stretch */
-  padding: 0 !important;
-  border: 0 !important;
-}
-.orbit .circle-card .circle-img {
-  display: block !important;
-  width: 100% !important;
-  height: 100% !important;
-  border-radius: 50% !important;
-  object-fit: contain !important;   /* no cropping of your circular PNG */
-  transform: none !important;
-}
-/* 1) Make sure scaled images don't spill out */
-.orbit .round-link { 
-  overflow: hidden !important;  /* your earlier rule set it visible */
-}
-
-/* 2) Normalize the brain circle by nudging its scale */
-.orbit .circle-card .circle-img { 
-  transform-origin: center center; 
-}
-.orbit .circle-card .circle-img[src$="brainv_circle.webp"]{
-  transform: scale(0.92);   /* adjust 0.90–0.96 to taste */
-}
-/* === HOME orbit — fixed circle sizes === */
-body[data-page="home"] .orbit .circle-card{
-  display:block;
-  width:280px;
-  height:280px;
-  border-radius:50%;
-}
-body[data-page="home"] .orbit .circle-card .circle-img{
-  width:100%;
-  height:100%;
-  border-radius:50%;
-  object-fit:cover;    /* keeps all three visually identical */
-}
 
 /* emblem stays larger in the center */
 body[data-page="home"] .orbit .emblem-link{
@@ -1281,31 +1213,6 @@ body[data-page="home"] .orbit .emblem-link{
   border-radius:50%;
 }
 
-/* mobile size */
-@media (max-width:1100px){
-  body[data-page="home"] .orbit .circle-card{ width:220px; height:220px; }
-  body[data-page="home"] .orbit .emblem-link{ width:320px; height:320px; }
-}
-/* === FORCE uniform circle sizes on HOME === */
-body[data-page="home"] .orbit a.circle-card{
-  width: 280px !important;
-  height: 280px !important;
-  border-radius: 50% !important;
-  display: inline-block !important;
-  flex: 0 0 280px !important;     /* prevent flex stretch */
-  justify-self: center !important; /* in the grid cell */
-  align-self: center !important;
-}
-
-body[data-page="home"] .orbit a.circle-card .circle-img{
-  width: 100% !important;
-  height: 100% !important;
-  border-radius: 50% !important;
-  object-fit: cover !important;
-  display: block !important;
-  transform: none !important;      /* no accidental scales */
-}
-
 /* keep the center emblem larger */
 body[data-page="home"] .orbit a.emblem-link{
   width: 520px !important;
@@ -1313,85 +1220,6 @@ body[data-page="home"] .orbit a.emblem-link{
   border-radius: 50% !important;
 }
 
-/* mobile sizes */
-@media (max-width:1100px){
-  body[data-page="home"] .orbit a.circle-card{
-    width: 220px !important; height: 220px !important; flex-basis: 220px !important;
-  }
-  body[data-page="home"] .orbit a.emblem-link{
-    width: 320px !important; height: 320px !important;
-  }
-}  /* === Hard clamp research circles on HOME === */
-body[data-page="home"] a.circle-card{
-  width:280px !important;
-  height:280px !important;
-  padding:0 !important;
-  border:0 !important;
-  box-sizing:content-box !important;
-}
-
-body[data-page="home"] a.circle-card > img.circle-img{
-  display:block !important;
-  width:100% !important;
-  height:100% !important;
-  max-width:none !important;
-  max-height:none !important;
-  border-radius:50% !important;
-  object-fit:contain !important;   /* image already has transparent corners */
-  margin:0 !important;
-}
-
-/* (TEMP) remove shadow so it can't “read” as extra size */
-body[data-page="home"] a.circle-card > img.circle-img{
-  box-shadow:none !important;
-}
-/* === FINAL: hard clamp orbit circle size + brain tweak === */
-body[data-page="home"] .orbit a.circle-card{
-  width:280px !important;
-  height:280px !important;
-  border-radius:50% !important;
-  display:inline-block !important;
-  flex:0 0 280px !important;
-}
-
-body[data-page="home"] .orbit a.circle-card > img.circle-img{
-  display:block !important;
-  width:100% !important;
-  height:100% !important;
-  border-radius:50% !important;
-  object-fit:contain !important;   /* beats earlier cover rules */
-  box-shadow:none !important;       /* avoid “looks larger” halo */
-  transform:none !important;        /* reset any prior transforms */
-  transform-origin:center center !important;
-}
-
-/* The brain image had more painted area inside the square: nudge it down */
-body[data-page="home"] .orbit a.circle-card > img.circle-img[src$="brainv_circle.webp"]{
-  transform:scale(0.92) !important;  /* adjust 0.90–0.96 if needed */
-}
-/* === ORBIT — canonical, visually uniform circles (final override) === */
-body[data-page="home"] .orbit a.circle-card{
-  width: 280px !important;
-  height: 280px !important;
-  border-radius: 50% !important;
-  overflow: hidden !important;     /* keep padding inside the circle */
-  display: inline-block !important;
-  flex: 0 0 280px !important;
-}
-
-body[data-page="home"] .orbit a.circle-card > img.circle-img{
-  display: block !important;
-  width: 100% !important;
-  height: 100% !important;
-  border-radius: 50% !important;
-  object-fit: contain !important;  /* show the whole image */
-  /* equal inner ring so all appear the same size */
-  padding: 14px !important;        /* tweak 12–18px to taste */
-  box-sizing: border-box !important;
-  background: #000 !important;     /* keeps the black circle edge consistent */
-  box-shadow: none !important;
-  transform: none !important;      /* cancels any earlier per-image scaling */
-}
 
 /* emblem stays larger in the center */
 body[data-page="home"] .orbit a.emblem-link{
@@ -1404,9 +1232,555 @@ body[data-page="home"] .orbit a.emblem-link{
   body[data-page="home"] .orbit a.circle-card{ width:220px !important; height:220px !important; }
   body[data-page="home"] .orbit a.emblem-link{ width:320px !important; height:320px !important; }
 }
-/* FINAL OVERRIDE — equalize the neuron circle */
-body[data-page="home"] a.circle-card > img.circle-img[src$="brainv_circle.webp"]{
-  transform: scale(0.86) !important;   /* tweak 0.84–0.90 if needed */
-  transform-origin: 50% 50% !important;
+/* Emblem: stärkerer Grundschatten + Hover */
+a.emblem-link{
+  box-shadow: 0 14px 36px rgba(0,0,0,.18) !important;
+  transition: box-shadow .12s ease, transform .12s ease;
 }
+a.emblem-link:hover,
+a.emblem-link:focus-visible{
+  box-shadow: 0 16px 40px rgba(0,0,0,.22) !important;
+}
+
+/* falls Schatten irgendwo abgeschnitten wird */
+.orbit, .container, .container.wide { overflow: visible !important; }
+/* Emblem container: white circle + strong shadow (wins over earlier rules) */
+a.round-link.emblem-link{
+  background: #fff !important;
+  box-shadow: 0 14px 36px rgba(0,0,0,.18) !important;
+  transition: box-shadow .12s ease, transform .12s ease;
+}
+a.round-link.emblem-link:hover,
+a.round-link.emblem-link:focus-visible{
+  box-shadow: 0 16px 40px rgba(0,0,0,.22) !important;
+}
+
+/* Do NOT let the image add its own shadow (avoid double-shadow look) */
+a.round-link.emblem-link > img{
+  box-shadow: none !important;
+}
+/* Force white circle + strong shadow on emblem only */
+#emblem{
+  background:#fff !important;
+  box-shadow:0 16px 40px rgba(0,0,0,.22) !important;
+  transition:box-shadow .12s ease, transform .12s ease;
+}
+#emblem:hover,
+#emblem:focus-visible{
+  box-shadow:0 18px 48px rgba(0,0,0,.26) !important;
+}
+
+/* Make sure the image itself has no shadow */
+#emblem > img{ box-shadow:none !important; }
+
+/* If any ancestor clips shadows, unblock it */
+.orbit, .container, .container.wide{ overflow:visible !important; }
+/* Emblem — stronger, layered shadow */
+#emblem{
+  background:#fff !important;
+  position: relative;        /* ensure it can sit above siblings */
+  z-index: 2;
+  box-shadow:
+    0 22px 60px rgba(0,0,0,.28),   /* big, soft layer */
+    0 10px 24px rgba(0,0,0,.16),   /* medium layer */
+    0 1px 0 rgba(0,0,0,.06)        /* crisp contact */
+  !important;
+  transition: box-shadow .12s ease, transform .12s ease;
+}
+#emblem:hover, #emblem:focus-visible{
+  box-shadow:
+    0 26px 72px rgba(0,0,0,.32),
+    0 12px 28px rgba(0,0,0,.18),
+    0 1px 0 rgba(0,0,0,.06)
+  !important;
+}
+
+/* Make sure the image itself isn't adding another halo */
+#emblem > img{ box-shadow:none !important; }
+
+/* Ensure no ancestor clips the shadow */
+.orbit, .container, .container.wide{ overflow: visible !important; }
+#emblem{
+  box-shadow: var(--elev-emblem) !important;
+}
+#emblem:hover, #emblem:focus-visible{
+  box-shadow: var(--elev-emblem-hover) !important;
+}
+/* Punchier emblem shadow */
+#emblem{
+  z-index: 5; /* sit above neighbors */
+  box-shadow:
+    0 28px 84px 10px rgba(0,0,0,.38),  /* big soft w/ spread */
+    0 14px 32px     rgba(0,0,0,.22),   /* mid layer */
+    0 1px 0         rgba(0,0,0,.06)    /* contact */
+  !important;
+}
+#emblem:hover, #emblem:focus-visible{
+  box-shadow:
+    0 34px 100px 12px rgba(0,0,0,.42),
+    0 16px 36px        rgba(0,0,0,.24),
+    0 1px 0            rgba(0,0,0,.06)
+  !important;
+}
+
+/* === CANONICAL — HOME small circles (260×260, no rim, strong shadow) === */
+html body[data-page="home"] .orbit a.round-link.circle-card{
+  width:260px !important;
+  height:260px !important;
+  flex:0 0 260px !important;
+  position:relative !important;
+  border-radius:50% !important;
+  background:#fff !important;
+  overflow:hidden !important;
+
+  /* strong but compact shadow */
+  box-shadow:
+    0 18px 44px -12px rgba(0,0,0,.32),
+    0  6px 16px  -6px rgba(0,0,0,.22),
+    0  1px  0           rgba(0,0,0,.06)
+  !important;
+  transition: box-shadow .12s ease;
+}
+html body[data-page="home"] .orbit a.round-link.circle-card:hover,
+html body[data-page="home"] .orbit a.round-link.circle-card:focus-visible{
+  box-shadow:
+    0 24px 64px -14px rgba(0,0,0,.36),
+    0 10px 24px  -8px rgba(0,0,0,.24),
+    0  1px  0           rgba(0,0,0,.06)
+  !important;
+}
+
+/* Image: overfill to kill the inner rim */
+html body[data-page="home"] .orbit a.round-link.circle-card > img.circle-img{
+  position:absolute !important;
+  top:-14px !important;
+  left:-14px !important;
+  width:calc(100% + 28px) !important;
+  height:calc(100% + 28px) !important;
+  z-index:2 !important;
+
+  display:block !important;
+  object-fit:cover !important;
+  object-position:50% 50% !important;
+
+  border:0 !important;
+  border-radius:50% !important;     /* keep round mask; container clips overflow */
+  margin:0 !important;
+  padding:0 !important;
+  background:transparent !important;
+  box-shadow:none !important;
+  transform:none !important;
+}
+/* === END CANONICAL === */
+
+/* === HOME · Small circles — kill hover rim for good === */
+
+/* 1) The round container: stays fixed; never adds border/padding/filter on hover */
+html body[data-page="home"] .orbit a.round-link.circle-card{
+  position: relative !important;
+  width: 260px !important;
+  height: 260px !important;
+  border-radius: 50% !important;
+  background: #fff !important;
+  overflow: hidden !important;
+  border: 0 !important;
+  outline: 0 !important;
+  filter: none !important;
+  padding: 0 !important;
+}
+html body[data-page="home"] .orbit a.round-link.circle-card:hover,
+html body[data-page="home"] .orbit a.round-link.circle-card:focus-visible,
+html body[data-page="home"] .orbit a.round-link.circle-card:active{
+  border: 0 !important;
+  outline: 0 !important;
+  filter: none !important;
+  padding: 0 !important;
+}
+
+/* 2) The image: overscan more, no border-radius (avoid anti-alias seam), never animates */
+html body[data-page="home"] .orbit a.round-link.circle-card > img.circle-img{
+  position: absolute !important;
+  top: -18px !important;
+  left: -18px !important;
+  width: calc(100% + 36px) !important;
+  height: calc(100% + 36px) !important;
+
+  display: block !important;
+  object-fit: cover !important;
+  object-position: 50% 50% !important;
+
+  /* IMPORTANT: no second rounding on the image — container masks it */
+  border-radius: 0 !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  filter: none !important;
+  transform: none !important;
+  transition: none !important;
+  z-index: 1 !important;
+}
+
+/* 3) Freeze the exact same geometry on ALL interactive states + any generic hover rules */
+html body[data-page="home"] .orbit a.round-link.circle-card:hover > img.circle-img,
+html body[data-page="home"] .orbit a.round-link.circle-card:focus-visible > img.circle-img,
+html body[data-page="home"] .orbit a.round-link.circle-card:active > img.circle-img,
+html body[data-page="home"] .orbit a.round-link.circle-card:hover .circle-img,
+html body[data-page="home"] .orbit a.round-link.circle-card:focus-visible .circle-img,
+html body[data-page="home"] .orbit a.round-link.circle-card:active .circle-img{
+  top: -20px !important;
+  left: -20px !important;
+  width: calc(100% + 40px) !important;
+  height: calc(100% + 40px) !important;
+  border-radius: 0 !important;
+  transform: none !important;
+  transition: none !important;
+  filter: none !important;
+}
+/* HOME — small-circle image geometry: identical in ALL states */
+html body[data-page="home"] .orbit a.round-link.circle-card.round-link.circle-card > img.circle-img,
+html body[data-page="home"] .orbit a.round-link.circle-card.round-link.circle-card:hover > img.circle-img,
+html body[data-page="home"] .orbit a.round-link.circle-card.round-link.circle-card:focus-visible > img.circle-img,
+html body[data-page="home"] .orbit a.round-link.circle-card.round-link.circle-card:active > img.circle-img{
+  position: absolute !important;
+  top: -26px !important;
+  left: -26px !important;
+  width: calc(100% + 52px) !important;
+  height: calc(100% + 52px) !important;
+
+  display: block !important;
+  object-fit: cover !important;
+  object-position: 50% 50% !important;
+
+  /* avoid double-rounded anti-alias seam */
+  border-radius: 0 !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  filter: none !important;
+  transform: none !important;
+  transition: none !important;
+  z-index: 1 !important;
+}
+/* ==== HOME — Bigger circles (desktop + mobile), keep no-rim + shadows ==== */
+:root{
+  /* Adjust these two and everything follows */
+  --orbit-small: 320px;   /* each side circle size on desktop (was 260px) */
+  --orbit-center: 620px;  /* emblem size on desktop (was 520px) */
+
+  /* Mobile sizes */
+  --orbit-small-m: 240px; /* side circles on phones (was 220px) */
+  --orbit-center-m: 380px;/* emblem on phones (was 320px) */
+
+  /* Overscan to kill inner transparent ring (px past the mask) */
+  --orbit-overscan: 22px; /* if a hairline appears, bump to 24–26 */
+}
+
+/* Grid: give the center column the emblem width so layout doesn't wrap oddly */
+html body[data-page="home"] .orbit{
+  grid-template-columns: minmax(360px,1fr) var(--orbit-center) minmax(360px,1fr) !important;
+  gap: 28px 56px !important;
+}
+
+/* Center emblem container */
+html body[data-page="home"] .orbit a.round-link.emblem-link{
+  width: var(--orbit-center) !important;
+  height: var(--orbit-center) !important;
+  border-radius: 50% !important;
+  background: #fff !important;
+  overflow: hidden !important;
+  position: relative !important;
+
+  /* keep the nice emblem shadow */
+  box-shadow:
+    0 28px 84px 10px rgba(0,0,0,.38),
+    0 14px 32px     rgba(0,0,0,.22),
+    0 1px 0         rgba(0,0,0,.06) !important;
+  transition: box-shadow .12s ease, transform .12s ease;
+}
+html body[data-page="home"] .orbit a.round-link.emblem-link:hover,
+html body[data-page="home"] .orbit a.round-link.emblem-link:focus-visible{
+  box-shadow:
+    0 34px 100px 12px rgba(0,0,0,.42),
+    0 16px 36px        rgba(0,0,0,.24),
+    0 1px 0            rgba(0,0,0,.06) !important;
+}
+
+/* Side circles (Macrophage, Neuron, β-cell) */
+html body[data-page="home"] .orbit a.round-link.circle-card{
+  width: var(--orbit-small) !important;
+  height: var(--orbit-small) !important;
+  flex: 0 0 var(--orbit-small) !important;
+  border-radius: 50% !important;
+  background: #fff !important;        /* ensure white disk (fixes phone black) */
+  overflow: hidden !important;
+  position: relative !important;
+
+  /* strong but compact shadow (doesn’t make them look larger) */
+  box-shadow:
+    0 18px 44px -12px rgba(0,0,0,.32),
+    0  6px 16px  -6px rgba(0,0,0,.22),
+    0  1px  0           rgba(0,0,0,.06) !important;
+  transition: box-shadow .12s ease, transform .12s ease;
+}
+html body[data-page="home"] .orbit a.round-link.circle-card:hover,
+html body[data-page="home"] .orbit a.round-link.circle-card:focus-visible{
+  transform: translateY(-2px);
+  box-shadow:
+    0 24px 64px -14px rgba(0,0,0,.36),
+    0 10px 24px  -8px rgba(0,0,0,.24),
+    0  1px  0           rgba(0,0,0,.06) !important;
+}
+
+/* Image overfill to remove any inner rim — static AND hover */
+html body[data-page="home"] .orbit a.round-link.circle-card > img.circle-img,
+html body[data-page="home"] .orbit a.round-link.circle-card:hover > img.circle-img,
+html body[data-page="home"] .orbit a.round-link.circle-card:focus-visible > img.circle-img,
+html body[data-page="home"] .orbit a.round-link.circle-card:active > img.circle-img{
+  position: absolute !important;
+  top: calc(var(--orbit-overscan) * -1) !important;
+  left: calc(var(--orbit-overscan) * -1) !important;
+  width: calc(100% + (var(--orbit-overscan) * 2)) !important;
+  height: calc(100% + (var(--orbit-overscan) * 2)) !important;
+
+  display: block !important;
+  object-fit: cover !important;
+  object-position: 50% 50% !important;
+  border: 0 !important;
+  border-radius: 0 !important;  /* avoid double antialias seam */
+  margin: 0 !important; padding: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  transform: none !important; transition: none !important; filter: none !important;
+  z-index: 1 !important;
+}
+
+/* Mobile: shrink gracefully and keep white (fixes “black circle” on phones) */
+@media (max-width: 1100px){
+  html body[data-page="home"] .orbit{
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  html body[data-page="home"] .orbit a.round-link.emblem-link{
+    width: var(--orbit-center-m) !important;
+    height: var(--orbit-center-m) !important;
+  }
+  html body[data-page="home"] .orbit a.round-link.circle-card{
+    width: var(--orbit-small-m) !important;
+    height: var(--orbit-small-m) !important;
+    flex-basis: var(--orbit-small-m) !important;
+    background: #fff !important;  /* re-assert white on phone */
+  }
+}
+/* ==== HOME — layout & sizes (bigger emblem, smaller side circles) ==== */
+
+/* 1) Make the center column match the new emblem size so the grid stays tidy */
+body[data-page="home"] .orbit{
+  grid-template-columns: minmax(360px,1fr) 700px minmax(360px,1fr) !important; /* middle col = emblem size */
+  gap: 28px 56px !important;
+}
+
+/* 2) Big emblem size (anchor has id="emblem" from before) */
+#emblem{
+  width: 700px !important;
+  height: 700px !important;
+  border-radius: 50% !important;
+  overflow: hidden !important;
+  position: relative !important;
+}
+
+/* Ensure the emblem image still fills perfectly (keep your existing transform if you used one) */
+#emblem > img{
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
+  /* If you previously used a slight translateY / scale to center the artwork,
+     keep it; otherwise leave as-is. */
+}
+
+/* 3) Smaller side circles (keeps your no-rim overscan working) */
+body[data-page="home"] .orbit a.round-link.circle-card{
+  width: 240px !important;
+  height: 240px !important;
+  flex: 0 0 240px !important;
+  border-radius: 50% !important;
+  overflow: hidden !important;
+  background: #fff !important;
+  position: relative !important;
+}
+
+/* (Your existing overscan rule for small-circle <img> stays as-is)
+   Example (what you already have, keep it):
+   body[data-page="home"] .orbit a.round-link.circle-card.round-link.circle-card > img.circle-img{ 
+     position:absolute; top:-22px; left:-22px; width:calc(100% + 44px); height:calc(100% + 44px);
+     border-radius:0; object-fit:cover; …
+   }
+*/
+
+/* 4) Headline under the emblem: bigger and further from the emblem */
+body[data-page="home"] .tagline{
+  margin-top: 32px !important;         /* more distance from the emblem */
+  font-size: 2.4rem !important;        /* was ~1.35rem */
+  line-height: 1.15 !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.01em !important;
+  text-align: center !important;
+}
+body[data-page="home"] .tagline-sub{
+  margin-top: 8px !important;
+  font-size: 1.2rem !important;
+  line-height: 1.25 !important;
+  opacity: .92 !important;
+  text-align: center !important;
+}
+
+/* 5) Mobile: keep things comfortable (optional; tweak if you like) */
+@media (max-width: 1100px){
+  body[data-page="home"] .orbit{ grid-template-columns: 1fr !important; gap: 16px !important; }
+  #emblem{ width: 380px !important; height: 380px !important; }
+  body[data-page="home"] .orbit a.round-link.circle-card{
+    width: 220px !important; height: 220px !important; flex-basis: 220px !important;
+  }
+  body[data-page="home"] .tagline{ font-size: 2rem !important; margin-top: 24px !important; }
+  body[data-page="home"] .tagline-sub{ font-size: 1.05rem !important; }
+}
+/* === HOME — bigger emblem, smaller side circles, perfect centering === */
+
+/* Center items in their grid cells + give the middle column the emblem's width */
+body[data-page="home"] .orbit{
+  grid-template-columns: 1fr 800px 1fr !important; /* middle col = emblem size */
+  justify-items: center !important;
+  gap: 28px 56px !important;
+}
+
+/* Ensure all four tiles are centered in their cells */
+body[data-page="home"] .orbit-center,
+body[data-page="home"] .orbit-left,
+body[data-page="home"] .orbit-rt,
+body[data-page="home"] .orbit-rb{
+  justify-self: center !important;
+  text-align: center !important;
+}
+
+/* Emblem MUCH bigger (anchor has id="emblem") */
+#emblem{
+  width: 800px !important;
+  height: 800px !important;
+  border-radius: 50% !important;
+  overflow: hidden !important;
+  position: relative !important;
+}
+
+/* Emblem image fills (keep any small translate/scale you added earlier) */
+#emblem > img{
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
+}
+
+/* Side circles a bit smaller (no-rim overscan you added stays intact) */
+body[data-page="home"] .orbit a.round-link.circle-card{
+  width: 210px !important;
+  height: 210px !important;
+  flex: 0 0 210px !important;
+  border-radius: 50% !important;
+  overflow: hidden !important;
+  background: #fff !important;
+  position: relative !important;
+}
+
+/* Tagline under emblem: bigger + more spacing + centered */
+body[data-page="home"] .tagline{
+  margin-top: 40px !important;     /* more distance below emblem */
+  font-size: 2.8rem !important;    /* larger headline */
+  line-height: 1.15 !important;
+  font-weight: 800 !important;
+  text-align: center !important;
+}
+body[data-page="home"] .tagline-sub{
+  margin-top: 10px !important;
+  font-size: 1.25rem !important;
+  line-height: 1.25 !important;
+  text-align: center !important;
+}
+
+/* Mobile: stack, keep sizes sensible and centered */
+@media (max-width: 1100px){
+  body[data-page="home"] .orbit{
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  #emblem{
+    width: 420px !important;
+    height: 420px !important;
+  }
+  body[data-page="home"] .orbit a.round-link.circle-card{
+    width: 200px !important;
+    height: 200px !important;
+    flex-basis: 200px !important;
+  }
+  body[data-page="home"] .tagline{
+    font-size: 2.2rem !important;
+    margin-top: 28px !important;
+  }
+  body[data-page="home"] .tagline-sub{
+    font-size: 1.05rem !important;
+  }
+}
+/* === HOME — small-circle captions like the emblem === */
+body[data-page="home"] .orbit .body{
+  margin-top: 14px !important;         /* space between circle and text */
+  text-align: center !important;       /* center like the emblem tagline */
+}
+body[data-page="home"] .orbit .body h3{
+  margin: 0 0 6px 0 !important;
+  font-size: 1.35rem !important;       /* bigger title */
+  line-height: 1.2 !important;
+  font-weight: 800 !important;         /* make it pop */
+}
+body[data-page="home"] .orbit .body p{
+  margin: 0 !important;
+  font-size: 1.05rem !important;       /* readable subtitle */
+  line-height: 1.28 !important;
+  opacity: .95 !important;
+}
+
+/* Optional: keep caption width tidy under each circle */
+body[data-page="home"] .orbit .body{
+  max-width: 26ch !important;          /* prevents super-long lines */
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* === HOME — give the Open positions bar more breathing room under emblem === */
+body[data-page="home"] .hiring{
+  margin-top: 48px !important;         /* was ~26px */
+  margin-bottom: 12px !important;
+}
+
+/* Phone tweaks */
+@media (max-width: 1100px){
+  body[data-page="home"] .orbit .body h3{ font-size: 1.25rem !important; }
+  body[data-page="home"] .orbit .body p { font-size: 1.0rem  !important; }
+  body[data-page="home"] .hiring{ margin-top: 32px !important; }
+}
+/* HOME — Open positions banner: never underline (even on hover/focus) */
+body[data-page="home"] .hiring,
+body[data-page="home"] .hiring:hover,
+body[data-page="home"] .hiring:focus,
+body[data-page="home"] .hiring:focus-visible,
+body[data-page="home"] .hiring *{
+  text-decoration: none !important;
+  border-bottom: 0 !important;
+}
+
+
+
+
+
 
