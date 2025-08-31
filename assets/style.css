@@ -1292,3 +1292,39 @@ body[data-page="home"] .orbit .emblem-link{
   body[data-page="home"] .orbit .circle-card{ width:220px; height:220px; }
   body[data-page="home"] .orbit .emblem-link{ width:320px; height:320px; }
 }
+/* === FORCE uniform circle sizes on HOME === */
+body[data-page="home"] .orbit a.circle-card{
+  width: 280px !important;
+  height: 280px !important;
+  border-radius: 50% !important;
+  display: inline-block !important;
+  flex: 0 0 280px !important;     /* prevent flex stretch */
+  justify-self: center !important; /* in the grid cell */
+  align-self: center !important;
+}
+
+body[data-page="home"] .orbit a.circle-card .circle-img{
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  display: block !important;
+  transform: none !important;      /* no accidental scales */
+}
+
+/* keep the center emblem larger */
+body[data-page="home"] .orbit a.emblem-link{
+  width: 520px !important;
+  height: 520px !important;
+  border-radius: 50% !important;
+}
+
+/* mobile sizes */
+@media (max-width:1100px){
+  body[data-page="home"] .orbit a.circle-card{
+    width: 220px !important; height: 220px !important; flex-basis: 220px !important;
+  }
+  body[data-page="home"] .orbit a.emblem-link{
+    width: 320px !important; height: 320px !important;
+  }
+}
