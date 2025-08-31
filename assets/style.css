@@ -1265,21 +1265,30 @@ body[data-page="home"] .news-list.clean > li > a.cardbox.news-item:hover {
 .orbit .circle-card .circle-img[src$="brainv_circle.webp"]{
   transform: scale(0.92);   /* adjust 0.90–0.96 to taste */
 }
-/* Home orbit: fix all research circles to identical size */
-.orbit .circle-card{
+/* === HOME orbit — fixed circle sizes === */
+body[data-page="home"] .orbit .circle-card{
   display:block;
   width:280px;
   height:280px;
   border-radius:50%;
 }
-.orbit .circle-card .circle-img{
+body[data-page="home"] .orbit .circle-card .circle-img{
   width:100%;
   height:100%;
   border-radius:50%;
-  object-fit:cover;   /* or 'contain' if you prefer a little padding */
+  object-fit:cover;    /* keeps all three visually identical */
 }
 
-/* Mobile shrink */
+/* emblem stays larger in the center */
+body[data-page="home"] .orbit .emblem-link{
+  display:block;
+  width:520px;
+  height:520px;
+  border-radius:50%;
+}
+
+/* mobile size */
 @media (max-width:1100px){
-  .orbit .circle-card{ width:220px; height:220px; }
+  body[data-page="home"] .orbit .circle-card{ width:220px; height:220px; }
+  body[data-page="home"] .orbit .emblem-link{ width:320px; height:320px; }
 }
