@@ -270,150 +270,37 @@ body[data-page="home"] a.emblem-link:focus-visible {
         <div class="orbit">
           <div class="orbit-center">     
 <a class="round-link emblem-link" href="research.html" aria-label="Go to Research">
-  <svg class="circle-svg" viewBox="0 0 520 520" width="520" height="520" aria-hidden="true">
-    <defs>
-      <clipPath id="clip-emblem" clipPathUnits="userSpaceOnUse">
-        <circle cx="260" cy="260" r="260"/>
-      </clipPath>
-      <filter id="ds-round-base" x="-60%" y="-60%" width="220%" height="220%">
-        <feGaussianBlur in="SourceAlpha" stdDeviation="15" result="blur"/>
-        <feOffset dx="0" dy="10" result="off"/>
-        <feColorMatrix in="off" type="matrix"
-          values="0 0 0 0 0
-                  0 0 0 0 0
-                  0 0 0 0 0
-                  0 0 0 0.24 0" result="shadow"/>
-        <feMerge>
-          <feMergeNode in="shadow"/>
-          <feMergeNode in="SourceGraphic"/> <!-- THIS LINE WAS MISSING -->
-        </feMerge>
-      </filter>
-    </defs>
-
-    <g class="shadow" filter="url(#ds-round-base)">
-      <!-- Optional: keep the black disc behind the emblem. If you don’t want it, delete this circle. -->
-      <circle cx="260" cy="260" r="260" fill="#000"></circle>
-
-      <image href="assets/emblem.webp"
-             x="57" y="57" width="406" height="406"
-             preserveAspectRatio="xMidYMid meet"
-             clip-path="url(#clip-emblem)"></image>
-    </g>
-  </svg>
+  <img
+    src="assets/emblem.webp"
+    alt="Ricci Lab emblem"
+    class="circle-img emblem"
+    width="520" height="520"
+    loading="eager" decoding="async">
 </a>
-            <h1 class="tagline">Organelle crosstalk in disease</h1>
-            <p class="tagline-sub">Metabolism and innate immunity through the lens of lipids and membranes.</p>
-          </div>
-
-          <!-- Left: Macrophage -->
-          <article class="tile orbit-left">
-  <a aria-label="Macrophage" class="round-link circle-card" href="nlrp3.html">
-    <svg class="circle-svg" viewBox="0 0 280 280" width="280" height="280" aria-hidden="true">
-      <defs>
-        <clipPath id="clip-left" clipPathUnits="userSpaceOnUse">
-          <circle cx="140" cy="140" r="140"></circle>
-        </clipPath>
-        <filter id="ds-small" x="-50%" y="-50%" width="200%" height="200%">
-          <feGaussianBlur in="SourceAlpha" stdDeviation="10" result="blur"/>
-          <feOffset dx="0" dy="16" result="off"/>
-          <feColorMatrix in="off" type="matrix"
-            values="0 0 0 0 0
-                    0 0 0 0 0
-                    0 0 0 0 0
-                    0 0 0 0.24 0" result="shadow"/>
-          <feMerge>
-            <feMergeNode in="shadow"/>
-            <feMergeNode in="SourceGraphic"/>
-          </feMerge>
-        </filter>
-      </defs>
-      <g class="shadow" filter="url(#ds-small)">
-        <circle cx="140" cy="140" r="140" fill="#000"></circle>
-        <image href="assets/nlrp3.webp"
-               x="0" y="0" width="280" height="280"
-               preserveAspectRatio="xMidYMid slice"
-               clip-path="url(#clip-left)"></image>
-      </g>
-    </svg>
-  </a>
-  <div class="body">
-    <h3>Macrophage</h3>
-    <p>Innate immune sensing and inflammasome assembly.</p>
-  </div>
-
-</article>
-<article class="tile orbit-rb">
-  <a aria-label="Pancreatic β cell" class="round-link circle-card" href="insulin.html">
-    <svg class="circle-svg" viewBox="0 0 280 280" width="280" height="280" aria-hidden="true">
-      <defs>
-        <clipPath id="clip-rb" clipPathUnits="userSpaceOnUse">
-          <circle cx="140" cy="140" r="140"></circle>
-        </clipPath>
-        <filter id="ds-small-3" x="-50%" y="-50%" width="200%" height="200%">
-          <feGaussianBlur in="SourceAlpha" stdDeviation="10" result="blur"/>
-          <feOffset dx="0" dy="16" result="off"/>
-          <feColorMatrix in="off" type="matrix"
-            values="0 0 0 0 0
-                    0 0 0 0 0
-                    0 0 0 0 0
-                    0 0 0 0.24 0" result="shadow"/>
-          <feMerge>
-            <feMergeNode in="shadow"/>
-            <feMergeNode in="SourceGraphic"/>
-          </feMerge>
-        </filter>
-      </defs>
-      <g class="shadow" filter="url(#ds-small-3)">
-        <circle cx="140" cy="140" r="140" fill="#000"></circle>
-        <image href="assets/beta.webp"
-               x="0" y="0" width="280" height="280"
-               preserveAspectRatio="xMidYMid slice"
-               clip-path="url(#clip-rb)"></image>
-      </g>
-    </svg>
-  </a>
-  <div class="body">
-    <h3>Pancreatic β cell</h3>
-    <p>Insulin granule turnover and β-cell function.</p>
-  </div>
-</article>
-<article class="tile orbit-rb">
-  <a aria-label="Hypothalamic neuron" class="round-link circle-card" href="brain.html">
-    <svg class="circle-svg" viewBox="0 0 280 280" width="280" height="280" aria-hidden="true">
-      <defs>
-        <clipPath id="clip-rb" clipPathUnits="userSpaceOnUse">
-          <circle cx="140" cy="140" r="140"></circle>
-        </clipPath>
-        <filter id="ds-small-3" x="-50%" y="-50%" width="200%" height="200%">
-          <feGaussianBlur in="SourceAlpha" stdDeviation="10" result="blur"/>
-          <feOffset dx="0" dy="16" result="off"/>
-          <feColorMatrix in="off" type="matrix"
-            values="0 0 0 0 0
-                    0 0 0 0 0
-                    0 0 0 0 0
-                    0 0 0 0.24 0" result="shadow"/>
-          <feMerge>
-            <feMergeNode in="shadow"/>
-            <feMergeNode in="SourceGraphic"/>
-          </feMerge>
-        </filter>
-      </defs>
-      <g class="shadow" filter="url(#ds-small-3)">
-        <circle cx="140" cy="140" r="140" fill="#000"></circle>
-        <image href="assets/beta.webp"
-               x="0" y="0" width="280" height="280"
-               preserveAspectRatio="xMidYMid slice"
-               clip-path="url(#clip-rb)"></image>
-      </g>
-    </svg>
-  </a>
-    <div class="body"> 
-    <h3>Hypothalamic neuron</h3>
-    <p>Membrane trafficking and neuropeptide release.</p>
-  </div>
-</article>
-        </div>
-
+<a aria-label="Macrophage" class="round-link circle-card" href="nlrp3.html">
+  <img
+    src="assets/nlrp3v_circle.webp"
+    alt="Macrophage (NLRP3)"
+    class="circle-img"
+    width="280" height="280"
+    loading="lazy" decoding="async">
+</a>
+<a aria-label="Hypothalamic neuron" class="round-link circle-card" href="brain.html">
+  <img
+    src="assets/brainv_circle.webp"
+    alt="Hypothalamic neuron"
+    class="circle-img"
+    width="280" height="280"
+    loading="lazy" decoding="async">
+</a>
+<a aria-label="Pancreatic β cell" class="round-link circle-card" href="insulin.html">
+  <img
+    src="assets/betav_circle.webp"
+    alt="Pancreatic β cell"
+    class="circle-img"
+    width="280" height="280"
+    loading="lazy" decoding="async">
+</a>
         <!-- Open positions -->
         <a class="hiring" href="join.html" aria-label="Open positions">
           <div class="row">
