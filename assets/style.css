@@ -1369,4 +1369,39 @@ body[data-page="home"] .orbit a.circle-card > img.circle-img{
 body[data-page="home"] .orbit a.circle-card > img.circle-img[src$="brainv_circle.webp"]{
   transform:scale(0.92) !important;  /* adjust 0.90–0.96 if needed */
 }
+/* === ORBIT — canonical, visually uniform circles (final override) === */
+body[data-page="home"] .orbit a.circle-card{
+  width: 280px !important;
+  height: 280px !important;
+  border-radius: 50% !important;
+  overflow: hidden !important;     /* keep padding inside the circle */
+  display: inline-block !important;
+  flex: 0 0 280px !important;
+}
+
+body[data-page="home"] .orbit a.circle-card > img.circle-img{
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 50% !important;
+  object-fit: contain !important;  /* show the whole image */
+  /* equal inner ring so all appear the same size */
+  padding: 14px !important;        /* tweak 12–18px to taste */
+  box-sizing: border-box !important;
+  background: #000 !important;     /* keeps the black circle edge consistent */
+  box-shadow: none !important;
+  transform: none !important;      /* cancels any earlier per-image scaling */
+}
+
+/* emblem stays larger in the center */
+body[data-page="home"] .orbit a.emblem-link{
+  width: 520px !important;
+  height: 520px !important;
+  border-radius: 50% !important;
+}
+
+@media (max-width:1100px){
+  body[data-page="home"] .orbit a.circle-card{ width:220px !important; height:220px !important; }
+  body[data-page="home"] .orbit a.emblem-link{ width:320px !important; height:320px !important; }
+}
 
