@@ -65,7 +65,7 @@
     .orbit-rt{     grid-column:3; grid-row:1; justify-self:center; text-align:center; }
     .orbit-rb{     grid-column:3; grid-row:2; justify-self:center; text-align:center; }
 
-    /* Remove any tile chrome/hover and clipping */
+    /* Remove any tile chrome hover and clipping */
     body[data-page="home"] .tile,
     body[data-page="home"] .tile .body{ border:none !important; background:transparent !important; box-shadow:none !important; }
     body[data-page="home"] .tile{ overflow: visible !important; }
@@ -76,7 +76,7 @@
     .tagline{ margin:16px 0 4px; font-size:1.35rem; line-height:1.2; }
     .tagline-sub{ margin:0; opacity:.9; line-height:1.25; }
 
-    /* Round links (no CSS shadows here; lift only) */
+    /* Round links */
     .round-link{
       display:block; margin:0 auto 10px; position:relative; isolation:isolate;
       border-radius:50%; overflow:visible !important;
@@ -90,14 +90,22 @@
       text-decoration:none !important; border-bottom:0 !important;
     }
 
-    /* Sizes (bigger) */
+    /* Emblem fills the existing white circle */
     a.emblem-link{ width:520px; height:520px; }
+    body[data-page="home"] a.emblem-link img.emblem{
+      width:100%; height:100%;
+      object-fit:cover;
+      border-radius:50%;
+      display:block;
+    }
+
+    /* Sizes for side circles */
     a.circle-card{ width:280px; height:280px; }
 
-    /* SVG fits its box exactly; no overflow */
+    /* SVG fits its box exactly */
     .circle-svg{ display:block; width:100%; height:100%; }
 
-    /* Hiring banner (animated) */
+    /* Hiring banner */
     .hiring{
       display:block; text-decoration:none; color:inherit;
       background:linear-gradient(135deg,#fff7e6,#ffffff);
@@ -115,7 +123,7 @@
     .hiring .dot{ width:14px; height:14px; border-radius:999px; background:#f59e0b; box-shadow: 0 0 0 6px rgba(245,158,11,.18); }
     .hiring .copy{ font-size:1.6rem; font-weight:800; }
 
-    /* Publications / News unchanged */
+    /* Publications and News */
     .pub-grid{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; list-style:none; margin:0; padding:0; }
     .pub-item{ display:block; text-decoration:none; }
     .pub-card{ padding:14px 16px; border-radius:14px; }
@@ -136,85 +144,87 @@
       .orbit{ grid-template-columns:1fr; gap:16px; }
       .orbit-center, .orbit-left, .orbit-rt, .orbit-rb{ grid-column:1; grid-row:auto; justify-self:center; text-align:center; }
       a.emblem-link{ width:320px; height:320px; }
+      body[data-page="home"] a.emblem-link img.emblem{ width:100%; height:100%; object-fit:cover; }
       a.circle-card{ width:220px; height:220px; }
       .pub-grid{ grid-template-columns:1fr; }
       .news-list.clean{ grid-template-columns:1fr; }
       .hiring .row{ flex-direction:column; align-items:start; }
     }
-/* HOME — News cards: same shadow behavior as Latest publications */
-body[data-page="home"] .news-list.clean > li > a.cardbox.news-item{
-  display:block;
-  background:#fff;
-  border:1px solid rgba(0,0,0,.06);
-  border-radius:14px;
-  box-shadow:0 10px 30px rgba(0,0,0,.08) !important;  /* override .cardbox none */
-  transition: transform .12s ease, box-shadow .12s ease, filter .12s ease !important;
-}
-body[data-page="home"] .news-list.clean > li > a.cardbox.news-item:hover,
-body[data-page="home"] .news-list.clean > li > a.cardbox.news-item:focus-visible{
-  transform: translateY(-2px);
-  box-shadow:0 12px 30px rgba(0,0,0,.14) !important;
-  filter: brightness(1.02);
-  outline:none;
-}
- /* HOMEPAGE — make Latest publications match News card shadow */
-body[data-page="home"] .pub-grid > li > a.cardbox.pub-item{
-  display:block;
-  background:#fff;
-  border:1px solid rgba(0,0,0,.06);
-  border-radius:14px;
-  box-shadow:0 10px 30px rgba(0,0,0,.08) !important;
-  transition: transform .12s ease, box-shadow .12s ease, filter .12s ease !important;
-}
-body[data-page="home"] .pub-grid > li > a.cardbox.pub-item:hover,
-body[data-page="home"] .pub-grid > li > a.cardbox.pub-item:focus-visible{
-  transform: translateY(-2px);
-  box-shadow:0 12px 30px rgba(0,0,0,.14) !important;
-  filter: brightness(1.02);
-  outline:none;
-}
 
-/* Neutralize inner .pub-card so there is only ONE box casting the shadow */
-body[data-page="home"] .pub-grid > li > a.cardbox.pub-item > .pub-card{
-  background:transparent !important;
-  border:0 !important;
-  box-shadow:none !important;
-  border-radius:12px;  /* keep inner rounding for content */
-  padding:14px 16px;   /* preserve spacing */
-}
-  /* HOMEPAGE — warmer faint orange gradient for Latest publications */
-body[data-page="home"] .pub-grid > li > a.cardbox.pub-item{
-  background: linear-gradient(135deg, #ffe9d6, #ffffff) !important; /* soft warm orange → white */
-}
-/* HOMEPAGE — blue gradient for News cards */
-body[data-page="home"] .news-list.clean > li > a.cardbox.news-item{
-  background: linear-gradient(135deg, #e6f2ff, #ffffff) !important; /* pale blue → white */
-}
-/* HOMEPAGE — shadow + lift for IGBMC logo card */
-body[data-page="home"] footer .foot-partners .partner-card{
-  display:inline-block;
-  background:#fff;
-  border:1px solid rgba(0,0,0,.06);
-  border-radius:14px;
-  box-shadow:0 10px 30px rgba(0,0,0,.08) !important;
-  transition: transform .12s ease, box-shadow .12s ease, filter .12s ease !important;
-}
+    /* HOME — News cards shadow */
+    body[data-page="home"] .news-list.clean > li > a.cardbox.news-item{
+      display:block;
+      background:#fff;
+      border:1px solid rgba(0,0,0,.06);
+      border-radius:14px;
+      box-shadow:0 10px 30px rgba(0,0,0,.08) !important;
+      transition: transform .12s ease, box-shadow .12s ease, filter .12s ease !important;
+    }
+    body[data-page="home"] .news-list.clean > li > a.cardbox.news-item:hover,
+    body[data-page="home"] .news-list.clean > li > a.cardbox.news-item:focus-visible{
+      transform: translateY(-2px);
+      box-shadow:0 12px 30px rgba(0,0,0,.14) !important;
+      filter: brightness(1.02);
+      outline:none;
+    }
 
-body[data-page="home"] footer .foot-partners .partner-card:hover,
-body[data-page="home"] footer .foot-partners .partner-card:focus-visible{
-  transform: translateY(-2px);
-  box-shadow:0 12px 30px rgba(0,0,0,.14) !important;
-  filter: brightness(1.02);
-  outline:none;
-}
-  body[data-page="home"] a.emblem-link {
-  box-shadow: 0 10px 30px rgba(0,0,0,.08) !important;
-  transition: box-shadow 0.15s;
-}
-body[data-page="home"] a.emblem-link:hover,
-body[data-page="home"] a.emblem-link:focus-visible {
-  box-shadow: 0 12px 30px rgba(0,0,0,.14) !important;
-}
+    /* HOME — Latest publications card shadow and gradient */
+    body[data-page="home"] .pub-grid > li > a.cardbox.pub-item{
+      display:block;
+      background:#fff;
+      border:1px solid rgba(0,0,0,.06);
+      border-radius:14px;
+      box-shadow:0 10px 30px rgba(0,0,0,.08) !important;
+      transition: transform .12s ease, box-shadow .12s ease, filter .12s ease !important;
+      background: linear-gradient(135deg, #ffe9d6, #ffffff) !important;
+    }
+    body[data-page="home"] .pub-grid > li > a.cardbox.pub-item:hover,
+    body[data-page="home"] .pub-grid > li > a.cardbox.pub-item:focus-visible{
+      transform: translateY(-2px);
+      box-shadow:0 12px 30px rgba(0,0,0,.14) !important;
+      filter: brightness(1.02);
+      outline:none;
+    }
+
+    /* Neutralize inner pub-card so there is only one box casting the shadow */
+    body[data-page="home"] .pub-grid > li > a.cardbox.pub-item > .pub-card{
+      background:transparent !important;
+      border:0 !important;
+      box-shadow:none !important;
+      border-radius:12px;
+      padding:14px 16px;
+    }
+
+    /* HOME — blue gradient for News cards */
+    body[data-page="home"] .news-list.clean > li > a.cardbox.news-item{
+      background: linear-gradient(135deg, #e6f2ff, #ffffff) !important;
+    }
+
+    /* HOME — shadow and lift for IGBMC logo card */
+    body[data-page="home"] footer .foot-partners .partner-card{
+      display:inline-block;
+      background:#fff;
+      border:1px solid rgba(0,0,0,.06);
+      border-radius:14px;
+      box-shadow:0 10px 30px rgba(0,0,0,.08) !important;
+      transition: transform .12s ease, box-shadow .12s ease, filter .12s ease !important;
+    }
+    body[data-page="home"] footer .foot-partners .partner-card:hover,
+    body[data-page="home"] footer .foot-partners .partner-card:focus-visible{
+      transform: translateY(-2px);
+      box-shadow:0 12px 30px rgba(0,0,0,.14) !important;
+      filter: brightness(1.02);
+      outline:none;
+    }
+
+    body[data-page="home"] a.emblem-link {
+      box-shadow: 0 10px 30px rgba(0,0,0,.08) !important;
+      transition: box-shadow 0.15s;
+    }
+    body[data-page="home"] a.emblem-link:hover,
+    body[data-page="home"] a.emblem-link:focus-visible {
+      box-shadow: 0 12px 30px rgba(0,0,0,.14) !important;
+    }
   </style>
 
   <!-- Schema -->
@@ -473,3 +483,4 @@ body[data-page="home"] a.emblem-link:focus-visible {
   <script src="assets/nav.js?v=2" defer></script>
 </body>
 </html>
+
