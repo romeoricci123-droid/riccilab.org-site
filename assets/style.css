@@ -902,7 +902,7 @@ body[data-page="publications"] #pub-list{
   body[data-page="publications"] #pub-list{
     grid-template-columns: 1fr;
   }
-/* === Publications final layout fixes (scoped by page + IDs) === */
+  }    /* === Publications final layout fixes (scoped by page + IDs) === */
 body[data-page="publications"] #pub-layout{
   display:grid !important;
   grid-template-columns: auto 2cm minmax(520px, 1fr) !important; /* cover | gap | list */
