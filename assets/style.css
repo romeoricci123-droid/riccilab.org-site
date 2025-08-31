@@ -944,7 +944,7 @@ body[data-page="publications"] #pub-list .paper-card{
   body[data-page="publications"] #pub-list.paper-list{
     grid-template-columns: 1fr !important;
   }
-/* anchor offset for sticky header */
+}/* anchor offset for sticky header */
 [id]{ scroll-margin-top:84px; }
 /* Mobile nav: keep items readable without a hamburger */
 @media (max-width: 900px){
