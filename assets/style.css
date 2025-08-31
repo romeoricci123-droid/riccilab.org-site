@@ -1155,5 +1155,26 @@ body[data-page="home"] .round-link:hover .bgfill{
   filter: drop-shadow(0 22px 54px rgba(0,0,0,.34)) !important;
   transform: translateY(-1px);
 }
+/* universal for the new circle images */
+.circle-img{
+  display:block;
+  width:100%;
+  height:100%;
+  border-radius:50%;                 /* safety; keeps it perfectly round */
+  box-shadow: 0 18px 42px rgba(0,0,0,.32);
+  image-rendering:auto;              /* smooth downscale from your large originals */
+  background: transparent;           /* keep transparent corners */
+}
+
+/* a touch stronger on hover (like your cards) */
+.round-link:hover .circle-img,
+.round-link:focus-visible .circle-img{
+  box-shadow: 0 24px 56px rgba(0,0,0,.36);
+}
+
+/* sizes are already defined in your inline CSS: 
+   .emblem-link { width:520px; height:520px; } 
+   .circle-card { width:280px; height:280px; } 
+   Keep those as-is. */
 
 
