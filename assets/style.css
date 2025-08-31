@@ -1404,4 +1404,9 @@ body[data-page="home"] .orbit a.emblem-link{
   body[data-page="home"] .orbit a.circle-card{ width:220px !important; height:220px !important; }
   body[data-page="home"] .orbit a.emblem-link{ width:320px !important; height:320px !important; }
 }
+/* FINAL OVERRIDE — equalize the neuron circle */
+body[data-page="home"] a.circle-card > img.circle-img[src$="brainv_circle.webp"]{
+  transform: scale(0.86) !important;   /* tweak 0.84–0.90 if needed */
+  transform-origin: 50% 50% !important;
+}
 
