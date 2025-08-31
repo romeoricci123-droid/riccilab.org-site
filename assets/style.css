@@ -1237,4 +1237,20 @@ body[data-page="home"] .news-list.clean > li > a.cardbox.news-item:hover {
   box-shadow: 0 12px 30px rgba(0,0,0,.14) !important;
   filter: brightness(1.02);
 }
+/* Normalize research circle sizes */
+.orbit .circle-card {
+  width: 280px !important;
+  height: 280px !important;
+  flex: 0 0 280px !important;   /* prevents grid/flex stretch */
+  padding: 0 !important;
+  border: 0 !important;
+}
+.orbit .circle-card .circle-img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 50% !important;
+  object-fit: contain !important;   /* no cropping of your circular PNG */
+  transform: none !important;
+}
 
