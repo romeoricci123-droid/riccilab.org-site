@@ -1321,7 +1321,7 @@ body[data-page="home"] .orbit a.emblem-link{
   body[data-page="home"] .orbit a.emblem-link{
     width: 320px !important; height: 320px !important;
   }
-/* === Hard clamp research circles on HOME === */
+}  /* === Hard clamp research circles on HOME === */
 body[data-page="home"] a.circle-card{
   width:280px !important;
   height:280px !important;
