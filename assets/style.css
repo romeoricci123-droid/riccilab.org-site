@@ -1253,4 +1253,15 @@ body[data-page="home"] .news-list.clean > li > a.cardbox.news-item:hover {
   object-fit: contain !important;   /* no cropping of your circular PNG */
   transform: none !important;
 }
+/* 1) Make sure scaled images don't spill out */
+.orbit .round-link { 
+  overflow: hidden !important;  /* your earlier rule set it visible */
+}
 
+/* 2) Normalize the brain circle by nudging its scale */
+.orbit .circle-card .circle-img { 
+  transform-origin: center center; 
+}
+.orbit .circle-card .circle-img[src$="brainv_circle.webp"]{
+  transform: scale(0.92);   /* adjust 0.90–0.96 to taste */
+}
