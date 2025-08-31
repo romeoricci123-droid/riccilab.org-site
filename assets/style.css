@@ -902,7 +902,6 @@ body[data-page="publications"] #pub-list{
   body[data-page="publications"] #pub-list{
     grid-template-columns: 1fr;
   }
-}
 /* === Publications final layout fixes (scoped by page + IDs) === */
 body[data-page="publications"] #pub-layout{
   display:grid !important;
@@ -945,7 +944,6 @@ body[data-page="publications"] #pub-list .paper-card{
   body[data-page="publications"] #pub-list.paper-list{
     grid-template-columns: 1fr !important;
   }
-}
 /* anchor offset for sticky header */
 [id]{ scroll-margin-top:84px; }
 /* Mobile nav: keep items readable without a hamburger */
@@ -991,7 +989,6 @@ body[data-page="publications"] #pub-list .paper-card{
     background: #111;
     display: block;
   }
-
   /* Collapse the nav into a panel below the header */
   header .nav nav {
     position: absolute;
@@ -1047,7 +1044,6 @@ body[data-page="publications"] #pub-list .paper-card{
     max-width: 100% !important;
     height: auto !important;
   }
-}
 /* Home page — center News cards on phones */
 @media (max-width: 680px){
   body[data-page="home"] .news-list.clean{
@@ -1062,7 +1058,6 @@ body[data-page="publications"] #pub-list .paper-card{
     list-style: none;
     margin: 0;                 /* no extra offsets on items */
   }
-}
 /* Phones: reframe the Join hero so the bands are visible */
 @media (max-width: 680px){
   html body[data-page="join"] section.subhero{
@@ -1070,7 +1065,6 @@ body[data-page="publications"] #pub-list .paper-card{
     background-size: cover !important;
     background-repeat: no-repeat !important;
   }
-}
 /* News: list cards + entry readability */
 .news-list .news-item {
   display: grid;
@@ -1327,7 +1321,6 @@ body[data-page="home"] .orbit a.emblem-link{
   body[data-page="home"] .orbit a.emblem-link{
     width: 320px !important; height: 320px !important;
   }
-}
 /* === Hard clamp research circles on HOME === */
 body[data-page="home"] a.circle-card{
   width:280px !important;
@@ -1351,4 +1344,5 @@ body[data-page="home"] a.circle-card > img.circle-img{
 /* (TEMP) remove shadow so it can't “read” as extra size */
 body[data-page="home"] a.circle-card > img.circle-img{
   box-shadow:none !important;
+}
 }
