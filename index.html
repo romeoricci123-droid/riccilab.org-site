@@ -89,15 +89,23 @@
     body[data-page="home"] a.round-link, body[data-page="home"] a.round-link *{
       text-decoration:none !important; border-bottom:0 !important;
     }
+   /* Emblem fills and slightly zooms inside the white circle */
+  a.emblem-link{ 
+  width:520px; 
+  height:520px; 
+  border-radius:50%;
+  overflow:hidden;        /* important to crop the zoomed image */
+  background:#fff;        /* keep the white circle background */
+}
 
-    /* Emblem fills the existing white circle */
-    a.emblem-link{ width:520px; height:520px; }
-    body[data-page="home"] a.emblem-link img.emblem{
-      width:100%; height:100%;
-      object-fit:cover;
-      border-radius:50%;
-      display:block;
-    }
+  body[data-page="home"] a.emblem-link img.emblem{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transform: scale(1.12); /* increase until the emblem fills nicely */
+  transform-origin:center;
+}
 
     /* Sizes for side circles */
     a.circle-card{ width:280px; height:280px; }
