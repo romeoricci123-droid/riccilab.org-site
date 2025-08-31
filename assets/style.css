@@ -1328,3 +1328,27 @@ body[data-page="home"] .orbit a.emblem-link{
     width: 320px !important; height: 320px !important;
   }
 }
+/* === Hard clamp research circles on HOME === */
+body[data-page="home"] a.circle-card{
+  width:280px !important;
+  height:280px !important;
+  padding:0 !important;
+  border:0 !important;
+  box-sizing:content-box !important;
+}
+
+body[data-page="home"] a.circle-card > img.circle-img{
+  display:block !important;
+  width:100% !important;
+  height:100% !important;
+  max-width:none !important;
+  max-height:none !important;
+  border-radius:50% !important;
+  object-fit:contain !important;   /* image already has transparent corners */
+  margin:0 !important;
+}
+
+/* (TEMP) remove shadow so it can't “read” as extra size */
+body[data-page="home"] a.circle-card > img.circle-img{
+  box-shadow:none !important;
+}
