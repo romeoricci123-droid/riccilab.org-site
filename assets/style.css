@@ -963,7 +963,7 @@ body[data-page="publications"] #pub-list .paper-card{
   }
   header .nav nav::-webkit-scrollbar{ display: none; }
 }
-/* --- Mobile-only hamburger (leaves desktop unchanged) --- */
+}/* --- Mobile-only hamburger (leaves desktop unchanged) --- */
 .hamburger { display: none; }
 
 @media (max-width: 760px) {
