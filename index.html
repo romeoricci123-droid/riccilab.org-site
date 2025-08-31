@@ -340,41 +340,7 @@ body[data-page="home"] a.emblem-link:focus-visible {
     <h3>Macrophage</h3>
     <p>Innate immune sensing and inflammasome assembly.</p>
   </div>
-</article>
-<article class="tile orbit-rt">
-  <a aria-label="Hypothalamic neuron" class="round-link circle-card" href="brain.html">
-    <svg class="circle-svg" viewBox="0 0 280 280" width="280" height="280" aria-hidden="true">
-      <defs>
-        <clipPath id="clip-rt" clipPathUnits="userSpaceOnUse">
-          <circle cx="140" cy="140" r="140"></circle>
-        </clipPath>
-        <filter id="ds-small-2" x="-50%" y="-50%" width="200%" height="200%">
-          <feGaussianBlur in="SourceAlpha" stdDeviation="10" result="blur"/>
-          <feOffset dx="0" dy="16" result="off"/>
-          <feColorMatrix in="off" type="matrix"
-            values="0 0 0 0 0
-                    0 0 0 0 0
-                    0 0 0 0 0
-                    0 0 0 0.24 0" result="shadow"/>
-          <feMerge>
-            <feMergeNode in="shadow"/>
-            <feMergeNode in="SourceGraphic"/>
-          </feMerge>
-        </filter>
-      </defs>
-      <g class="shadow" filter="url(#ds-small-2)">
-        <circle cx="140" cy="140" r="140" fill="#000"></circle>
-        <image href="assets/brain.svg"
-               x="0" y="0" width="280" height="280"
-               preserveAspectRatio="xMidYMid slice"
-               clip-path="url(#clip-rt)"></image>
-      </g>
-    </svg>
-  </a>
-  <div class="body">
-    <h3>Hypothalamic neuron</h3>
-    <p>Membrane trafficking and neuropeptide release.</p>
-  </div>
+
 </article>
 <article class="tile orbit-rb">
   <a aria-label="Pancreatic β cell" class="round-link circle-card" href="insulin.html">
@@ -409,6 +375,41 @@ body[data-page="home"] a.emblem-link:focus-visible {
   <div class="body">
     <h3>Pancreatic β cell</h3>
     <p>Insulin granule turnover and β-cell function.</p>
+  </div>
+</article>
+<article class="tile orbit-rb">
+  <a aria-label="Hypothalamic neuron" class="round-link circle-card" href="brain.html">
+    <svg class="circle-svg" viewBox="0 0 280 280" width="280" height="280" aria-hidden="true">
+      <defs>
+        <clipPath id="clip-rb" clipPathUnits="userSpaceOnUse">
+          <circle cx="140" cy="140" r="140"></circle>
+        </clipPath>
+        <filter id="ds-small-3" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur in="SourceAlpha" stdDeviation="10" result="blur"/>
+          <feOffset dx="0" dy="16" result="off"/>
+          <feColorMatrix in="off" type="matrix"
+            values="0 0 0 0 0
+                    0 0 0 0 0
+                    0 0 0 0 0
+                    0 0 0 0.24 0" result="shadow"/>
+          <feMerge>
+            <feMergeNode in="shadow"/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
+        </filter>
+      </defs>
+      <g class="shadow" filter="url(#ds-small-3)">
+        <circle cx="140" cy="140" r="140" fill="#000"></circle>
+        <image href="assets/beta.webp"
+               x="0" y="0" width="280" height="280"
+               preserveAspectRatio="xMidYMid slice"
+               clip-path="url(#clip-rb)"></image>
+      </g>
+    </svg>
+  </a>
+    <div class="body"> 
+    <h3>Hypothalamic neuron</h3>
+    <p>Membrane trafficking and neuropeptide release.</p>
   </div>
 </article>
         </div>
