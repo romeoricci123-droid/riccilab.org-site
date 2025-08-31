@@ -1345,4 +1345,28 @@ body[data-page="home"] a.circle-card > img.circle-img{
 body[data-page="home"] a.circle-card > img.circle-img{
   box-shadow:none !important;
 }
+/* === FINAL: hard clamp orbit circle size + brain tweak === */
+body[data-page="home"] .orbit a.circle-card{
+  width:280px !important;
+  height:280px !important;
+  border-radius:50% !important;
+  display:inline-block !important;
+  flex:0 0 280px !important;
 }
+
+body[data-page="home"] .orbit a.circle-card > img.circle-img{
+  display:block !important;
+  width:100% !important;
+  height:100% !important;
+  border-radius:50% !important;
+  object-fit:contain !important;   /* beats earlier cover rules */
+  box-shadow:none !important;       /* avoid “looks larger” halo */
+  transform:none !important;        /* reset any prior transforms */
+  transform-origin:center center !important;
+}
+
+/* The brain image had more painted area inside the square: nudge it down */
+body[data-page="home"] .orbit a.circle-card > img.circle-img[src$="brainv_circle.webp"]{
+  transform:scale(0.92) !important;  /* adjust 0.90–0.96 if needed */
+}
+
