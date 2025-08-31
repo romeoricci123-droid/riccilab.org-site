@@ -265,52 +265,83 @@ body[data-page="home"] a.emblem-link:focus-visible {
   </header>
 
   <main id="main" role="main">
-    <!-- Orbit landing -->
     <section class="section orbit-landing">
-      <div class="container wide">
-        <div class="orbit">
-          <div class="orbit-center">     
-<a class="round-link emblem-link" href="research.html" aria-label="Go to Research">
-  <img
-    src="assets/emblem.webp"
-    alt="Ricci Lab emblem"
-    class="circle-img emblem"
-    width="520" height="520"
-    loading="eager" decoding="async">
-</a>
-<a aria-label="Macrophage" class="round-link circle-card" href="nlrp3.html">
-  <img
-    src="assets/nlrp3v_circle.webp"
-    alt="Macrophage (NLRP3)"
-    class="circle-img"
-    width="280" height="280"
-    loading="lazy" decoding="async">
-</a>
-<a aria-label="Hypothalamic neuron" class="round-link circle-card" href="brain.html">
-  <img
-    src="assets/brainv_circle.webp"
-    alt="Hypothalamic neuron"
-    class="circle-img"
-    width="280" height="280"
-    loading="lazy" decoding="async">
-</a>
-<a aria-label="Pancreatic β cell" class="round-link circle-card" href="insulin.html">
-  <img
-    src="assets/betav_circle.webp"
-    alt="Pancreatic β cell"
-    class="circle-img"
-    width="280" height="280"
-    loading="lazy" decoding="async">
-</a>
-        <!-- Open positions -->
-        <a class="hiring" href="join.html" aria-label="Open positions">
-          <div class="row">
-            <span class="dot" aria-hidden="true"></span>
-            <div class="copy">We currently have open positions available</div>
-          </div>
+  <div class="container wide">
+    <div class="orbit">
+
+      <!-- Center emblem -->
+      <div class="orbit-center">
+        <a class="round-link emblem-link" href="research.html" aria-label="Go to Research">
+          <img
+            src="assets/emblem.webp"
+            alt="Ricci Lab emblem"
+            class="circle-img emblem"
+            width="520" height="520"
+            loading="eager" decoding="async">
         </a>
+        <h1 class="tagline">Organelle crosstalk in disease</h1>
+        <p class="tagline-sub">Metabolism and innate immunity through the lens of lipids and membranes.</p>
       </div>
-    </section>
+
+      <!-- Left: Macrophage -->
+      <div class="orbit-left">
+        <a aria-label="Macrophage" class="round-link circle-card" href="nlrp3.html">
+          <img
+            src="assets/nlrp3v_circle.webp"
+            alt="Macrophage (NLRP3)"
+            class="circle-img"
+            width="280" height="280"
+            loading="lazy" decoding="async">
+        </a>
+        <div class="body">
+          <h3>Macrophage</h3>
+          <p>Innate immune sensing and inflammasome assembly.</p>
+        </div>
+      </div>
+
+      <!-- Right top: Hypothalamic neuron -->
+      <div class="orbit-rt">
+        <a aria-label="Hypothalamic neuron" class="round-link circle-card" href="brain.html">
+          <img
+            src="assets/brainv_circle.webp"
+            alt="Hypothalamic neuron"
+            class="circle-img"
+            width="280" height="280"
+            loading="lazy" decoding="async">
+        </a>
+        <div class="body">
+          <h3>Hypothalamic neuron</h3>
+          <p>Membrane trafficking and neuropeptide release.</p>
+        </div>
+      </div>
+
+      <!-- Right bottom: Pancreatic β cell -->
+      <div class="orbit-rb">
+        <a aria-label="Pancreatic β cell" class="round-link circle-card" href="insulin.html">
+          <img
+            src="assets/betav_circle.webp"
+            alt="Pancreatic β cell"
+            class="circle-img"
+            width="280" height="280"
+            loading="lazy" decoding="async">
+        </a>
+        <div class="body">
+          <h3>Pancreatic β cell</h3>
+          <p>Insulin granule turnover and β-cell function.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Open positions -->
+    <a class="hiring" href="join.html" aria-label="Open positions">
+      <div class="row">
+        <span class="dot" aria-hidden="true"></span>
+        <div class="copy">We currently have open positions available</div>
+      </div>
+    </a>
+  </div>
+</section>
 
     <!-- Latest publications — direct DOI links in new tab -->
     <section class="section pubs">
