@@ -1176,5 +1176,69 @@ body[data-page="home"] .round-link:hover .bgfill{
    .emblem-link { width:520px; height:520px; } 
    .circle-card { width:280px; height:280px; } 
    Keep those as-is. */
+/* === HEADER BUTTONS (black with white text) === */
+header .nav nav > a.navbox {
+  background: #000 !important;
+  color: #fff !important;
+  border: 1px solid #000 !important;
+  border-radius: 14px !important;
+  box-shadow: 0 6px 16px rgba(0,0,0,.18) !important;
+  transition: transform .12s ease, box-shadow .12s ease, filter .12s ease !important;
+  text-decoration: none !important;
+}
+header .nav nav > a.navbox:hover,
+header .nav nav > a.navbox:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(0,0,0,.24) !important;
+  filter: brightness(1.06);
+}
+header .nav nav > a.navbox[aria-current="page"] {
+  position: relative;
+  box-shadow: inset 0 0 0 2px #fff, 0 6px 16px rgba(0,0,0,.18) !important;
+}
+header .nav nav > a.navbox[aria-current="page"]::after {
+  content: "";
+  position: absolute;
+  left: 12px; right: 12px; bottom: 6px;
+  height: 2px; background: #fff; border-radius: 2px;
+}
 
+/* === HOMEPAGE CARDS === */
+/* Latest publications: warm orange gradient */
+body[data-page="home"] .pub-grid > li > a.cardbox.pub-item {
+  display: block;
+  background: linear-gradient(135deg, #ffe9d6, #ffffff) !important;
+  border: 1px solid rgba(0,0,0,.06);
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.08) !important;
+  transition: transform .12s ease, box-shadow .12s ease, filter .12s ease !important;
+  text-decoration: none !important;
+}
+body[data-page="home"] .pub-grid > li > a.cardbox.pub-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0,0,0,.14) !important;
+  filter: brightness(1.02);
+}
+body[data-page="home"] .pub-grid > li > a.cardbox.pub-item > .pub-card {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 14px 16px;
+}
+
+/* News cards: cool blue gradient */
+body[data-page="home"] .news-list.clean > li > a.cardbox.news-item {
+  display: block;
+  background: linear-gradient(135deg, #e6f2ff, #ffffff) !important;
+  border: 1px solid rgba(0,0,0,.06);
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.08) !important;
+  transition: transform .12s ease, box-shadow .12s ease, filter .12s ease !important;
+  text-decoration: none !important;
+}
+body[data-page="home"] .news-list.clean > li > a.cardbox.news-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0,0,0,.14) !important;
+  filter: brightness(1.02);
+}
 
