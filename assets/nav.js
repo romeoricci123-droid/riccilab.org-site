@@ -1,3 +1,18 @@
+/* Maintenance gate */
+(function () {
+try {
+var path = location.pathname;
+var isHome = path === "/" || path === "/index.html";
+var isMaintenance = path === "/maintenance.html";
+// Allow assets and images to load without redirect
+var isAsset = /^(\/assets\/|\/images\/|\/favicon)/.test(path);
+if (!isHome && !isMaintenance && !isAsset) {
+location.replace("/maintenance.html");
+}
+} catch (e) {
+// fail open on any error
+}
+})();
 /* assets/nav.js */
 (function () {
   var btn = document.getElementById('navToggle');
