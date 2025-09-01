@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Favicon / icons -->
+  <!-- Favicon and icons -->
   <link rel="icon" href="assets/favicon.png" sizes="32x32">
   <link rel="manifest" href="manifest.webmanifest">
   <meta name="theme-color" content="#0d1220">
@@ -12,23 +12,22 @@
   <!-- Basic SEO -->
   <meta name="description" content="Ricci Lab — Organelle crosstalk in disease. Metabolism and innate immunity through lipids and membranes.">
 
-  <!-- Open Graph / Twitter -->
-  <meta property="og:title" content="Ricci Lab — Sponsors">
-  <meta property="og:description" content="We gratefully acknowledge support from Inserm, CNRS, ERC, and other sponsors.">
+  <!-- Open Graph and Twitter -->
+  <meta property="og:title" content="Ricci Lab — Funding">
+  <meta property="og:description" content="We gratefully acknowledge support from Inserm, CNRS, ERC, and other funders.">
   <meta property="og:image" content="https://riccilab.org/assets/og-sponsors.jpg">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://riccilab.org/sponsors.html">
   <meta name="twitter:card" content="summary_large_image">
 
-  <meta charset="utf-8" />
-  <meta content="width=device-width, initial-scale=1" name="viewport" />
-  <title>Ricci Lab — Sponsors</title>
-  <link href="assets/style.css?v=igbmc_fix5" rel="stylesheet" />
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <title>Ricci Lab — Funding</title>
+  <link href="assets/style.css?v=igbmc_fix5" rel="stylesheet">
   <style>
   /* Funding logos: keep inside their card and scale nicely */
-  /* Works even if class names differ */
   main [class*="sponsor"], main [class*="funding"], main [class*="Sponsors"], main [class*="Funding"] {
-    /* make each tile hide anything that tries to spill over */
+    overflow: hidden; /* remove the empty ruleset warning */
   }
   main [class*="sponsor"] > *, main [class*="funding"] > *, main [class*="Sponsors"] > *, main [class*="Funding"] > * {
     overflow: hidden;
@@ -56,35 +55,31 @@
   main img[src*="arc"], main svg[src*="arc"] {
     max-height: 90px;
   }
-</style>
-
+  </style>
 </head>
 
 <body data-page="sponsors">
   <a href="#main" class="skip">Skip to content</a>
 
   <header>
-    <div class="container nav">
-      <div class="brand"><span class="lab">Ricci Lab</span></div>
-
-      <!-- Mobile-only hamburger -->
+    <div class="container wide nav">
+      <div class="brand"></div>
+      <!-- Mobile hamburger -->
       <button class="hamburger" id="navToggle"
               aria-controls="site-nav"
               aria-expanded="false"
               aria-label="Menu">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
       </button>
 
-      <nav id="site-nav">
-        <a class="cardbox navbox" href="index.html">Home</a>
+      <nav id="site-nav" style="flex:1;display:grid!important;grid-template-columns:repeat(8,1fr);gap:12px;width:100%;">
+        <a class="cardbox navbox" href="index.html" style="display:block;width:100%;text-align:center;padding:16px 20px;font-size:1.1rem;border-radius:14px;">Home</a> 
         <a class="light cardbox navbox" href="research.html">Research</a>
         <a class="cardbox navbox" href="team.html">Team</a>
         <a class="light cardbox navbox" href="publications.html">Publications</a>
         <a class="light cardbox navbox" href="join.html">Join Us</a>
         <a class="cardbox navbox" href="news.html">News</a>
-        <a class="cardbox navbox" href="sponsors.html" style="display:block;width:100%;text-align:center;padding:16px 20px;font-size:1.1rem;border-radius:14px;">Sponsors</a>
+        <a class="cardbox navbox" href="sponsors.html" aria-current="page">Funding</a>
         <a class="cardbox navbox" href="contact.html">Contact</a>
       </nav>
     </div>
@@ -121,10 +116,5 @@
     ©<span id="y"></span> Ricci Lab · 
     <a href="legal.html">Mentions légales</a> · 
     <a href="privacy.html">Vie privée</a>
-    <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
-  </footer>
+    <script>document.getElementById('y').textConte
 
-  <!-- Mobile nav script -->
-  <script src="assets/nav.js?v=1" defer></script>
-</body>
-</html>

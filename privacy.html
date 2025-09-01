@@ -24,10 +24,9 @@
   <a href="#main" class="skip">Aller au contenu</a>
 
   <header>
-    <div class="container nav">
-      <div class="brand"><span class="lab">Ricci Lab</span></div>
-
-      <!-- Mobile-only hamburger -->
+    <div class="container wide nav">
+      <div class="brand"></div>
+      <!-- Mobile hamburger -->
       <button class="hamburger" id="navToggle"
               aria-controls="site-nav"
               aria-expanded="false"
@@ -35,14 +34,14 @@
         <span class="bar"></span><span class="bar"></span><span class="bar"></span>
       </button>
 
-      <nav id="site-nav">
-        <a class="cardbox navbox" href="index.html">Home</a>
+      <nav id="site-nav" style="flex:1;display:grid!important;grid-template-columns:repeat(8,1fr);gap:12px;width:100%;">
+        <a class="cardbox navbox" href="index.html" style="display:block;width:100%;text-align:center;padding:16px 20px;font-size:1.1rem;border-radius:14px;">Home</a>
         <a class="light cardbox navbox" href="research.html">Research</a>
         <a class="cardbox navbox" href="team.html">Team</a>
         <a class="light cardbox navbox" href="publications.html">Publications</a>
         <a class="light cardbox navbox" href="join.html">Join Us</a>
         <a class="cardbox navbox" href="news.html">News</a>
-        <a class="cardbox navbox" href="sponsors.html">Sponsors</a>
+        <a class="cardbox navbox" href="sponsors.html" aria-current="page">Funding</a>
         <a class="cardbox navbox" href="contact.html">Contact</a>
       </nav>
     </div>
