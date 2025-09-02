@@ -30,28 +30,6 @@
     /* Wider canvas */
     body[data-page="home"] .container.wide{ width: min(1840px, 95%) !important; }
 
-    /* Header: black animated buttons + current marker */
-    body[data-page="home"] header .nav nav > a.navbox{
-      background:#000 !important; color:#fff !important; border:1px solid #000 !important;
-      box-shadow:0 6px 16px rgba(0,0,0,.18) !important;
-      transition: transform .12s ease, box-shadow .12s ease, filter .12s ease !important;
-      transform: translateY(0) !important;
-    }
-    body[data-page="home"] header .nav nav > a.navbox:hover,
-    body[data-page="home"] header .nav nav > a.navbox:focus-visible{
-      transform: translateY(-1px) !important;
-      box-shadow: 0 10px 22px rgba(0,0,0,.24) !important;
-      filter: brightness(1.06) !important;
-    }
-    body[data-page="home"] header .nav nav > a.navbox[aria-current="page"]{
-      position:relative;
-      box-shadow: inset 0 0 0 2px #fff, 0 6px 16px rgba(0,0,0,.18) !important;
-      outline: none !important;
-    }
-    body[data-page="home"] header .nav nav > a.navbox[aria-current="page"]::after{
-      content:""; position:absolute; left:12px; right:12px; bottom:6px; height:2px; background:#fff; border-radius:2px;
-    }
-
     /* Orbit layout, stretched */
     .orbit{
       display:grid;
@@ -214,28 +192,30 @@ body[data-page="home"] a.emblem-link img.emblem{
   <a href="#main" class="skip">Skip to content</a>
 
   <header>
-   <div class="container wide nav">
-      <div class="brand"></div>
-      <!-- Mobile hamburger -->
-      <button class="hamburger" id="navToggle"
-              aria-controls="site-nav"
-              aria-expanded="false"
-              aria-label="Menu">
-        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-      </button>
+  <div class="container wide nav">
+    <div class="brand"></div>
 
-      <nav id="site-nav" style="flex:1;display:grid!important;grid-template-columns:repeat(8,1fr);gap:12px;width:100%;">
-        <a class="cardbox navbox" href="index.html" aria-current="page" style="display:block;width:100%;text-align:center;padding:16px 20px;font-size:1.1rem;border-radius:14px;">Home</a>
-        <a class="light cardbox navbox" href="research.html">Research</a>
-        <a class="cardbox navbox" href="team.html">Team</a>
-        <a class="light cardbox navbox" href="publications.html">Publications</a>
-        <a class="light cardbox navbox" href="join.html">Join Us</a>
-        <a class="cardbox navbox" href="news.html">News</a>
-        <a class="cardbox navbox" href="sponsors.html">Funding</a>
-        <a class="cardbox navbox" href="contact.html">Contact</a>
-      </nav>
-    </div>
-  </header>
+    <!-- Mobile hamburger -->
+    <button class="hamburger" id="navToggle"
+            aria-controls="site-nav"
+            aria-expanded="false"
+            aria-label="Menu">
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </button>
+
+    <nav id="site-nav">
+      <a class="cardbox navbox" href="index.html">Home</a>
+      <a class="light cardbox navbox" href="research.html">Research</a>
+      <a class="cardbox navbox" href="team.html">Team</a>
+      <a class="light cardbox navbox" href="publications.html">Publications</a>
+      <a class="light cardbox navbox" href="join.html">Join Us</a>
+      <a class="cardbox navbox" href="news.html">News</a>
+      <a class="cardbox navbox" href="sponsors.html">Funding</a>
+      <a class="cardbox navbox" href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
 
   <main id="main" role="main">
     <section class="section orbit-landing">
@@ -447,5 +427,55 @@ body[data-page="home"] a.emblem-link img.emblem{
 
   <!-- Mobile nav -->
   <script src="assets/nav.js?v=2" defer></script>
+<script>
+(function () {
+  const nav = document.getElementById('site-nav');
+  if (!nav) return;
+
+  // Compare by filename to be resilient across folders
+  const fileOf = p => {
+    const parts = (p || '/').replace(/\/+$/, '/').split('/');
+    const last = parts.pop() || parts.pop() || ''; // handle trailing slash
+    return last || 'index.html';
+  };
+
+  const here = fileOf(location.pathname);
+
+  nav.querySelectorAll('a.navbox').forEach(a => {
+    const url = new URL(a.getAttribute('href'), location.href);
+    const target = fileOf(url.pathname);
+    if (target === here) {
+      a.setAttribute('aria-current', 'page');
+    } else {
+      a.removeAttribute('aria-current');
+    }
+  });
+}());
+</script>
+<script>
+(function () {
+  const nav = document.getElementById('site-nav');
+  if (!nav) return;
+
+  // Compare by filename to be resilient across folders
+  const fileOf = p => {
+    const parts = (p || '/').replace(/\/+$/, '/').split('/');
+    const last = parts.pop() || parts.pop() || ''; // handle trailing slash
+    return last || 'index.html';
+  };
+
+  const here = fileOf(location.pathname);
+
+  nav.querySelectorAll('a.navbox').forEach(a => {
+    const url = new URL(a.getAttribute('href'), location.href);
+    const target = fileOf(url.pathname);
+    if (target === here) {
+      a.setAttribute('aria-current', 'page');
+    } else {
+      a.removeAttribute('aria-current');
+    }
+  });
+}());
+</script>
 </body>
 </html>

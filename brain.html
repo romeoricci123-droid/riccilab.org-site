@@ -1,52 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Favicon / icons -->
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <title>Ricci Lab — Page Title</title>
+  <link href="assets/style.css" rel="stylesheet">
   <link rel="icon" href="assets/favicon.png" sizes="32x32">
-  <link rel="manifest" href="manifest.webmanifest">
-  <meta name="theme-color" content="#0d1220">
-  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-  <link rel="alternate" type="application/rss+xml" title="Ricci Lab · News" href="/news.xml">
-  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
-
-  <!-- Basic SEO -->
-  <meta name="description" content="Ricci Lab · Organelle crosstalk in disease. Metabolism and innate immunity through lipids and membranes.">
-
-  <!-- Open Graph / Twitter -->
-  <meta property="og:title" content="Ricci Lab · Brain & Neurons">
-  <meta property="og:description" content="Investigating CaMK1D signaling in AgRP neurons and the neural control of metabolism.">
-  <meta property="og:image" content="https://riccilab.org/assets/og-brain.jpg">
-  <meta property="og:type" content="article">
-  <meta property="og:url" content="https://riccilab.org/brain.html">
-  <meta name="twitter:card" content="summary_large_image">
-
-  <meta charset="utf-8" />
-  <meta content="width=device-width, initial-scale=1" name="viewport" />
-  <title>Brain · Ricci Lab</title>
-  <link href="assets/style.css?v=igbmc_fix6" rel="stylesheet" />
-  <link rel="canonical" href="https://riccilab.org/brain.html">
+  <meta name="description" content="Short description for this page.">
 </head>
+<body data-page="research">  <!-- change to the page key: research, team, sponsors, news, ... -->
 
-<body data-page="research">
-  <a href="#main" class="skip">Skip to content</a>
-
+  <!-- Canonical header (paste exactly as given in step 2) -->
   <header>
-   <div class="container wide nav">
+    <div class="container wide nav">
       <div class="brand"></div>
-      <!-- Mobile hamburger -->
-      <button class="hamburger" id="navToggle"
-              aria-controls="site-nav"
-              aria-expanded="false"
-              aria-label="Menu">
+      <button class="hamburger" id="navToggle" aria-controls="site-nav" aria-expanded="false" aria-label="Menu">
         <span class="bar"></span><span class="bar"></span><span class="bar"></span>
       </button>
-
-      <nav id="site-nav" style="flex:1;display:grid!important;grid-template-columns:repeat(8,1fr);gap:12px;width:100%;">
-        <a class="cardbox navbox" href="index.html" style="display:block;width:100%;text-align:center;padding:16px 20px;font-size:1.1rem;border-radius:14px;">Home</a>
-        <a class="light cardbox navbox" href="research.html" aria-current="page">Research</a>
+      <nav id="site-nav">
+        <a class="cardbox navbox" href="index.html">Home</a>
+        <a class="cardbox navbox" href="research.html">Research</a>
         <a class="cardbox navbox" href="team.html">Team</a>
-        <a class="light cardbox navbox" href="publications.html">Publications</a>
-        <a class="light cardbox navbox" href="join.html">Join Us</a>
+        <a class="cardbox navbox" href="publications.html">Publications</a>
+        <a class="cardbox navbox" href="join.html">Join Us</a>
         <a class="cardbox navbox" href="news.html">News</a>
         <a class="cardbox navbox" href="sponsors.html">Funding</a>
         <a class="cardbox navbox" href="contact.html">Contact</a>
@@ -55,68 +31,16 @@
   </header>
 
   <main id="main" role="main">
-    <section class="subhero" style="background-image: url('assets/brain.svg')">
+    <section class="subhero" style="background-image:url('assets/placeholder-hero.jpg')">
       <div class="container inner">
-        <h1>Membrane trafficking in hypothalamic neurons</h1>
-        <p class="lead">Endosomal and synaptic membrane lipids tune hypothalamic neuron signaling and neuropeptide release governing feeding.</p>
+        <h1>Under renovation</h1>
+        <p class="lead">We’re rebuilding this page.</p>
       </div>
     </section>
 
     <section class="page">
       <div class="container">
-        <div class="page-wrap">
-          <aside class="page-aside">
-            <div class="emblem-panel">
-              <div class="pad">
-                <!-- Emblem (circular + fallback) -->
-<div class="emblem-circle">
-  <picture>
-    <source srcset="assets/emblem.webp?v=1" type="image/webp" />
-    <img src="assets/emblem.svg" alt="Ricci Lab emblem" width="160" height="160" decoding="async" loading="lazy" />
-  </picture>
-</div>
-              </div>
-            </div>
-          </aside>
-
-          <div class="page-main">
-            <p class="muted"><strong>Program lead:</strong> Karl Vivot (CRCN Inserm).</p>
-
-            <h2>What we have shown so far</h2>
-            <ul class="clean">
-              <li><strong>CaMK1D in AgRP neurons mediates ghrelin’s orexigenic action:</strong> Genetic disruption of <em>Camk1d</em> blunts ghrelin evoked feeding, reduces body weight gain and protects against high fat diet induced obesity in mice.</li>
-              <li><strong>Neuronal mechanism:</strong> In AgRP/NPY neurons, ghrelin activates CaMK1D; loss of CaMK1D dampens downstream transcriptional responses (for example via reduced CREB phosphorylation) and the orexigenic program.</li>
-              <li><strong>System level outcome:</strong> The CaMK1D pathway in AgRP neurons connects fasting signals to increased food intake and adiposity in vivo.</li>
-            </ul>
-
-            <h2>Project</h2>
-            <div class="two-col">
-              <div>
-                <h3>Aim 1: Endosomal timing of energy sensing receptors</h3>
-                <p>Quantify how endosomal routing and signaling kinetics in ARC neuron classes shape immediate neuronal activity and short term feeding outcomes.</p>
-              </div>
-              <div>
-                <h3>Aim 2: Membrane gated neuropeptide release</h3>
-                <p>Test whether nanoscale membrane composition at release sites tunes vesicle priming and fusion probabilities and thereby modulates circuit output.</p>
-              </div>
-              <div>
-                <h3>Aim 3: Glia to neuron lipid supply</h3>
-                <p>Probe whether lipid shuttling from glia sets neuronal membrane state and energetic demand, feeding back onto circuit activity and behavior.</p>
-              </div>
-            </div>
-
-            <h3 style="margin-top:18px">Key tools (selected)</h3>
-            <ul class="clean">
-              <li>Live reporters of receptor signaling and neuronal activity in defined hypothalamic populations</li>
-              <li>Endosome tracking and lipid state perturbations compatible with acute physiology</li>
-              <li>pHluorin based neuropeptide release assays and electrophysiology</li>
-              <li>Single cell lipidomics around the median eminence; tracer based glia→neuron lipid transfer</li>
-              <li>Behavioral and metabolic readouts aligned to circuit manipulations</li>
-            </ul>
-
-            <p class="muted">Public overview: operational protocols, constructs, and parameter values are intentionally not disclosed.</p>
-          </div>
-        </div>
+        <p>Content coming soon…</p>
       </div>
     </section>
   </main>
@@ -125,12 +49,10 @@
     ©<span id="y"></span> Ricci Lab ·
     <a href="legal.html">Mentions légales</a> ·
     <a href="privacy.html">Vie privée</a>
-    <script>
-      document.getElementById('y').textContent = new Date().getFullYear()
-    </script>
+    <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
   </footer>
 
-  <!-- Mobile nav script -->
-  <script src="assets/nav.js?v=1" defer></script>
+  <!-- JS -->
+  <script src="assets/nav.js" defer></script>
 </body>
 </html>

@@ -1,51 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Favicon / icons -->
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <title>Ricci Lab — Page Title</title>
+  <link href="assets/style.css" rel="stylesheet">
   <link rel="icon" href="assets/favicon.png" sizes="32x32">
-  <link rel="manifest" href="manifest.webmanifest">
-  <meta name="theme-color" content="#0d1220">
-  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-  <link rel="alternate" type="application/rss+xml" title="Ricci Lab — News" href="/news.xml">
-  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
-
-  <!-- Basic SEO -->
-  <meta name="description" content="Ricci Lab — Organelle crosstalk in disease. Metabolism and innate immunity through lipids and membranes.">
-
-  <!-- Open Graph / Twitter -->
-  <meta property="og:title" content="Ricci Lab — Organelle crosstalk in disease">
-  <meta property="og:description" content="Metabolism and innate immunity through the lens of lipids and membranes.">
-  <meta property="og:image" content="assets/og-home.jpg">
-  <meta property="og:type" content="website">
-  <meta name="twitter:card" content="summary_large_image">
-
-  <meta charset="utf-8" />
-  <meta content="width=device-width, initial-scale=1" name="viewport" />
-  <title>NLRP3 — Ricci Lab</title>
-  <link href="assets/style.css?v=igbmc_fix5" rel="stylesheet" />
-  <link rel="canonical" href="https://riccilab.org/nlrp3.html">
+  <meta name="description" content="Short description for this page.">
 </head>
+<body data-page="research">  <!-- change to the page key: research, team, sponsors, news, ... -->
 
-<body data-page="research">
-  <a href="#main" class="skip">Skip to content</a>
-
+  <!-- Canonical header (paste exactly as given in step 2) -->
   <header>
-   <div class="container wide nav">
+    <div class="container wide nav">
       <div class="brand"></div>
-      <!-- Mobile hamburger -->
-      <button class="hamburger" id="navToggle"
-              aria-controls="site-nav"
-              aria-expanded="false"
-              aria-label="Menu">
+      <button class="hamburger" id="navToggle" aria-controls="site-nav" aria-expanded="false" aria-label="Menu">
         <span class="bar"></span><span class="bar"></span><span class="bar"></span>
       </button>
-
-      <nav id="site-nav" style="flex:1;display:grid!important;grid-template-columns:repeat(8,1fr);gap:12px;width:100%;">
-        <a class="cardbox navbox" href="index.html" style="display:block;width:100%;text-align:center;padding:16px 20px;font-size:1.1rem;border-radius:14px;">Home</a>
-        <a class="light cardbox navbox" href="research.html" aria-current="page">Research</a>
+      <nav id="site-nav">
+        <a class="cardbox navbox" href="index.html">Home</a>
+        <a class="cardbox navbox" href="research.html">Research</a>
         <a class="cardbox navbox" href="team.html">Team</a>
-        <a class="light cardbox navbox" href="publications.html">Publications</a>
-        <a class="light cardbox navbox" href="join.html">Join Us</a>
+        <a class="cardbox navbox" href="publications.html">Publications</a>
+        <a class="cardbox navbox" href="join.html">Join Us</a>
         <a class="cardbox navbox" href="news.html">News</a>
         <a class="cardbox navbox" href="sponsors.html">Funding</a>
         <a class="cardbox navbox" href="contact.html">Contact</a>
@@ -54,84 +31,16 @@
   </header>
 
   <main id="main" role="main">
-    <section class="subhero" style="background-image:url('assets/nlrp3.webp')">
+    <section class="subhero" style="background-image:url('assets/placeholder-hero.jpg')">
       <div class="container inner">
-        <h1>Endosome anchored NLRP3 inflammasome</h1>
-        <p class="lead">Endosomal platforms orchestrate assembly, ASC nucleation, and cytokine release.</p>
-      </div>
-    </section>
-
-    <section class="funding-band">
-      <div class="container">
-        <a class="funding-link"
-           href="https://anr.fr/en/latest-news/read/news/attractivite-de-la-recherche-francaise-le-gouvernement-devoile-le-nom-des-22-chercheurs-distingues/"
-           rel="noopener" target="_blank"
-           title="France 2030 / ANR — Chaire d’excellence (first 22 laureates)">
-          <img alt="France 2030 Chaire d’excellence" class="logo-fr2030" decoding="async" loading="lazy" src="assets/france2030.webp">
-          <div class="txt">
-            <div>
-              <strong>Funded by the France 2030 <em>Chaire d’excellence</em> initiative</strong>
-              <div class="kicker">Click anywhere on this box to view the first 22 laureates</div>
-            </div>
-          </div>
-        </a>
+        <h1>Under renovation</h1>
+        <p class="lead">We’re rebuilding this page.</p>
       </div>
     </section>
 
     <section class="page">
       <div class="container">
-        <div class="page-wrap">
-          <aside class="page-aside">
-            <div class="emblem-panel">
-              <div class="pad">
-                <!-- Emblem (circular + fallback) -->
-<div class="emblem-circle">
-  <picture>
-    <source srcset="assets/emblem.webp?v=1" type="image/webp" />
-    <img src="assets/emblem.svg" alt="Ricci Lab emblem" width="160" height="160" decoding="async" loading="lazy" />
-  </picture>
-</div>
-              </div>
-            </div>
-          </aside>
-
-          <div class="page-main">
-            <h2>What we have shown so far</h2>
-            <ul class="clean">
-              <li><strong>Activation switch:</strong> Protein kinase D dependent phosphorylation of NLRP3 at <strong>Ser295</strong> acts as an activating switch that helps NLRP3 reach a competent assembly state.</li>
-              <li><strong>Endosomal recruitment:</strong> Upon activation, NLRP3 is <strong>recruited to endosomes</strong>.</li>
-              <li><strong>Permissive membrane:</strong> <strong>PI4P enriched endosomal membranes</strong> provide the permissive platform for <strong>ASC filament nucleation</strong> and downstream signaling.</li>
-              <li><strong>Sequence of events:</strong> Endosomal recruitment → ASC polymerization → caspase 1 activation → cytokine release; supported by endogenous readouts in cells and tissues.</li>
-            </ul>
-
-            <h2>Project</h2>
-            <div class="two-col">
-              <div>
-                <h3>Aim 1: Determinants of endosomal recruitment</h3>
-                <p>Define the minimal membrane signature and thresholds for NLRP3 binding and nucleation using quantitative membrane reconstitution and live cell validation.</p>
-              </div>
-              <div>
-                <h3>Aim 2: Assembly sequence and structure</h3>
-                <p>Resolve intermediate states on endosomal membranes with correlative imaging, cryo EM/ET and ASC co assembly analysis to obtain a mechanistic timeline.</p>
-              </div>
-              <div>
-                <h3>Aim 3: Physiology and intervention</h3>
-                <p>Test endosome centric mechanisms in primary cells and mouse models; develop readouts to identify perturbations that tune NLRP3 output.</p>
-              </div>
-            </div>
-
-            <h3 style="margin-top:18px">Key tools (selected)</h3>
-            <ul class="clean">
-              <li>Liposome based membrane reconstitution</li>
-              <li>Endogenous complex imaging in cells and mouse tissues</li>
-              <li>Proteo lipidomics and interactome mapping</li>
-              <li>Cryo EM and cryo ET of assembly states</li>
-              <li>Genome scale perturbation discovery</li>
-            </ul>
-
-            <p class="muted">Public overview. Operational protocols, constructs, and parameter values are intentionally not disclosed.</p>
-          </div>
-        </div>
+        <p>Content coming soon…</p>
       </div>
     </section>
   </main>
@@ -143,7 +52,7 @@
     <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
   </footer>
 
-  <!-- Mobile nav script -->
-  <script src="assets/nav.js?v=1" defer></script>
+  <!-- JS -->
+  <script src="assets/nav.js" defer></script>
 </body>
 </html>

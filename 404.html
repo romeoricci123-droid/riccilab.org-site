@@ -1,38 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1" name="viewport"/>
-  <title>Page not found — Ricci Lab</title>
-
-  <!-- Favicon / icons -->
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <title>Ricci Lab — Page Title</title>
+  <link href="assets/style.css" rel="stylesheet">
   <link rel="icon" href="assets/favicon.png" sizes="32x32">
-  <link rel="manifest" href="manifest.webmanifest">
-  <meta name="theme-color" content="#0d1220">
-  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-
-  <link href="assets/style.css?v=igbmc_fix6" rel="stylesheet"/>
+  <meta name="description" content="Short description for this page.">
 </head>
-<body data-page="404">
-  <a href="#main" class="skip">Skip to content</a>
+<body data-page="404">  <!-- change to the page key: research, team, sponsors, news, ... -->
 
+  <!-- Canonical header (paste exactly as given in step 2) -->
   <header>
-   <div class="container wide nav">
+    <div class="container wide nav">
       <div class="brand"></div>
-      <!-- Mobile hamburger -->
-      <button class="hamburger" id="navToggle"
-              aria-controls="site-nav"
-              aria-expanded="false"
-              aria-label="Menu">
+      <button class="hamburger" id="navToggle" aria-controls="site-nav" aria-expanded="false" aria-label="Menu">
         <span class="bar"></span><span class="bar"></span><span class="bar"></span>
       </button>
-
-      <nav id="site-nav" style="flex:1;display:grid!important;grid-template-columns:repeat(8,1fr);gap:12px;width:100%;">
-        <a class="cardbox navbox" href="index.html" style="display:block;width:100%;text-align:center;padding:16px 20px;font-size:1.1rem;border-radius:14px;">Home</a>
-        <a class="light cardbox navbox" href="research.html">Research</a>
+      <nav id="site-nav">
+        <a class="cardbox navbox" href="index.html">Home</a>
+        <a class="cardbox navbox" href="research.html">Research</a>
         <a class="cardbox navbox" href="team.html">Team</a>
-        <a class="light cardbox navbox" href="publications.html">Publications</a>
-        <a class="light cardbox navbox" href="join.html">Join Us</a>
+        <a class="cardbox navbox" href="publications.html">Publications</a>
+        <a class="cardbox navbox" href="join.html">Join Us</a>
         <a class="cardbox navbox" href="news.html">News</a>
         <a class="cardbox navbox" href="sponsors.html">Funding</a>
         <a class="cardbox navbox" href="contact.html">Contact</a>
@@ -40,30 +30,30 @@
     </div>
   </header>
 
-  <section class="subhero" style="background-image:url('assets/contact.jpg')">
-    <div class="container inner">
-      <h1>Page not found</h1>
-      <p class="lead">The link might be wrong or the page moved.</p>
-      <div class="cta">
-        <a class="cardbox navbox" href="index.html">Go to Home</a>
-        <a class="cardbox navbox" href="news.html">See News</a>
+  <main id="main" role="main">
+    <section class="subhero" style="background-image:url('assets/placeholder-hero.jpg')">
+      <div class="container inner">
+        <h1>Under renovation</h1>
+        <p class="lead">We’re rebuilding this page.</p>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <main class="page" id="main">
-    <div class="container">
-      <p>If you typed the address, check the spelling. Otherwise use the navigation above.</p>
-    </div>
+    <section class="page">
+      <div class="container">
+        <p>Content coming soon…</p>
+      </div>
+    </section>
   </main>
 
   <footer>
     ©<span id="y"></span> Ricci Lab ·
     <a href="legal.html">Mentions légales</a> ·
     <a href="privacy.html">Vie privée</a>
+    <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
   </footer>
 
-  <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
-  <script src="assets/nav.js?v=1" defer></script>
+  <!-- JS -->
+  <script src="assets/nav.js" defer></script>
 </body>
 </html>
+

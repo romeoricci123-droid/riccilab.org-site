@@ -1,1786 +1,312 @@
-*{box-sizing:border-box}
-:root{--ink:#0b0d12;--muted:#4f5966;--line:#e7edf2;--accent:#111;--bg:#fff}
-html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
-a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
-.container{width:min(1200px,92%);margin:0 auto}
+/* =========================================================
+   EASL — Canonical Stylesheet (single source of truth)
+   No page-scoped overrides. Replace the file with this.
+   ========================================================= */
+
+/* ---- Reset / Tokens ---- */
+* { box-sizing: border-box; }
 :root{
-  --elev-emblem: 0 22px 60px rgba(0,0,0,.28), 0 10px 24px rgba(0,0,0,.16), 0 1px 0 rgba(0,0,0,.06);
-  --elev-emblem-hover: 0 26px 72px rgba(0,0,0,.32), 0 12px 28px rgba(0,0,0,.18), 0 1px 0 rgba(0,0,0,.06);
-}
-:root{
-  --elev-card: 0 10px 30px rgba(0,0,0,.08);
-  --elev-card-hover: 0 12px 30px rgba(0,0,0,.14);
-  --elev-emblem: var(--elev-card);
-  --elev-emblem-hover: var(--elev-card-hover);
-}
-/* Header */
-header{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line)}
-.nav{display:flex;justify-content:space-between;align-items:center;padding:12px 0}
-.brand .lab{font-weight:950;letter-spacing:-0.3px;font-size:28px;color:#0a0a0a}
-nav a{margin:0 8px;padding:8px 10px;border-radius:8px} nav a[aria-current="page"]{font-weight:700;color:#111}
+  --ink:#0b0d12; --muted:#4f5966; --line:#e7edf2; --accent:#111; --bg:#fff;
 
-/* Home hero */
-.hero{position:relative;min-height:60vh;display:flex;align-items:end;overflow:hidden;background:#0d1220}
-.hero::before{
-  content:""; position:absolute; inset:0;
-  background-image:linear-gradient(180deg,rgba(10,14,22,.02) 0, rgba(10,14,22,.28) 60%, rgba(10,14,22,.40) 100%), url('hero.webp');
-  background-size:cover; background-position:center; background-repeat:no-repeat;
-  filter:saturate(1.03) contrast(1.01);
-}
-.hero .inner{position:relative;padding:40px 0;color:#fff}
-.hero h1{font-size:48px;margin:0 0 8px;letter-spacing:-0.5px}
-.hero p.lead{font-size:18px;margin:0 0 10px;color:#f0f3f9;max-width:900px}
-.hero .pi{font-size:16px;color:#d7deec;margin-top:6px}
-.cta{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
-.btn{display:inline-block;padding:10px 14px;border-radius:12px;font-size:14px;border:1px solid #222;background: #111;color:#fff}
-.btn.alt{background:#fff;color:#111;border-color:#111}
+  /* Global frame width used everywhere (header, hero, subhero, content) */
+  --frame: min(1200px, 92%);
 
-/* Sections */
-.section{padding:32px 0} .section h2{margin:0 0 12px}
-
-/* Research with emblem aside */
-.research-wrap{display:grid;grid-template-columns:0.45fr 1.55fr;gap:20px;align-items:start}
-.research-aside{position:sticky;top:84px}
-.emblem-panel{background:#fff}
-.emblem-panel .pad{padding:0; display:grid; justify-items:center}
-.emblem-panel img{width:220px;height:220px} /* plain emblem, no frame */
-
-/* Pillars grid */
-.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
-.tile{grid-column:span 4;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff}
-.tile img{width:100%;display:block;object-fit:cover}
-.tile .body{padding:12px} .tile h3{margin:0 0 6px;font-size:18px} .tile p{margin:0 0 8px;color:#4d5665}
-@media(max-width:1100px){.research-wrap{grid-template-columns:1fr} .research-aside{position:static} .emblem-panel img{width:180px;height:180px}} 
-@media(max-width:960px){.tile{grid-column:span 6}} @media(max-width:640px){.tile{grid-column:span 12}}
-
-/* Simple page header */
-.pagehead{padding:22px 0;border-bottom:1px solid var(--line);background:#fafbfe}
-.pagehead h1{margin:0; font-size:30px}
-.page{padding:26px 0}
-
-/* Footer */
-footer{border-top:1px solid var(--line);padding:16px 0;color:#6a7380;font-size:14px;margin-top:22px;text-align:center}
-
-/* Subpage hero (research pages) */
-.subhero{position:relative;min-height:60vh;display:flex;align-items:end;overflow:hidden;background:#0d1220;background-size:cover;background-position:center;background-repeat:no-repeat}
-.subhero::before{
-  content:""; position:absolute; inset:0;
-  background-image:linear-gradient(180deg,rgba(10,14,22,.02) 0, rgba(10,14,22,.28) 60%, rgba(10,14,22,.40) 100%);
-  background-size:cover; background-position:center; background-repeat:no-repeat; pointer-events:none;
-}
-.subhero .inner{position:relative;padding:32px 0;color:#fff}
-.subhero h1{font-size:40px;margin:0 0 6px;letter-spacing:-0.4px}
-.subhero p.lead{font-size:18px;margin:0;color:#f0f3f9;max-width:900px}
-
-/* Page wrap for research pages */
-.page-wrap{display:grid;grid-template-columns:0.40fr 1.60fr;gap:20px;align-items:start}
-.page-aside{position:sticky;top:84px}
-.page-aside .emblem-panel{background:#fff}
-.page-aside .emblem-panel .pad{padding:0;display:grid;justify-items:center}
-.page-aside .emblem-panel img{width:200px;height:200px}
-@media(max-width:1100px){.page-wrap{grid-template-columns:1fr}.page-aside{position:static}.page-aside .emblem-panel img{width:160px;height:160px}}
-
-.funding-band{background:#f7f9fc;color:#0b0d12;border-top:1px solid #e7edf2;border-bottom:1px solid #e7edf2}
-.funding-band .container{display:flex;gap:28px;align-items:center;flex-wrap:wrap;justify-content:center;padding:20px 0}
-.funding-pill{display:flex;gap:14px;align-items:center;background:#fff;border:1px solid #e1e6ee;border-radius:16px;padding:10px 14px}
-.funding-pill img{height:72px;width:auto;display:block}
-.funding-pill .txt{line-height:1.2}
-.funding-pill .txt .kicker{opacity:.85;font-size:.85rem;letter-spacing:.02em}
-.funding-pill .txt a{color:#0b0d12;text-decoration:underline}
-.funding-pill .txt a:hover{color:#111;text-decoration:none}
-.highlight-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:22px}
-@media(max-width:1000px){.highlight-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:680px){.highlight-grid{grid-template-columns:1fr}}
-.card-min{background:#fff;border:1px solid #eaeaea;border-radius:16px;overflow:hidden}
-.card-min .pad{padding:18px}
-.card-min h3{font-size:1.1rem;margin:0 0 6px;font-weight:700}
-.card-min p{margin:0;font-size:.95rem;color:#333}
-
-.two-col{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
-@media(max-width:900px){.two-col{grid-template-columns:1fr}}
-ul.clean{margin:0 0 8px 18px}
-ul.clean li{margin:6px 0}
-
-.logo-fr2030{height:96px;width:auto;display:block}
-
-.funding-band .btn-cta{display:inline-block;padding:8px 12px;border-radius:10px;border:1px solid #0b0d12;background: #111;color:#fff;font-weight:600;text-decoration:none}
-.funding-band .btn-cta:hover{background:#111;border-color:#111;color:#fff;text-decoration:none}
-
-.funding-link{display:flex;gap:14px;align-items:center;background:#fff;border:1px solid #e1e6ee;border-radius:16px;padding:12px 16px;text-decoration:none;cursor:pointer}
-.funding-link:hover{border-color:#c9d2e2;box-shadow:0 1px 0 rgba(0,0,0,.03)}
-.funding-link .txt{color:#0b0d12}
-.funding-link .txt .kicker{opacity:.7;font-size:.85rem}
-
-/* Make whole research tiles clickable */
-.tile-link{display:block;color:inherit;text-decoration:none}
-.tile{transition:transform .12s ease, box-shadow .12s ease}
-.tile:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,.06)}
-.tile-link:focus-visible{outline:2px solid #0b0d12;outline-offset:4px;border-radius:12px}
-.funding-link:focus-visible{outline:2px solid #0b0d12;outline-offset:4px}
-
-/* Publication cards as button-like anchors */
-.paper-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-@media(max-width:900px){.paper-list{grid-template-columns:1fr}}
-a.paper-card{display:block;padding:14px 16px;border-radius:14px;border:1px solid #0b0d12;
-background:linear-gradient(#ffffff,#f7f8fb);color:#0b0d12;text-decoration:none;
-box-shadow:0 1px 0 rgba(0,0,0,.12),0 6px 14px rgba(0,0,0,.06);transition:transform .05s ease, box-shadow .15s ease}
-a.paper-card:hover{transform:translateY(-1px);box-shadow:0 2px 0 rgba(0,0,0,.14),0 12px 22px rgba(0,0,0,.10)}
-a.paper-card:active{transform:translateY(0)}
-.paper-title{font-weight:700;margin:0 0 6px}
-.paper-authors{color:#334155;font-size:.95rem}
-.paper-meta{color:#475569;font-size:.9rem;margin-top:3px}
-.paper-tags{margin-top:8px}
-.paper-tags .tag{display:inline-block;background:#eef2ff;border:1px solid #e2e8f0;color:#334155;border-radius:999px;padding:2px 8px;font-size:.8rem;margin-right:6px}
-
-/* Unified button system */
-.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:12px;border:1px solid transparent;
-text-decoration:none;transition:transform .05s ease, box-shadow .15s ease}
-.btn:hover{transform:translateY(-1px)}
-.btn:active{transform:translateY(0)}
-/* For light sections (white background): black box with white text */
-.btn.dark{background:#0b0d12;color:#fff;border-color:#0b0d12}
-.btn.light:hover{
-  /* unified no default shadow */
-  
-  background: white;
-  color: inherit;
-  border: 1px solid rgba(0,0,0,0.08);
-  border-radius: 1rem;
-  padding: 0.75rem 1rem;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  
-  transition: transform .06s ease, box-shadow .12s ease, border-color .12s ease;
-}
-.cardbox:hover{
-transform: translateY(-1px);
-box-shadow: 0 6px 16px rgba(0,0,0,.12) !important;
-border-color: rgba(0,0,0,.12);
-}
-
-/* Nav boxes share size and tone */
-.navbox{
-background: #fff !important;
-box-shadow: none !important;
-font-weight: 600;
-color: #000 !important;
-}
-
-/* Partner card sizing */
-
-/* Partner card image sizing: keep aspect ratio, no skew */
-.partner-card img{
-max-height: 48px;
-height: auto;
-width: auto;
-}
-
-
-
-/* Active nav highlighting using aria-current */
-.navbox[aria-current="page"]{
-outline: 2px solid rgba(11,95,255,.24);
-outline-offset: 2px;
-}
-
-
-/* Unified hover elevation for clickable boxes */
-.cardbox:hover,
-.navbox:hover,
-.cta:hover,
-.pill:hover,
-.linkbox:hover{
-  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
-}
-
-.cardbox{
-background: #fff !important;
-color: #000 !important;
-border: 1px solid rgba(0,0,0,0.08);
-border-radius: 1rem;
-padding: .75rem 1rem;
-text-decoration: none;
-display: inline-flex;
-align-items: center;
-gap: .5rem;
-box-shadow: none !important;
-transition: transform .06s ease, box-shadow .12s ease, border-color .12s ease;
-}
-
-
-/* Ensure Explore Research and See Papers are white boxes */
-a.cardbox.navbox{
-background: #fff !important;
-box-shadow: none !important;
-font-weight: 600;
-color: #000 !important;
-}
-a.cardbox.navbox:hover{
-  box-shadow: 0 6px 16px rgba(0,0,0,0.12) !important;
-}
-
-
-/* Ensure readable text inside white boxes */
-.cardbox, .cardbox *{
-  color: #000 !important;
-}
-
-.cardbox:link, .cardbox:visited, .cardbox:hover, .cardbox:active{
-color: #000 !important;
-}
-
-.partner-card{
-display: flex;
-align-items: center;
-justify-content: center;
-margin: 12px auto;
-padding: 12px 16px;
-}
-
-
-/* Research hero image: full width, crisp, not pale */
-img.hero{
-  width: 100%;
-  height: auto;
-  display: block;
-  filter: none !important;
-  opacity: 1 !important;
-}
-
-/* Research page hero */
-.page-hero{
-  position: relative;
-  min-height: 60vh;
-  display: flex;
-  align-items: flex-end;
-  overflow: hidden;
-  background: #0d1220;
-}
-.page-hero::before{filter: brightness(1.18) saturate(1.06) contrast(1.05);
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(180deg, rgba(10,14,22,.02) 0, rgba(10,14,22,.16) 40%, rgba(10,14,22,.32) 80%), url('research_hero_bright.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  filter: saturate(1.05) contrast(1.04);
-}
-.page-hero .inner{
-  position: relative;
-  padding: 40px 0;
-  color: #fff;
-}
-
-/* Homepage activity cards: fixed height, fill width, crop to the right */
-.activity-card{ position: relative; display:block; overflow:hidden; height:160px; }
-.activity-card .activity-media{ width:100%; height:100%; object-fit:cover; object-position:left center; display:block; }
-
-/* Homepage activity images: rectangular crop (fill width, fixed height, crop to right) */
-.activity-media{
-  width: 100% !important;
-  height: 160px !important;   /* keeps the existing card height */
-  object-fit: cover;
-  object-position: left center; /* expands to the right */
-  display: block;
-}
-/* Full-bleed hero with no side rims */
-html, body {
-  overflow-x: hidden;
-}
-
-.subhero {
-  /* keep your background settings */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  /* force true full-bleed even inside centered layouts */
-  width: 100vw;
-  max-width: 100vw;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
-  padding: 0;
-}
-.hero {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  width: 100vw;
-  max-width: 100vw;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
-  padding: 0;
-}
-.hero,
-.subhero {
-  min-height: 60vh; /* adjust if needed */
-}
-.hero .inner h1,
-.subhero .inner h1 {
-  font-size: 3rem;   /* adjust if too large/small */
-  font-weight: 600;
-  margin: 0 0 10px 0;
-  color: #fff;
-}
-
-.hero .inner p,
-.subhero .inner p {
-  font-size: 1.25rem;
-  font-weight: 400;
-  margin: 0;
-  color: #fff;
-}
-.hero .inner h1,
-.subhero .inner h1 {
-  font-size: 3rem;   /* adjust if too large/small */
-  font-weight: 600;
-  margin: 0 0 10px 0;
-  color: #fff;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.4);
-}
-
-.hero .inner p,
-.subhero .inner p {
-  font-size: 1.25rem;
-  font-weight: 400;
-  margin: 0;
-  color: #fff;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.4);
-}
-/* Unify all button/cardbox styles */
-.cardbox,
-.btn,
-.navbox,
-.partner-card {
-  background: #fff;
-  color: #000;
-  box-shadow: none;
-  transition: box-shadow 0.2s ease;
-}
-
-/* Shadow only on hover */
-.cardbox:hover,
-.btn:hover,
-.navbox:hover,
-.partner-card:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-/* News cards */
-.news-list {
-  display: grid;
-  gap: 16px;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  margin: 0; padding: 0; list-style: none;
-}
-.news-item { display: block; padding: 14px; background: #fff; color: inherit; }
-.news-item .meta { color: var(--muted); font-size: .9rem; margin-bottom: 6px; }
-.news-item h3 { margin: 4px 0 6px 0; font-size: 1.1rem; }
-.news-item p  { margin: 0; }
-.news-archive { margin: 0; padding: 0; list-style: none; display: grid; gap: 14px; }
-.news-archive .meta { color: var(--muted); font-size: .9rem; margin: 10px 14px 0 14px; }
-.news-archive h3 { margin: 6px 14px; }
-.news-archive p { margin: 0 14px 14px 14px; }
-.news-archive .cardbox { padding: 0; } /* we control inner spacing per element */
-/* News layout */
-.news-toolbar { display:flex; align-items:center; justify-content:space-between; margin: 4px 0 14px 0; }
-.news-grid { display:grid; gap:16px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); margin:0; padding:0; list-style:none; }
-
-.news-card { padding:0; overflow:hidden; }
-.news-card .news-link { display:grid; grid-template-columns: 120px 1fr; gap:14px; align-items:stretch; color:inherit; }
-.news-card .thumb { background:#f0f2f5; background-size:cover; background-position:center; min-height:100px; }
-.news-card .body { padding:14px 14px 14px 0; }
-.news-card .meta { color:var(--muted); font-size:.9rem; margin-bottom:6px; }
-.news-card h3 { margin:4px 0 6px 0; font-size:1.1rem; }
-.news-card p { margin:0; }
-
-/* Small screens: stack image on top */
-@media (max-width: 520px) {
-  .news-card .news-link { grid-template-columns: 1fr; }
-  .news-card .thumb { min-height:160px; }
-  .news-card .body { padding:12px 14px 14px 14px; }
-}
-.hero, .subhero, .news-card .thumb {
-  filter: none !important;
-  background-blend-mode: normal !important;
-  opacity: 1 !important;
-}
-.btn {
-  display: inline-block;
-  background-color: #000;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  text-align: center;
-  font-size: 16px;
-}
-.btn:hover {
-  background-color: #333;
-}
-/* Apply unified button styling to all nav-style buttons */
-.cardbox.navbox,
-.partner-card {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 10px 16px;
-  border-radius: 12px;
-  border: 1px solid transparent;
-  text-decoration: none;
-  transition: transform .05s ease, box-shadow .15s ease;
-}
-
-/* Hover/active like .btn */
-.cardbox.navbox:hover,
-.partner-card:hover {
-  transform: translateY(-1px);
-}
-.cardbox.navbox:active,
-.partner-card:active {
-  transform: translateY(0);
-}
-/* Consistent spacing for CTA rows (homepage + subpages) */
-.cta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;         /* keeps buttons evenly spaced */
-  margin-top: 16px;  /* same offset below text everywhere */
-}
-
-/* Align hero/subhero text + buttons identically on all pages */
-.hero .inner,
-.subhero .inner {
-  text-align: left;                /* keep left-aligned across pages */
-}
-
-/* Consistent CTA row behavior (no centering drift) */
-.hero .cta,
-.subhero .cta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;                       /* comfortable spacing between buttons */
-  margin-top: 16px;                /* uniform offset under the lead line */
-  justify-content: flex-start;     /* lock to left, no "shift" */
-  align-items: center;
-}
-
-/* Remove stray margins that can nudge buttons a few px */
-.hero .cta .navbox,
-.subhero .cta .navbox,
-.hero .cta .btn,
-.subhero .cta .btn {
-  margin: 0 !important;
-}
-
-/* Ensure nav-style buttons share the same box model as .btn */
-.cardbox.navbox {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 10px 16px;
-  border-radius: 12px;
-  border: 1px solid transparent;
-  text-decoration: none;
-  transition: transform .05s ease, box-shadow .15s ease;
-}
-.cardbox.navbox:hover { transform: translateY(-1px); }
-.cardbox.navbox:active { transform: translateY(0); }
-/* Reset nav bar buttons so they align like before */
-header nav .navbox {
-  display: inline-block;     /* no flex centering here */
-  margin: 0 6px;             /* restore even spacing left/right */
-  transform: none !important;
-}
-
-/* Keep CTA buttons unified and left-aligned inside heroes */
-.hero .cta .navbox,
-.subhero .cta .navbox {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 10px 16px;
-  border-radius: 12px;
-  border: 1px solid transparent;
-  margin: 0 !important;        /* no shifts */
-}
-.hero .cta {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-  justify-content: flex-start; /* lock to left edge */
-}
-
-/* Keep CTA buttons unified and left-aligned inside heroes */
-.hero .cta .navbox,
-.subhero .cta .navbox {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 10px 16px;
-  border-radius: 12px;
-  border: 1px solid transparent;
-  margin: 0 !important;        /* no shifts */
-}
-.hero .cta {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-  justify-content: flex-start; /* lock to left edge */
-}
-/* === FINAL NORMALIZER (heroes only; header unaffected) === */
-
-/* 1) Give hero/subhero the same inner frame as .container, even if markup varies */
-body .hero > .inner,
-body .subhero > .inner {
-  width: min(1200px, 92%);
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  text-align: left;
-}
-
-/* 2) Ensure title/lead/PI/CTA start from the same left x-position */
-body .hero > .inner > h1,
-body .subhero > .inner > h1,
-body .hero > .inner > .lead,
-body .subhero > .inner > .lead,
-body .hero > .inner > .pi,
-body .subhero > .inner > .pi,
-body .hero > .inner > .cta,
-body .subhero > .inner > .cta {
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-}
-
-/* 3) CTA row: identical layout and spacing on all pages */
-body .hero > .inner > .cta,
-body .subhero > .inner > .cta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  justify-content: flex-start;
-  align-items: center;
-  margin-top: 16px;
-}
-
-/* 4) Buttons inside hero CTAs: same box model, zero stray margins */
-body .hero > .inner > .cta a.cardbox.navbox,
-body .subhero > .inner > .cta a.cardbox.navbox,
-body .hero > .inner > .cta .btn,
-body .subhero > .inner > .cta .btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 10px 16px;
-  border-radius: 12px;
-  border: 1px solid transparent;
-  margin: 0 !important; /* kills micro-offsets */
-  transition: transform .05s ease, box-shadow .15s ease;
-}
-/* ——— Normalize HEADER navigation across all pages ——— */
-header nav {
-  display: flex;
-  align-items: center;
-  gap: 12px;              /* consistent spacing between items */
-  flex-wrap: nowrap;      /* keep on one line; change to wrap on small screens if you want */
-}
-
-/* Kill legacy margins that nudge items left/right differently */
-header nav a {
-  margin: 0 !important;   /* overrides earlier nav a { margin:0 8px } */
-  padding: 8px 12px;      /* uniform hit area */
-  display: inline-flex;   /* align text inside each button */
-  align-items: center;
-  justify-content: center;
-}
-
-/* Keep the “Contact” item from drifting (same box model as others) */
-header nav .navbox {
-  display: inline-flex;
-}
-
-/* Optional: allow wrapping on small screens only */
-@media (max-width: 760px) {
-  header nav { flex-wrap: wrap; row-gap: 8px; }
-}
-header nav {
-  letter-spacing: 0;        /* normalize spacing in the nav row */
-}
-/* ——— Force "News" nav item to align exactly like others ——— */
-header nav a[href$="news.html"] {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  padding: 8px 12px !important;
-  margin: 0 !important;
-  flex: 0 0 auto !important;
-  position: static !important;
-  left: auto !important;
-  right: auto !important;
-  transform: none !important;
-  letter-spacing: 0 !important;
-}
-
-/* Active-page styling that does NOT visually nudge alignment */
-header nav a[aria-current="page"] {
-  outline: none !important;
-  box-shadow: inset 0 0 0 2px rgba(11,95,255,.24);
-}
-/* ==== FINAL HEADER NORMALIZER (kills all drift, re-applies one gap) ==== */
-
-/* 1) Force header nav into a single flex row with one consistent gap */
-header .nav nav {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: flex-start !important;
-  gap: 12px !important;              /* the ONLY spacing between items */
-  flex-wrap: nowrap !important;
-}
-
-/* 2) Nuke every margin/padding quirk on the anchors themselves */
-header .nav nav a {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  margin: 0 !important;              /* kill all margins (left/right/auto) */
-  padding: 8px 12px !important;      /* identical hit area for all items */
-  flex: 0 0 auto !important;
-  position: static !important;
-  inset: auto !important;
-  transform: none !important;
-  letter-spacing: 0 !important;
-  word-spacing: 0 !important;
-}
-
-/* 3) Belt & suspenders: if any item still carries extra spacing, zero it */
-header .nav nav a.light,
-header .nav nav a.navbox,
-header .nav nav a[href$="news.html"],
-header .nav nav a[href$="contact.html"] {
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-}
-
-/* 4) Remove earlier "a + a { margin-left: ... }" effects, if present */
-header .nav nav a + a {
-  margin-left: 0 !important;
-}
-
-/* 5) Make outlines/active states NOT affect layout */
-header .nav nav a[aria-current="page"] {
-  outline: none !important;
-  box-shadow: inset 0 0 0 2px rgba(11,95,255,.24);  /* purely visual, no layout change */
-}
-/* ===== FINAL, HEADER-ONLY NORMALIZER (applies on every page) ===== */
-
-/* One row, one source of spacing (gap) */
-header .nav nav {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: flex-start !important;
-  gap: 12px !important;     /* the ONLY spacing between items */
-  flex-wrap: nowrap !important;
-}
-
-/* Every link uses the same box model */
-header .nav nav > a {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  padding: 8px 12px !important;
-  margin: 0 !important;
-  border: 0 !important;
-  position: static !important;
-  transform: none !important;
-  letter-spacing: 0 !important;
-  word-spacing: 0 !important;
-  flex: 0 0 auto !important;
-}
-
-/* Belt & suspenders: kill any class-based offsets */
-header .nav nav > a.navbox,
-header .nav nav > a.light,
-header .nav nav > a[href$="news.html"],
-header .nav nav > a[href$="contact.html"] {
-  margin: 0 !important;
-  padding: 8px 12px !important;
-  transform: none !important;
-}
-
-/* Disable any older "a + a { margin-left: ... }" rules */
-header .nav nav > a + a { margin-left: 0 !important; }
-
-/* Active page highlight that doesn't shift layout */
-header .nav nav > a[aria-current="page"] {
-  box-shadow: inset 0 0 0 2px rgba(11,95,255,.24);
-  outline: none !important;
-}
-/* NEWS PAGE: make subhero truly full-bleed, identical to others */
-body[data-page="news"] .subhero {
-  width: 100vw;
-  max-width: 100vw;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
-  padding: 0;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-/* If any inner container adds side padding, neutralize it on the hero */
-body[data-page="news"] .subhero > .container {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-}
-
-/* If (on news.html) the hero uses an <img> instead of a background, make it full-bleed too */
-body[data-page="news"] .subhero img {
-  display: block;
-  width: 100vw;
-  max-width: 100vw;
-  height: auto;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
-  filter: none !important;
-  opacity: 1 !important;
-}
-
-/* Neutralize any inner container padding at the hero level */
-body[data-page="news"] .subhero > .container {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-}
-
-/* News page entries */
-.news-entry {
-  padding: 18px 0;
-  border-bottom: 1px solid var(--line);
-}
-.news-entry:last-of-type {
-  border-bottom: none; /* no border after the last one */
-}
-.news-entry .meta {
-  color: var(--muted);
-  font-size: .9rem;
-  margin-bottom: 6px;
-}
-.news-entry h3 {
-  margin: 4px 0 10px 0;
-  font-size: 1.25rem;
-}
-.news-entry h4 {
-  margin: 14px 0 8px 0;
-  font-size: 1.05rem;
-}
-
-/* Small inline buttons for research streams */
-.mini-btn {
-  display: inline-block;
-  margin-left: 10px;
-  padding: 4px 10px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  border-radius: 6px;
-  border: 1px solid #111;
-  background: #111;
-  color: #fff !important;
-  text-decoration: none;
-  transition: background 0.2s ease, transform 0.1s ease;
-}
-.mini-btn:hover {
-  background: #333;
-  transform: translateY(-1px);
-}
-.mini-btn:active {
-  transform: translateY(0);
-}
-/* Sponsors page */
-.sponsor-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(200px,1fr));
-  gap:16px;
-  margin:0; padding:0; list-style:none;
-}
-.sponsor-card a{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:10px;
-  background:#fff;
-  border:1px solid var(--line);
-  border-radius:12px;
-  padding:14px;
-  text-decoration:none;
-  color:inherit;
-  transition:transform .06s ease, box-shadow .12s ease, border-color .12s ease;
-}
-.sponsor-card a:hover{
-  transform:translateY(-2px);
-  box-shadow:0 8px 20px rgba(0,0,0,.10);
-  border-color:#dfe6ee;
-}
-.sponsor-card img{
-  max-height:64px;
-  width:auto;
-  height:auto;
-  object-fit:contain;
-  display:block;
-}
-.sponsor-name{
-  font-weight:700;
-  text-align:center;
-}
-.sponsor-note{
-  color:var(--muted);
-  font-size:.9rem;
-  text-align:center;
-}
-.subhero {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  /* force full-bleed, no rims */
-  width: 100vw;
-  max-width: 100vw;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
-  padding: 0;
-}
-
-/* FINAL: blue frame for the active page button */
-header nav a[aria-current="page"] {
-  border: 0.5px solid #0b5fff !important;  /* visible thin blue frame */
-  border-radius: 8px !important;
-  box-shadow: none !important;
-  outline: none !important;
-}
-.skip {
-  position: absolute;
-  left: -9999px;
-  top: auto;
-}
-.skip:focus {
-  left: 12px;
-  top: 12px;
-  background: #fff;
-  border: 0.5px solid #0b5fff;
-  padding: 8px 12px;
-  border-radius: 8px;
-  z-index: 100;
-}
-/* Publications: simple, collision-proof layout using IDs */
-body[data-page="publications"] #pub-layout{
-  display:grid;
-  grid-template-columns: auto 2cm 1fr; /* cover | gap | list */
-  align-items:start;
-}
-
-body[data-page="publications"] #pub-cover img{
-  display:block;
-  max-width:420px;
-  height:auto;
-  border-radius:8px;
-  border:1px solid #ddd;
-  box-shadow:0 6px 18px rgba(0,0,0,.12);
-}
-
-body[data-page="publications"] #pub-list{
-  display:grid;
-  grid-template-columns: repeat(2, minmax(0,1fr));
-  gap:14px;
-}
-
-@media (max-width:1100px){
-  body[data-page="publications"] #pub-layout{
-    grid-template-columns: 1fr;
-    row-gap:18px;
-  }
-  body[data-page="publications"] #pub-list{
-    grid-template-columns: 1fr;
-  }
-  }    /* === Publications final layout fixes (scoped by page + IDs) === */
-body[data-page="publications"] #pub-layout{
-  display:grid !important;
-  grid-template-columns: auto 2cm minmax(520px, 1fr) !important; /* cover | gap | list */
-  column-gap: 2cm !important;  /* belt & suspenders for the visual gap */
-  align-items:start !important;
-}
-
-/* Single cover, rounded, clearly separated */
-body[data-page="publications"] #pub-cover img{
-  display:block !important;
-  max-width:420px !important;
-  height:auto !important;
-  border-radius:12px !important;       /* stronger rounding */
-  border:1px solid #ddd !important;
-  box-shadow:0 6px 18px rgba(0,0,0,.12) !important;
-}
-
-/* Two readable columns for the list (never collapse on desktop) */
-body[data-page="publications"] #pub-list.paper-list{
-  display:grid !important;
-  grid-template-columns: repeat(2, minmax(320px, 1fr)) !important;
-  gap:16px !important;
-}
-
-/* Ensure cards use full width inside their grid cell */
-body[data-page="publications"] #pub-list .paper-card{
-  width:100% !important;
-  max-width:none !important;
-  box-sizing:border-box !important;
-}
-
-/* Keep two columns until screens are genuinely small */
-@media (max-width: 900px){
-  body[data-page="publications"] #pub-layout{
-    grid-template-columns: 1fr !important;
-    column-gap: 0 !important;
-    row-gap: 18px !important;
-  }
-  body[data-page="publications"] #pub-list.paper-list{
-    grid-template-columns: 1fr !important;
-  }
-}/* anchor offset for sticky header */
-[id]{ scroll-margin-top:84px; }
-/* Mobile nav: keep items readable without a hamburger */
-@media (max-width: 900px){
-  header .nav nav{ flex-wrap: wrap; row-gap: 8px; }
-}
-
-/* Very small screens: allow sideways scroll instead of wrapping chaos */
-@media (max-width: 380px){
-  header .nav nav{
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    white-space: nowrap;
-  }
-  header .nav nav > a{
-    flex: 0 0 auto; /* keep each link intact */
-  }
-  header .nav nav::-webkit-scrollbar{ display: none; }}
-/* --- Mobile-only hamburger (leaves desktop unchanged) --- */
-.hamburger { display: none; }
-
-@media (max-width: 760px) {
-  header .nav { position: relative; }
-
-  /* Show the hamburger on phones */
-  .hamburger {
-    display: inline-flex;
-    flex-direction: column;
-    gap: 4px;
-    width: 40px;
-    height: 40px;
-    align-items: center;
-    justify-content: center;
-    background: #fff;
-    border: 1px solid rgba(0,0,0,.12);
-    border-radius: 10px;
-    cursor: pointer;
-  }
-  .hamburger .bar {
-    width: 20px;
-    height: 2px;
-    background: #111;
-    display: block;
-  }
-  /* Collapse the nav into a panel below the header */
-  header .nav nav {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: #fff;
-    border-bottom: 1px solid var(--line);
-    display: none !important;          /* override desktop flex */
-    flex-direction: column;
-    padding: 8px 12px;
-    z-index: 25;
-  }
-  header .nav nav.open { display: flex !important; }
-
-  /* Full-width, comfy tap targets */
-  header .nav nav a {
-    width: 100%;
-    margin: 4px 0 !important;
-    padding: 12px 12px;
-    justify-content: flex-start;
-    border-radius: 10px;
-  }}
-/* ===== Publications: solid desktop + phone layout ===== */
-
-/* Desktop/laptop: keep two roomy columns and the fixed cover */
-@media (min-width: 901px){
-  body[data-page="publications"] #pub-layout{
-    grid-template-columns: auto 2cm minmax(520px, 1fr) !important; /* cover | gap | list */
-    column-gap: 2cm !important;
-  }
-  body[data-page="publications"] #pub-list.paper-list{
-    grid-template-columns: repeat(2, minmax(320px, 1fr)) !important;
-  }
-  body[data-page="publications"] #pub-cover img{
-    width: auto !important;
-    max-width: 420px !important;
-    height: auto !important;
-  }
-}
-
-/* Phones/tablets: single column, no overflow, fluid cover */
-@media (max-width: 900px){
-  body[data-page="publications"] #pub-layout{
-    grid-template-columns: 1fr !important;
-    column-gap: 0 !important;
-  }
-  body[data-page="publications"] #pub-list.paper-list{
-    grid-template-columns: 1fr !important;
-  }
-  body[data-page="publications"] #pub-cover img{
-    width: 100% !important;
-    max-width: 100% !important;
-    height: auto !important;
-  }}
-/* Home page — center News cards on phones */
-@media (max-width: 680px){
-  body[data-page="home"] .news-list.clean{
-    margin: 0;                 /* remove UL's 18px left margin from ul.clean */
-    padding: 0;                /* remove any padding */
-    display: grid;
-    grid-template-columns: minmax(0, 560px); /* single centered column */
-    justify-content: center;   /* center the column */
-    gap: 16px;
-  }
-  body[data-page="home"] .news-list.clean > li{
-    list-style: none;
-    margin: 0;                 /* no extra offsets on items */
-  }}
-/* Phones: reframe the Join hero so the bands are visible */
-@media (max-width: 680px){
-  html body[data-page="join"] section.subhero{
-    background-position: 50% 30% !important; /* try 20–40% if you need to nudge */
-    background-size: cover !important;
-    background-repeat: no-repeat !important;
-  }}
-/* News: list cards + entry readability */
-.news-list .news-item {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 8px;
-  padding: 14px 16px;
-  transition: transform .12s ease, box-shadow .12s ease;
-}
-.news-list .news-item:hover,
-.news-list .news-item:focus-visible {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0,0,0,.06);
-}
-.news-list .news-item .meta {
-  font-size: .9rem;
-  opacity: .8;
-}
-
-/* On news.html: tidy entries and make anchor jumps pleasant */
-.news-entry {
-  background: #fff;
-  border: 1px solid rgba(0,0,0,.08);
-  border-radius: 12px;
-  padding: 16px 18px;
-  margin: 18px 0;
-  scroll-margin-top: 84px; /* avoids hiding under header on hash jump */
-}
-.news-entry .meta {
-  font-size: .9rem;
-  opacity: .8;
-  margin-bottom: 6px;
-}
-
-/* Small screens: a touch more breathing room */
-@media (max-width: 760px) {
-  .news-entry { padding: 14px 14px; }
-}
-/* Circular emblem container */
-.emblem-circle{
-  width:160px; aspect-ratio:1 / 1;
-  border-radius:50%;
-  overflow:hidden;
-  display:inline-grid; place-items:center;
-  background:#000; /* keeps the black circle you want */
-}
-/* Make the art fit fully inside the circle */
-.emblem-circle img{ max-width:92%; height:auto; object-fit:contain; display:block; }
-@media (max-width:760px){ .emblem-circle{ width:128px; } }
-
-/* === Shadow minimal patch === */
-:root{
+  /* Elevation */
   --shadow-1: 0 1px 2px rgba(0,0,0,.06), 0 1px 1px rgba(0,0,0,.04);
-  --shadow-2: 0 2px 6px rgba(0,0,0,.08), 0 1px 3px rgba(0,0,0,.06);
-  --shadow-3: 0 6px 16px rgba(0,0,0,.10), 0 2px 6px rgba(0,0,0,.06);
+  --shadow-2: 0 10px 22px rgba(0,0,0,.20);
+  --shadow-3: 0 28px 84px 10px rgba(0,0,0,.38), 0 14px 32px rgba(0,0,0,.22), 0 1px 0 rgba(0,0,0,.06);
+
+  /* Orbit sizes */
+  --orbit-center: 700px;   /* center circle desktop */
+  --orbit-side:   240px;   /* side circles desktop */
+  --orbit-center-m: 420px; /* center circle mobile */
+  --orbit-side-m:   200px; /* side circles mobile */
+
+  /* Headings */
+  --fz-hero: 48px; --fz-subhero: 40px;
+}
+html,body{
+  margin:0; padding:0; background:var(--bg); color:var(--ink);
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial;
+}
+a{ color:var(--accent); text-decoration:none; }
+a:hover{ text-decoration:underline; }
+[id]{ scroll-margin-top:84px; }
+
+/* ---- Layout containers (same width everywhere) ---- */
+.container,
+.container.wide,
+header .container.wide.nav,
+.hero > .inner,
+.subhero > .inner,
+.page > .container,
+.pagehead > .container{
+  width:var(--frame); margin-left:auto; margin-right:auto; padding-left:0; padding-right:0;
+}
+.section{ padding:32px 0; }
+.page{ padding:26px 0; }
+.pagehead{ padding:22px 0; border-bottom:1px solid var(--line); background:#fafbfe; }
+.pagehead h1{ margin:0; font-size:30px; }
+
+/* ---- Header ---- */
+header{
+  position:sticky; top:0; z-index:20;
+  background:#fff; border-bottom:1px solid var(--line);
+}
+header .container.wide.nav{
+  display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px 0;
+}
+.brand .lab{ font-weight:950; letter-spacing:-.3px; font-size:28px; color:#0a0a0a; }
+
+/* ---- Nav grid: 8 equal black buttons (identical on every page) ---- */
+#site-nav{
+  flex:1;
+  display:grid; grid-template-columns:repeat(8, minmax(0,1fr));
+  gap:12px; align-items:stretch; min-width:0;
+}
+#site-nav > a.navbox{
+  display:flex; align-items:center; justify-content:center;
+  padding:16px 20px; margin:0; height:100%;
+  border-radius:14px; line-height:1.2; text-align:center;
+
+  background:#000; color:#fff; border:1px solid #000;
+  box-shadow:var(--shadow-1);
+  transition:transform .12s ease, box-shadow .12s ease, filter .12s ease;
+}
+#site-nav > a.navbox:hover, #site-nav > a.navbox:focus-visible{
+  transform:translateY(-1px);
+  box-shadow:var(--shadow-2);
+  filter:brightness(1.05);
+}
+#site-nav > a.navbox[aria-current="page"]{
+  position:relative; outline:none;
+  box-shadow:inset 0 0 0 2px #fff, var(--shadow-1);
+}
+#site-nav > a.navbox[aria-current="page"]::after{
+  content:""; position:absolute; left:12px; right:12px; bottom:6px; height:2px; background:#fff; border-radius:2px;
 }
 
-/* no text glow */
-h1, h2, h3, .title, .hero-title { text-shadow: none !important; }
+/* ---- Mobile nav toggle (single source) ---- */
+.hamburger{ display:none; }
+.hamburger .bar{ width:20px; height:2px; background:#111; display:block; }
 
-/* cards and buttons */
-.card, .news-card, .funding-card, .footer-logo-card { box-shadow: var(--shadow-2); }
-.card:hover, .news-card:hover, .funding-card:hover, .footer-logo-card:hover { box-shadow: var(--shadow-3); }
-header .btn, .hero .btn { box-shadow: var(--shadow-1); }
-header .btn:hover, .hero .btn:hover { box-shadow: var(--shadow-2); }
+/* ---- Hero / Subhero (shared frame) ---- */
+.hero, .subhero{
+  position:relative; min-height:60vh; display:flex; align-items:flex-end; overflow:hidden;
+  background:#0d1220; background-size:cover; background-position:center; background-repeat:no-repeat;
+}
+.hero::before, .subhero::before{
+  content:""; position:absolute; inset:0;
+  background-image:linear-gradient(180deg, rgba(10,14,22,.02) 0, rgba(10,14,22,.28) 60%, rgba(10,14,22,.40) 100%);
+  pointer-events:none;
+}
+.hero > .inner, .subhero > .inner{ position:relative; color:#fff; padding:40px 0; }
+.hero h1{ font-size:var(--fz-hero); margin:0 0 8px; letter-spacing:-.5px; }
+.subhero h1{ font-size:var(--fz-subhero); margin:0 0 6px; letter-spacing:-.4px; }
+.hero p.lead, .subhero p.lead{ font-size:18px; margin:0 0 10px; color:#f0f3f9; max-width:900px; }
+.hero .pi{ font-size:16px; color:#d7deec; margin-top:6px; }
+.cta{ display:flex; gap:16px; flex-wrap:wrap; margin-top:16px; align-items:center; }
+.cta > *{ margin:0; }
 
+/* ---- Buttons ---- */
+.btn{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:10px 16px; border-radius:12px; font-size:14px;
+  border:1px solid #000; background:#000; color:#fff; cursor:pointer;
+  box-shadow:var(--shadow-1);
+  transition:transform .1s ease, box-shadow .12s ease, background .12s ease;
+}
+.btn:hover{ background:#222; transform:translateY(-1px); box-shadow:var(--shadow-2); }
+.btn:active{ transform:translateY(0); }
+.btn.alt{ background:#fff; color:#111; border-color:#111; }
+.btn.alt:hover{ background:#f7f7f7; }
 
-/* === HEADER BUTTONS (black with white text) === */
-header .nav nav > a.navbox {
-  background: #000 !important;
-  color: #fff !important;
-  border: 1px solid #000 !important;
-  border-radius: 14px !important;
-  box-shadow: 0 6px 16px rgba(0,0,0,.18) !important;
-  transition: transform .12s ease, box-shadow .12s ease, filter .12s ease !important;
-  text-decoration: none !important;
+/* =========================================================
+   ORBIT (center emblem + 3 side circles) — locked geometry
+   ========================================================= */
+.orbit{
+  /* Left and right columns have a minimum so layout stays symmetrical */
+  display:grid;
+  grid-template-columns: minmax(360px,1fr) var(--orbit-center) minmax(360px,1fr);
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "left center rt"
+    "left center rb";
+  gap:28px 56px;
+  align-items:start; justify-items:center;
+  width:var(--frame); margin:0 auto;
 }
-header .nav nav > a.navbox:hover,
-header .nav nav > a.navbox:focus-visible {
-  transform: translateY(-1px);
-  box-shadow: 0 10px 22px rgba(0,0,0,.24) !important;
-  filter: brightness(1.06);
-}
-header .nav nav > a.navbox[aria-current="page"] {
-  position: relative;
-  box-shadow: inset 0 0 0 2px #fff, 0 6px 16px rgba(0,0,0,.18) !important;
-}
-header .nav nav > a.navbox[aria-current="page"]::after {
-  content: "";
-  position: absolute;
-  left: 12px; right: 12px; bottom: 6px;
-  height: 2px; background: #fff; border-radius: 2px;
-}
+.orbit-left{   grid-area:left;   }
+.orbit-center{ grid-area:center; }
+.orbit-rt{     grid-area:rt;     }
+.orbit-rb{     grid-area:rb;     }
 
-/* === HOMEPAGE CARDS === */
-/* Latest publications: warm orange gradient */
-body[data-page="home"] .pub-grid > li > a.cardbox.pub-item {
-  display: block;
-  background: linear-gradient(135deg, #ffe9d6, #ffffff) !important;
-  border: 1px solid rgba(0,0,0,.06);
-  border-radius: 14px;
-  box-shadow: 0 10px 30px rgba(0,0,0,.08) !important;
-  transition: transform .12s ease, box-shadow .12s ease, filter .12s ease !important;
-  text-decoration: none !important;
-}
-body[data-page="home"] .pub-grid > li > a.cardbox.pub-item:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 30px rgba(0,0,0,.14) !important;
-  filter: brightness(1.02);
-}
-body[data-page="home"] .pub-grid > li > a.cardbox.pub-item > .pub-card {
-  background: transparent !important;
-  border: 0 !important;
-  box-shadow: none !important;
-  padding: 14px 16px;
-}
-
-/* News cards: cool blue gradient */
-body[data-page="home"] .news-list.clean > li > a.cardbox.news-item {
-  display: block;
-  background: linear-gradient(135deg, #e6f2ff, #ffffff) !important;
-  border: 1px solid rgba(0,0,0,.06);
-  border-radius: 14px;
-  box-shadow: 0 10px 30px rgba(0,0,0,.08) !important;
-  transition: transform .12s ease, box-shadow .12s ease, filter .12s ease !important;
-  text-decoration: none !important;
-}
-body[data-page="home"] .news-list.clean > li > a.cardbox.news-item:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 30px rgba(0,0,0,.14) !important;
-  filter: brightness(1.02);
-}
-
-/* emblem stays larger in the center */
-body[data-page="home"] .orbit .emblem-link{
-  display:block;
-  width:520px;
-  height:520px;
-  border-radius:50%;
-}
-
-/* keep the center emblem larger */
-body[data-page="home"] .orbit a.emblem-link{
-  width: 520px !important;
-  height: 520px !important;
-  border-radius: 50% !important;
-}
-
-
-/* emblem stays larger in the center */
-body[data-page="home"] .orbit a.emblem-link{
-  width: 520px !important;
-  height: 520px !important;
-  border-radius: 50% !important;
-}
-
-@media (max-width:1100px){
-  body[data-page="home"] .orbit a.circle-card{ width:220px !important; height:220px !important; }
-  body[data-page="home"] .orbit a.emblem-link{ width:320px !important; height:320px !important; }
-}
-/* Emblem: stärkerer Grundschatten + Hover */
-a.emblem-link{
-  box-shadow: 0 14px 36px rgba(0,0,0,.18) !important;
-  transition: box-shadow .12s ease, transform .12s ease;
-}
-a.emblem-link:hover,
-a.emblem-link:focus-visible{
-  box-shadow: 0 16px 40px rgba(0,0,0,.22) !important;
-}
-
-/* falls Schatten irgendwo abgeschnitten wird */
-.orbit, .container, .container.wide { overflow: visible !important; }
-/* Emblem container: white circle + strong shadow (wins over earlier rules) */
-a.round-link.emblem-link{
-  background: #fff !important;
-  box-shadow: 0 14px 36px rgba(0,0,0,.18) !important;
-  transition: box-shadow .12s ease, transform .12s ease;
-}
-a.round-link.emblem-link:hover,
-a.round-link.emblem-link:focus-visible{
-  box-shadow: 0 16px 40px rgba(0,0,0,.22) !important;
-}
-
-/* Do NOT let the image add its own shadow (avoid double-shadow look) */
-a.round-link.emblem-link > img{
-  box-shadow: none !important;
-}
-/* Force white circle + strong shadow on emblem only */
-#emblem{
-  background:#fff !important;
-  box-shadow:0 16px 40px rgba(0,0,0,.22) !important;
+/* Side circles */
+.round-link.circle-card{
+  width:var(--orbit-side); height:var(--orbit-side);
+  border-radius:50%; overflow:hidden; position:relative; display:block; background:#fff;
+  box-shadow:0 18px 44px -12px rgba(0,0,0,.32), 0 6px 16px -6px rgba(0,0,0,.22), 0 1px 0 rgba(0,0,0,.06);
   transition:box-shadow .12s ease, transform .12s ease;
 }
-#emblem:hover,
-#emblem:focus-visible{
-  box-shadow:0 18px 48px rgba(0,0,0,.26) !important;
+.round-link.circle-card:hover{
+  transform:translateY(-2px);
+  box-shadow:0 24px 64px -14px rgba(0,0,0,.36), 0 10px 24px -8px rgba(0,0,0,.24), 0 1px 0 rgba(0,0,0,.06);
+}
+.round-link.circle-card > img.circle-img{
+  position:absolute; inset:-22px; width:calc(100% + 44px); height:calc(100% + 44px);
+  display:block; object-fit:cover; border:0; border-radius:0;
 }
 
-/* Make sure the image itself has no shadow */
-#emblem > img{ box-shadow:none !important; }
+/* Center emblem (bigger + stronger shadow) */
+.round-link.emblem-link{
+  width:var(--orbit-center); height:var(--orbit-center);
+  border-radius:50%; overflow:hidden; position:relative; display:block; background:#fff;
+  box-shadow:var(--shadow-3);
+  transition:box-shadow .12s ease, transform .12s ease;
+}
+.round-link.emblem-link:hover{
+  transform:translateY(-2px);
+  box-shadow:0 34px 100px 12px rgba(0,0,0,.42), 0 16px 36px rgba(0,0,0,.24), 0 1px 0 rgba(0,0,0,.06);
+}
+.round-link.emblem-link > img{ width:100%; height:100%; object-fit:cover; display:block; box-shadow:none; }
 
-/* If any ancestor clips shadows, unblock it */
-.orbit, .container, .container.wide{ overflow:visible !important; }
-/* Emblem — stronger, layered shadow */
-#emblem{
-  background:#fff !important;
-  position: relative;        /* ensure it can sit above siblings */
-  z-index: 2;
-  box-shadow:
-    0 22px 60px rgba(0,0,0,.28),   /* big, soft layer */
-    0 10px 24px rgba(0,0,0,.16),   /* medium layer */
-    0 1px 0 rgba(0,0,0,.06)        /* crisp contact */
-  !important;
-  transition: box-shadow .12s ease, transform .12s ease;
-}
-#emblem:hover, #emblem:focus-visible{
-  box-shadow:
-    0 26px 72px rgba(0,0,0,.32),
-    0 12px 28px rgba(0,0,0,.18),
-    0 1px 0 rgba(0,0,0,.06)
-  !important;
-}
+/* Captions under circles (larger, unified) */
+.orbit .body{ margin-top:16px; max-width:26ch; text-align:center; }
+.orbit .body h3{ margin:0 0 8px; font-size:1.5rem; line-height:1.2; font-weight:800; letter-spacing:-0.01em; }
+.orbit .body p{  margin:0;        font-size:1.1rem; line-height:1.28; opacity:.96; }
 
-/* Make sure the image itself isn't adding another halo */
-#emblem > img{ box-shadow:none !important; }
+/* ---- Grids / tiles / papers ---- */
+.grid{ display:grid; grid-template-columns:repeat(12,1fr); gap:14px; }
+.tile{
+  grid-column:span 4; border:1px solid var(--line); border-radius:12px; overflow:hidden; background:#fff;
+  transition:transform .12s ease, box-shadow .12s ease;
+}
+.tile:hover{ transform:translateY(-2px); box-shadow:0 6px 18px rgba(0,0,0,.06); }
+.tile img{ width:100%; display:block; object-fit:cover; }
+.tile .body{ padding:12px; }
+.tile h3{ margin:0 0 6px; font-size:18px; }
+.tile p{ margin:0 0 8px; color:#4d5665; }
 
-/* Ensure no ancestor clips the shadow */
-.orbit, .container, .container.wide{ overflow: visible !important; }
-#emblem{
-  box-shadow: var(--elev-emblem) !important;
+/* Paper list */
+.paper-list{ display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:14px; }
+a.paper-card{
+  display:block; padding:14px 16px; border-radius:14px; text-decoration:none;
+  border:1px solid #0b0d12; background:linear-gradient(#fff,#f7f8fb); color:#0b0d12;
+  box-shadow:0 1px 0 rgba(0,0,0,.12), 0 6px 14px rgba(0,0,0,.06);
+  transition:transform .05s ease, box-shadow .15s ease;
 }
-#emblem:hover, #emblem:focus-visible{
-  box-shadow: var(--elev-emblem-hover) !important;
-}
-/* Punchier emblem shadow */
-#emblem{
-  z-index: 5; /* sit above neighbors */
-  box-shadow:
-    0 28px 84px 10px rgba(0,0,0,.38),  /* big soft w/ spread */
-    0 14px 32px     rgba(0,0,0,.22),   /* mid layer */
-    0 1px 0         rgba(0,0,0,.06)    /* contact */
-  !important;
-}
-#emblem:hover, #emblem:focus-visible{
-  box-shadow:
-    0 34px 100px 12px rgba(0,0,0,.42),
-    0 16px 36px        rgba(0,0,0,.24),
-    0 1px 0            rgba(0,0,0,.06)
-  !important;
+a.paper-card:hover{ transform:translateY(-1px); box-shadow:0 2px 0 rgba(0,0,0,.14), 0 12px 22px rgba(0,0,0,.10); }
+.paper-title{ font-weight:700; margin:0 0 6px; }
+.paper-authors{ color:#334155; font-size:.95rem; }
+.paper-meta{ color:#475569; font-size:.9rem; margin-top:3px; }
+.paper-tags{ margin-top:8px; }
+.paper-tags .tag{
+  display:inline-block; background:#eef2ff; border:1px solid #e2e8f0; color:#334155;
+  border-radius:999px; padding:2px 8px; font-size:.8rem; margin-right:6px;
 }
 
-/* === CANONICAL — HOME small circles (260×260, no rim, strong shadow) === */
-html body[data-page="home"] .orbit a.round-link.circle-card{
-  width:260px !important;
-  height:260px !important;
-  flex:0 0 260px !important;
-  position:relative !important;
-  border-radius:50% !important;
-  background:#fff !important;
-  overflow:hidden !important;
+/* ---- Research / side column layouts ---- */
+.research-wrap{ display:grid; grid-template-columns:0.45fr 1.55fr; gap:20px; align-items:start; }
+.research-aside{ position:sticky; top:84px; }
+.emblem-panel{ background:#fff; }
+.emblem-panel .pad{ padding:0; display:grid; justify-items:center; }
+.emblem-panel img{ width:220px; height:220px; }
 
-  /* strong but compact shadow */
-  box-shadow:
-    0 18px 44px -12px rgba(0,0,0,.32),
-    0  6px 16px  -6px rgba(0,0,0,.22),
-    0  1px  0           rgba(0,0,0,.06)
-  !important;
-  transition: box-shadow .12s ease;
+.page-wrap{ display:grid; grid-template-columns:0.40fr 1.60fr; gap:20px; align-items:start; }
+.page-aside{ position:sticky; top:84px; }
+.page-aside .emblem-panel{ background:#fff; }
+.page-aside .emblem-panel .pad{ padding:0; display:grid; justify-items:center; }
+.page-aside .emblem-panel img{ width:200px; height:200px; }
+
+/* ---- Funding / Sponsor / Partner ---- */
+.funding-band{ background:#f7f9fc; color:#0b0d12; border-top:1px solid #e7edf2; border-bottom:1px solid #e7edf2; }
+.funding-band .container{
+  display:flex; gap:28px; align-items:center; flex-wrap:wrap; justify-content:center; padding:20px 0;
 }
-html body[data-page="home"] .orbit a.round-link.circle-card:hover,
-html body[data-page="home"] .orbit a.round-link.circle-card:focus-visible{
-  box-shadow:
-    0 24px 64px -14px rgba(0,0,0,.36),
-    0 10px 24px  -8px rgba(0,0,0,.24),
-    0  1px  0           rgba(0,0,0,.06)
-  !important;
+.funding-pill{
+  display:flex; gap:14px; align-items:center; background:#fff;
+  border:1px solid #e1e6ee; border-radius:16px; padding:10px 14px;
 }
+.funding-pill img{ height:72px; width:auto; display:block; }
+.funding-pill .txt{ line-height:1.2; }
+.funding-pill .txt .kicker{ opacity:.85; font-size:.9rem; letter-spacing:.02em; }
+.funding-pill .txt a{ color:#0b0d12; text-decoration:underline; }
+.funding-pill .txt a:hover{ color:#111; text-decoration:none; }
 
-/* Image: overfill to kill the inner rim */
-html body[data-page="home"] .orbit a.round-link.circle-card > img.circle-img{
-  position:absolute !important;
-  top:-14px !important;
-  left:-14px !important;
-  width:calc(100% + 28px) !important;
-  height:calc(100% + 28px) !important;
-  z-index:2 !important;
-
-  display:block !important;
-  object-fit:cover !important;
-  object-position:50% 50% !important;
-
-  border:0 !important;
-  border-radius:50% !important;     /* keep round mask; container clips overflow */
-  margin:0 !important;
-  padding:0 !important;
-  background:transparent !important;
-  box-shadow:none !important;
-  transform:none !important;
+.partner-card{
+  display:flex; align-items:center; justify-content:center;
+  margin:12px auto; padding:12px 16px;
+  background:#fff; border:1px solid var(--line); border-radius:12px;
+  transition:transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+  box-shadow:var(--shadow-1);
 }
-/* === END CANONICAL === */
+.partner-card:hover{ transform:translateY(-2px); box-shadow:var(--shadow-2); border-color:#dfe6ee; }
+.partner-card img{ max-height:48px; width:auto; height:auto; object-fit:contain; display:block; }
 
-/* === HOME · Small circles — kill hover rim for good === */
-
-/* 1) The round container: stays fixed; never adds border/padding/filter on hover */
-html body[data-page="home"] .orbit a.round-link.circle-card{
-  position: relative !important;
-  width: 260px !important;
-  height: 260px !important;
-  border-radius: 50% !important;
-  background: #fff !important;
-  overflow: hidden !important;
-  border: 0 !important;
-  outline: 0 !important;
-  filter: none !important;
-  padding: 0 !important;
+.sponsor-grid{
+  display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:16px; margin:0; padding:0; list-style:none;
 }
-html body[data-page="home"] .orbit a.round-link.circle-card:hover,
-html body[data-page="home"] .orbit a.round-link.circle-card:focus-visible,
-html body[data-page="home"] .orbit a.round-link.circle-card:active{
-  border: 0 !important;
-  outline: 0 !important;
-  filter: none !important;
-  padding: 0 !important;
+.sponsor-card a{
+  display:flex; flex-direction:column; align-items:center; gap:10px;
+  background:#fff; border:1px solid var(--line); border-radius:12px; padding:14px; color:inherit; text-decoration:none;
+  transition:transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+  box-shadow:var(--shadow-1);
 }
+.sponsor-card a:hover{ transform:translateY(-2px); box-shadow:var(--shadow-2); border-color:#dfe6ee; }
+.sponsor-card img{ max-height:64px; width:auto; height:auto; object-fit:contain; display:block; }
 
-/* 2) The image: overscan more, no border-radius (avoid anti-alias seam), never animates */
-html body[data-page="home"] .orbit a.round-link.circle-card > img.circle-img{
-  position: absolute !important;
-  top: -18px !important;
-  left: -18px !important;
-  width: calc(100% + 36px) !important;
-  height: calc(100% + 36px) !important;
+/* ---- News ---- */
+.news-list{
+  display:grid; gap:16px; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+  margin:0; padding:0; list-style:none;
+}
+.news-item{
+  display:block; padding:14px; background:#fff; color:inherit;
+  border:1px solid rgba(0,0,0,.08); border-radius:12px; box-shadow:var(--shadow-1);
+}
+.news-item .meta{ color:var(--muted); font-size:.9rem; margin-bottom:6px; }
+.news-item h3{ margin:4px 0 6px; font-size:1.1rem; }
+.news-item p{ margin:0; }
 
-  display: block !important;
-  object-fit: cover !important;
-  object-position: 50% 50% !important;
+.news-entry{
+  background:#fff; border:1px solid rgba(0,0,0,.08); border-radius:12px;
+  padding:16px 18px; margin:18px 0; scroll-margin-top:84px;
+}
+.news-entry .meta{ font-size:.9rem; opacity:.8; margin-bottom:6px; }
+.news-entry h3{ margin:4px 0 10px; font-size:1.25rem; }
+.news-entry h4{ margin:14px 0 8px; font-size:1.05rem; }
 
-  /* IMPORTANT: no second rounding on the image — container masks it */
-  border-radius: 0 !important;
-
-  margin: 0 !important;
-  padding: 0 !important;
-  background: transparent !important;
-  box-shadow: none !important;
-  filter: none !important;
-  transform: none !important;
-  transition: none !important;
-  z-index: 1 !important;
+/* ---- Footer ---- */
+footer{
+  border-top:1px solid var(--line); padding:16px 0; color:#6a7380; font-size:14px; margin-top:22px; text-align:center;
 }
 
-/* 3) Freeze the exact same geometry on ALL interactive states + any generic hover rules */
-html body[data-page="home"] .orbit a.round-link.circle-card:hover > img.circle-img,
-html body[data-page="home"] .orbit a.round-link.circle-card:focus-visible > img.circle-img,
-html body[data-page="home"] .orbit a.round-link.circle-card:active > img.circle-img,
-html body[data-page="home"] .orbit a.round-link.circle-card:hover .circle-img,
-html body[data-page="home"] .orbit a.round-link.circle-card:focus-visible .circle-img,
-html body[data-page="home"] .orbit a.round-link.circle-card:active .circle-img{
-  top: -20px !important;
-  left: -20px !important;
-  width: calc(100% + 40px) !important;
-  height: calc(100% + 40px) !important;
-  border-radius: 0 !important;
-  transform: none !important;
-  transition: none !important;
-  filter: none !important;
-}
-/* HOME — small-circle image geometry: identical in ALL states */
-html body[data-page="home"] .orbit a.round-link.circle-card.round-link.circle-card > img.circle-img,
-html body[data-page="home"] .orbit a.round-link.circle-card.round-link.circle-card:hover > img.circle-img,
-html body[data-page="home"] .orbit a.round-link.circle-card.round-link.circle-card:focus-visible > img.circle-img,
-html body[data-page="home"] .orbit a.round-link.circle-card.round-link.circle-card:active > img.circle-img{
-  position: absolute !important;
-  top: -26px !important;
-  left: -26px !important;
-  width: calc(100% + 52px) !important;
-  height: calc(100% + 52px) !important;
+/* ---- Responsive ---- */
+@media (max-width:1100px){
+  .research-wrap{ grid-template-columns:1fr; } .research-aside{ position:static; }
+  .emblem-panel img{ width:180px; height:180px; }
 
-  display: block !important;
-  object-fit: cover !important;
-  object-position: 50% 50% !important;
+  .page-wrap{ grid-template-columns:1fr; } .page-aside{ position:static; }
+  .page-aside .emblem-panel img{ width:160px; height:160px; }
 
-  /* avoid double-rounded anti-alias seam */
-  border-radius: 0 !important;
-
-  margin: 0 !important;
-  padding: 0 !important;
-  background: transparent !important;
-  box-shadow: none !important;
-  filter: none !important;
-  transform: none !important;
-  transition: none !important;
-  z-index: 1 !important;
-}
-/* ==== HOME — Bigger circles (desktop + mobile), keep no-rim + shadows ==== */
-:root{
-  /* Adjust these two and everything follows */
-  --orbit-small: 320px;   /* each side circle size on desktop (was 260px) */
-  --orbit-center: 620px;  /* emblem size on desktop (was 520px) */
-
-  /* Mobile sizes */
-  --orbit-small-m: 240px; /* side circles on phones (was 220px) */
-  --orbit-center-m: 380px;/* emblem on phones (was 320px) */
-
-  /* Overscan to kill inner transparent ring (px past the mask) */
-  --orbit-overscan: 22px; /* if a hairline appears, bump to 24–26 */
-}
-
-/* Grid: give the center column the emblem width so layout doesn't wrap oddly */
-html body[data-page="home"] .orbit{
-  grid-template-columns: minmax(360px,1fr) var(--orbit-center) minmax(360px,1fr) !important;
-  gap: 28px 56px !important;
-}
-
-/* Center emblem container */
-html body[data-page="home"] .orbit a.round-link.emblem-link{
-  width: var(--orbit-center) !important;
-  height: var(--orbit-center) !important;
-  border-radius: 50% !important;
-  background: #fff !important;
-  overflow: hidden !important;
-  position: relative !important;
-
-  /* keep the nice emblem shadow */
-  box-shadow:
-    0 28px 84px 10px rgba(0,0,0,.38),
-    0 14px 32px     rgba(0,0,0,.22),
-    0 1px 0         rgba(0,0,0,.06) !important;
-  transition: box-shadow .12s ease, transform .12s ease;
-}
-html body[data-page="home"] .orbit a.round-link.emblem-link:hover,
-html body[data-page="home"] .orbit a.round-link.emblem-link:focus-visible{
-  box-shadow:
-    0 34px 100px 12px rgba(0,0,0,.42),
-    0 16px 36px        rgba(0,0,0,.24),
-    0 1px 0            rgba(0,0,0,.06) !important;
-}
-
-/* Side circles (Macrophage, Neuron, β-cell) */
-html body[data-page="home"] .orbit a.round-link.circle-card{
-  width: var(--orbit-small) !important;
-  height: var(--orbit-small) !important;
-  flex: 0 0 var(--orbit-small) !important;
-  border-radius: 50% !important;
-  background: #fff !important;        /* ensure white disk (fixes phone black) */
-  overflow: hidden !important;
-  position: relative !important;
-
-  /* strong but compact shadow (doesn’t make them look larger) */
-  box-shadow:
-    0 18px 44px -12px rgba(0,0,0,.32),
-    0  6px 16px  -6px rgba(0,0,0,.22),
-    0  1px  0           rgba(0,0,0,.06) !important;
-  transition: box-shadow .12s ease, transform .12s ease;
-}
-html body[data-page="home"] .orbit a.round-link.circle-card:hover,
-html body[data-page="home"] .orbit a.round-link.circle-card:focus-visible{
-  transform: translateY(-2px);
-  box-shadow:
-    0 24px 64px -14px rgba(0,0,0,.36),
-    0 10px 24px  -8px rgba(0,0,0,.24),
-    0  1px  0           rgba(0,0,0,.06) !important;
-}
-
-/* Image overfill to remove any inner rim — static AND hover */
-html body[data-page="home"] .orbit a.round-link.circle-card > img.circle-img,
-html body[data-page="home"] .orbit a.round-link.circle-card:hover > img.circle-img,
-html body[data-page="home"] .orbit a.round-link.circle-card:focus-visible > img.circle-img,
-html body[data-page="home"] .orbit a.round-link.circle-card:active > img.circle-img{
-  position: absolute !important;
-  top: calc(var(--orbit-overscan) * -1) !important;
-  left: calc(var(--orbit-overscan) * -1) !important;
-  width: calc(100% + (var(--orbit-overscan) * 2)) !important;
-  height: calc(100% + (var(--orbit-overscan) * 2)) !important;
-
-  display: block !important;
-  object-fit: cover !important;
-  object-position: 50% 50% !important;
-  border: 0 !important;
-  border-radius: 0 !important;  /* avoid double antialias seam */
-  margin: 0 !important; padding: 0 !important;
-  background: transparent !important;
-  box-shadow: none !important;
-  transform: none !important; transition: none !important; filter: none !important;
-  z-index: 1 !important;
-}
-
-/* Mobile: shrink gracefully and keep white (fixes “black circle” on phones) */
-@media (max-width: 1100px){
-  html body[data-page="home"] .orbit{
-    grid-template-columns: 1fr !important;
-    gap: 16px !important;
+  /* Orbit sizes */
+  .orbit{
+    grid-template-columns: minmax(280px,1fr) var(--orbit-center-m) minmax(280px,1fr);
   }
-  html body[data-page="home"] .orbit a.round-link.emblem-link{
-    width: var(--orbit-center-m) !important;
-    height: var(--orbit-center-m) !important;
+  .round-link.emblem-link{ width:var(--orbit-center-m); height:var(--orbit-center-m); }
+  .round-link.circle-card{ width:var(--orbit-side-m); height:var(--orbit-side-m); }
+}
+@media (max-width:960px){ .tile{ grid-column:span 6; } }
+@media (max-width:640px){ .tile{ grid-column:span 12; } }
+@media (max-width:760px){
+  header .nav{ position:relative; }
+  .hamburger{
+    display:inline-flex; flex-direction:column; gap:4px;
+    width:40px; height:40px; align-items:center; justify-content:center;
+    background:#fff; border:1px solid rgba(0,0,0,.12); border-radius:10px; cursor:pointer;
   }
-  html body[data-page="home"] .orbit a.round-link.circle-card{
-    width: var(--orbit-small-m) !important;
-    height: var(--orbit-small-m) !important;
-    flex-basis: var(--orbit-small-m) !important;
-    background: #fff !important;  /* re-assert white on phone */
-  }
+  #site-nav{ display:none; }
+  #site-nav.open{ display:grid; }
 }
-/* ==== HOME — layout & sizes (bigger emblem, smaller side circles) ==== */
-
-/* 1) Make the center column match the new emblem size so the grid stays tidy */
-body[data-page="home"] .orbit{
-  grid-template-columns: minmax(360px,1fr) 700px minmax(360px,1fr) !important; /* middle col = emblem size */
-  gap: 28px 56px !important;
-}
-
-/* 2) Big emblem size (anchor has id="emblem" from before) */
-#emblem{
-  width: 700px !important;
-  height: 700px !important;
-  border-radius: 50% !important;
-  overflow: hidden !important;
-  position: relative !important;
-}
-
-/* Ensure the emblem image still fills perfectly (keep your existing transform if you used one) */
-#emblem > img{
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover !important;
-  display: block !important;
-  /* If you previously used a slight translateY / scale to center the artwork,
-     keep it; otherwise leave as-is. */
-}
-
-/* 3) Smaller side circles (keeps your no-rim overscan working) */
-body[data-page="home"] .orbit a.round-link.circle-card{
-  width: 240px !important;
-  height: 240px !important;
-  flex: 0 0 240px !important;
-  border-radius: 50% !important;
-  overflow: hidden !important;
-  background: #fff !important;
-  position: relative !important;
-}
-
-/* (Your existing overscan rule for small-circle <img> stays as-is)
-   Example (what you already have, keep it):
-   body[data-page="home"] .orbit a.round-link.circle-card.round-link.circle-card > img.circle-img{ 
-     position:absolute; top:-22px; left:-22px; width:calc(100% + 44px); height:calc(100% + 44px);
-     border-radius:0; object-fit:cover; …
-   }
-*/
-
-/* 4) Headline under the emblem: bigger and further from the emblem */
-body[data-page="home"] .tagline{
-  margin-top: 32px !important;         /* more distance from the emblem */
-  font-size: 2.4rem !important;        /* was ~1.35rem */
-  line-height: 1.15 !important;
-  font-weight: 800 !important;
-  letter-spacing: -0.01em !important;
-  text-align: center !important;
-}
-body[data-page="home"] .tagline-sub{
-  margin-top: 8px !important;
-  font-size: 1.2rem !important;
-  line-height: 1.25 !important;
-  opacity: .92 !important;
-  text-align: center !important;
-}
-
-/* 5) Mobile: keep things comfortable (optional; tweak if you like) */
-@media (max-width: 1100px){
-  body[data-page="home"] .orbit{ grid-template-columns: 1fr !important; gap: 16px !important; }
-  #emblem{ width: 380px !important; height: 380px !important; }
-  body[data-page="home"] .orbit a.round-link.circle-card{
-    width: 220px !important; height: 220px !important; flex-basis: 220px !important;
-  }
-  body[data-page="home"] .tagline{ font-size: 2rem !important; margin-top: 24px !important; }
-  body[data-page="home"] .tagline-sub{ font-size: 1.05rem !important; }
-}
-/* === HOME — bigger emblem, smaller side circles, perfect centering === */
-
-/* Center items in their grid cells + give the middle column the emblem's width */
-body[data-page="home"] .orbit{
-  grid-template-columns: 1fr 800px 1fr !important; /* middle col = emblem size */
-  justify-items: center !important;
-  gap: 28px 56px !important;
-}
-
-/* Ensure all four tiles are centered in their cells */
-body[data-page="home"] .orbit-center,
-body[data-page="home"] .orbit-left,
-body[data-page="home"] .orbit-rt,
-body[data-page="home"] .orbit-rb{
-  justify-self: center !important;
-  text-align: center !important;
-}
-
-/* Emblem MUCH bigger (anchor has id="emblem") */
-#emblem{
-  width: 800px !important;
-  height: 800px !important;
-  border-radius: 50% !important;
-  overflow: hidden !important;
-  position: relative !important;
-}
-
-/* Emblem image fills (keep any small translate/scale you added earlier) */
-#emblem > img{
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover !important;
-  display: block !important;
-}
-
-/* Side circles a bit smaller (no-rim overscan you added stays intact) */
-body[data-page="home"] .orbit a.round-link.circle-card{
-  width: 210px !important;
-  height: 210px !important;
-  flex: 0 0 210px !important;
-  border-radius: 50% !important;
-  overflow: hidden !important;
-  background: #fff !important;
-  position: relative !important;
-}
-
-/* Tagline under emblem: bigger + more spacing + centered */
-body[data-page="home"] .tagline{
-  margin-top: 40px !important;     /* more distance below emblem */
-  font-size: 2.8rem !important;    /* larger headline */
-  line-height: 1.15 !important;
-  font-weight: 800 !important;
-  text-align: center !important;
-}
-body[data-page="home"] .tagline-sub{
-  margin-top: 10px !important;
-  font-size: 1.25rem !important;
-  line-height: 1.25 !important;
-  text-align: center !important;
-}
-
-/* Mobile: stack, keep sizes sensible and centered */
-@media (max-width: 1100px){
-  body[data-page="home"] .orbit{
-    grid-template-columns: 1fr !important;
-    gap: 16px !important;
-  }
-  #emblem{
-    width: 420px !important;
-    height: 420px !important;
-  }
-  body[data-page="home"] .orbit a.round-link.circle-card{
-    width: 200px !important;
-    height: 200px !important;
-    flex-basis: 200px !important;
-  }
-  body[data-page="home"] .tagline{
-    font-size: 2.2rem !important;
-    margin-top: 28px !important;
-  }
-  body[data-page="home"] .tagline-sub{
-    font-size: 1.05rem !important;
-  }
-}
-/* === HOME — small-circle captions like the emblem === */
-body[data-page="home"] .orbit .body{
-  margin-top: 14px !important;         /* space between circle and text */
-  text-align: center !important;       /* center like the emblem tagline */
-}
-body[data-page="home"] .orbit .body h3{
-  margin: 0 0 6px 0 !important;
-  font-size: 1.35rem !important;       /* bigger title */
-  line-height: 1.2 !important;
-  font-weight: 800 !important;         /* make it pop */
-}
-body[data-page="home"] .orbit .body p{
-  margin: 0 !important;
-  font-size: 1.05rem !important;       /* readable subtitle */
-  line-height: 1.28 !important;
-  opacity: .95 !important;
-}
-
-/* Optional: keep caption width tidy under each circle */
-body[data-page="home"] .orbit .body{
-  max-width: 26ch !important;          /* prevents super-long lines */
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-
-/* === HOME — give the Open positions bar more breathing room under emblem === */
-body[data-page="home"] .hiring{
-  margin-top: 48px !important;         /* was ~26px */
-  margin-bottom: 12px !important;
-}
-
-/* Phone tweaks */
-@media (max-width: 1100px){
-  body[data-page="home"] .orbit .body h3{ font-size: 1.25rem !important; }
-  body[data-page="home"] .orbit .body p { font-size: 1.0rem  !important; }
-  body[data-page="home"] .hiring{ margin-top: 32px !important; }
-}
-/* HOME — Open positions banner: never underline (even on hover/focus) */
-body[data-page="home"] .hiring,
-body[data-page="home"] .hiring:hover,
-body[data-page="home"] .hiring:focus,
-body[data-page="home"] .hiring:focus-visible,
-body[data-page="home"] .hiring *{
-  text-decoration: none !important;
-  border-bottom: 0 !important;
-}
-
-
-
-
-
+@media (max-width:680px){ .news-entry{ padding:14px; } }
 

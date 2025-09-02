@@ -1,120 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Favicon and icons -->
-  <link rel="icon" href="assets/favicon.png" sizes="32x32">
-  <link rel="manifest" href="manifest.webmanifest">
-  <meta name="theme-color" content="#0d1220">
-  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-  <link rel="alternate" type="application/rss+xml" title="Ricci Lab — News" href="/news.xml">
-  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
-
-  <!-- Basic SEO -->
-  <meta name="description" content="Ricci Lab — Organelle crosstalk in disease. Metabolism and innate immunity through lipids and membranes.">
-
-  <!-- Open Graph and Twitter -->
-  <meta property="og:title" content="Ricci Lab — Funding">
-  <meta property="og:description" content="We gratefully acknowledge support from Inserm, CNRS, ERC, and other funders.">
-  <meta property="og:image" content="https://riccilab.org/assets/og-sponsors.jpg">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://riccilab.org/sponsors.html">
-  <meta name="twitter:card" content="summary_large_image">
-
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1" name="viewport">
-  <title>Ricci Lab — Funding</title>
-  <link href="assets/style.css?v=igbmc_fix5" rel="stylesheet">
-  <style>
-  /* Funding logos: keep inside their card and scale nicely */
-  main [class*="sponsor"], main [class*="funding"], main [class*="Sponsors"], main [class*="Funding"] {
-    overflow: hidden; /* remove the empty ruleset warning */
-  }
-  main [class*="sponsor"] > *, main [class*="funding"] > *, main [class*="Sponsors"] > *, main [class*="Funding"] > * {
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  /* images and SVGs stay within the card */
-  main [class*="sponsor"] img,
-  main [class*="funding"] img,
-  main [class*="Sponsors"] img,
-  main [class*="Funding"] img,
-  main [class*="sponsor"] svg,
-  main [class*="funding"] svg,
-  main [class*="Sponsors"] svg,
-  main [class*="Funding"] svg {
-    max-width: 100%;
-    width: auto;
-    height: auto;
-    max-height: 90px; /* tweak if you want taller logos */
-    object-fit: contain;
-    display: block;
-  }
-  /* if the ARC filename contains "arc", add an extra guard */
-  main img[src*="arc"], main svg[src*="arc"] {
-    max-height: 90px;
-  }
-  </style>
+  <title>Ricci Lab — Page Title</title>
+  <link href="assets/style.css" rel="stylesheet">
+  <link rel="icon" href="assets/favicon.png" sizes="32x32">
+  <meta name="description" content="Short description for this page.">
 </head>
+<body data-page="sponsors">  <!-- change to the page key: research, team, sponsors, news, ... -->
 
-<body data-page="sponsors">
-  <a href="#main" class="skip">Skip to content</a>
-
+  <!-- Canonical header (paste exactly as given in step 2) -->
   <header>
     <div class="container wide nav">
       <div class="brand"></div>
-      <!-- Mobile hamburger -->
-      <button class="hamburger" id="navToggle"
-              aria-controls="site-nav"
-              aria-expanded="false"
-              aria-label="Menu">
+      <button class="hamburger" id="navToggle" aria-controls="site-nav" aria-expanded="false" aria-label="Menu">
         <span class="bar"></span><span class="bar"></span><span class="bar"></span>
       </button>
-
-      <nav id="site-nav" style="flex:1;display:grid!important;grid-template-columns:repeat(8,1fr);gap:12px;width:100%;">
-        <a class="cardbox navbox" href="index.html" style="display:block;width:100%;text-align:center;padding:16px 20px;font-size:1.1rem;border-radius:14px;">Home</a> 
-        <a class="light cardbox navbox" href="research.html">Research</a>
+      <nav id="site-nav">
+        <a class="cardbox navbox" href="index.html">Home</a>
+        <a class="cardbox navbox" href="research.html">Research</a>
         <a class="cardbox navbox" href="team.html">Team</a>
-        <a class="light cardbox navbox" href="publications.html">Publications</a>
-        <a class="light cardbox navbox" href="join.html">Join Us</a>
+        <a class="cardbox navbox" href="publications.html">Publications</a>
+        <a class="cardbox navbox" href="join.html">Join Us</a>
         <a class="cardbox navbox" href="news.html">News</a>
-        <a class="cardbox navbox" href="sponsors.html" aria-current="page">Funding</a>
+        <a class="cardbox navbox" href="sponsors.html">Funding</a>
         <a class="cardbox navbox" href="contact.html">Contact</a>
       </nav>
     </div>
   </header>
 
   <main id="main" role="main">
-    <section class="subhero" style="background-image:url('assets/Untitled-7.png')">
+    <section class="subhero" style="background-image:url('assets/placeholder-hero.jpg')">
       <div class="container inner">
-        <h1>Previous and current funding institutions</h1>
-        <p class="lead">We gratefully acknowledge the support of national and international funding agencies.</p>
+        <h1>Under renovation</h1>
+        <p class="lead">We’re rebuilding this page.</p>
       </div>
     </section>
 
     <section class="page">
       <div class="container">
-        <ul class="sponsor-grid" style="list-style:none; padding:0; margin:0;">
-          <li class="sponsor-card"><a href="https://erc.europa.eu" target="_blank" rel="noopener"><img src="assets/sponsors/erc.png" alt="ERC"></a></li>
-          <li class="sponsor-card"><a href="https://inserm.fr" target="_blank" rel="noopener"><img src="assets/sponsors/inserm.png" alt="Inserm"></a></li>
-          <li class="sponsor-card"><a href="https://anr.fr" target="_blank" rel="noopener"><img src="assets/sponsors/anr.png" alt="ANR"></a></li>
-          <li class="sponsor-card"><a href="https://www.e-cancer.fr" target="_blank" rel="noopener"><img src="assets/sponsors/inca.png" alt="INCa"></a></li>
-          <li class="sponsor-card"><a href="https://fondation-arc.org" target="_blank" rel="noopener"><img src="assets/sponsors/arc.png" alt="Fondation ARC"></a></li>
-          <li class="sponsor-card"><a href="https://frm.org" target="_blank" rel="noopener"><img src="assets/sponsors/frm.jpg" alt="FRM"></a></li>
-          <li class="sponsor-card"><a href="https://www.embo.org" target="_blank" rel="noopener"><img src="assets/sponsors/embo.png" alt="EMBO"></a></li>
-          <li class="sponsor-card"><a href="https://www.europeandiabetesfoundation.org/home/" target="_blank" rel="noopener"><img src="assets/sponsors/efsd.png" alt="EFSD"></a></li>
-          <li class="sponsor-card"><a href="https://www.sfdiabete.org" target="_blank" rel="noopener"><img src="assets/sponsors/sfd.png" alt="SFD"></a></li>
-          <li class="sponsor-card"><a href="https://www.usias.fr" target="_blank" rel="noopener"><img src="assets/sponsors/usias.png" alt="USIAS"></a></li>
-          <li class="sponsor-card"><a href="https://anr.fr/fr/france-2030/" target="_blank" rel="noopener"><img src="assets/sponsors/france2030.png" alt="Chaire d’Excellence France 2030"></a></li>
-        </ul>
+        <p>Content coming soon…</p>
       </div>
     </section>
   </main>
 
   <footer>
-    ©<span id="y"></span> Ricci Lab · 
-    <a href="legal.html">Mentions légales</a> · 
+    ©<span id="y"></span> Ricci Lab ·
+    <a href="legal.html">Mentions légales</a> ·
     <a href="privacy.html">Vie privée</a>
-    <script>document.getElementById('y').textConte
+    <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
+  </footer>
+
+  <!-- JS -->
+  <script src="assets/nav.js" defer></script>
+</body>
+</html>
 

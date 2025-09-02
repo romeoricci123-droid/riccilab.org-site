@@ -1,109 +1,46 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta content="width=device-width, initial-scale=1" name="viewport" />
-  <title>Vie privée · Ricci Lab</title>
-
-  <!-- Favicon / icons -->
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <title>Ricci Lab — Page Title</title>
+  <link href="assets/style.css" rel="stylesheet">
   <link rel="icon" href="assets/favicon.png" sizes="32x32">
-  <link rel="manifest" href="manifest.webmanifest">
-  <meta name="theme-color" content="#0d1220">
-  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-  <link rel="alternate" type="application/rss+xml" title="Ricci Lab · News" href="news.xml">
-  <link rel="sitemap" type="application/xml" title="Sitemap" href="sitemap.xml">
-
-  <!-- Basic SEO -->
-  <meta name="description" content="Politique de confidentialité du Ricci Lab.">
-  <link href="assets/style.css?v=igbmc_fix6" rel="stylesheet" />
-  <link rel="canonical" href="https://riccilab.org/privacy.html">
-
+  <meta name="description" content="Short description for this page.">
 </head>
+<body data-page="privacy">  <!-- change to the page key: research, team, sponsors, news, ... -->
 
-<body data-page="privacy">
-  <a href="#main" class="skip">Aller au contenu</a>
-
+  <!-- Canonical header (paste exactly as given in step 2) -->
   <header>
     <div class="container wide nav">
       <div class="brand"></div>
-      <!-- Mobile hamburger -->
-      <button class="hamburger" id="navToggle"
-              aria-controls="site-nav"
-              aria-expanded="false"
-              aria-label="Menu">
+      <button class="hamburger" id="navToggle" aria-controls="site-nav" aria-expanded="false" aria-label="Menu">
         <span class="bar"></span><span class="bar"></span><span class="bar"></span>
       </button>
-
-      <nav id="site-nav" style="flex:1;display:grid!important;grid-template-columns:repeat(8,1fr);gap:12px;width:100%;">
-        <a class="cardbox navbox" href="index.html" style="display:block;width:100%;text-align:center;padding:16px 20px;font-size:1.1rem;border-radius:14px;">Home</a>
-        <a class="light cardbox navbox" href="research.html">Research</a>
+      <nav id="site-nav">
+        <a class="cardbox navbox" href="index.html">Home</a>
+        <a class="cardbox navbox" href="research.html">Research</a>
         <a class="cardbox navbox" href="team.html">Team</a>
-        <a class="light cardbox navbox" href="publications.html">Publications</a>
-        <a class="light cardbox navbox" href="join.html">Join Us</a>
+        <a class="cardbox navbox" href="publications.html">Publications</a>
+        <a class="cardbox navbox" href="join.html">Join Us</a>
         <a class="cardbox navbox" href="news.html">News</a>
-        <a class="cardbox navbox" href="sponsors.html" aria-current="page">Funding</a>
+        <a class="cardbox navbox" href="sponsors.html">Funding</a>
         <a class="cardbox navbox" href="contact.html">Contact</a>
       </nav>
     </div>
   </header>
 
   <main id="main" role="main">
-    <section class="pagehead">
-      <div class="container">
-        <h1>Vie privée</h1>
-        <p class="muted" style="margin-top:6px">
-          <a href="#fr" aria-current="page">FR</a> · <a href="#en">EN</a>
-        </p>
+    <section class="subhero" style="background-image:url('assets/placeholder-hero.jpg')">
+      <div class="container inner">
+        <h1>Under renovation</h1>
+        <p class="lead">We’re rebuilding this page.</p>
       </div>
     </section>
 
     <section class="page">
       <div class="container">
-        <!-- FR -->
-        <article id="fr" lang="fr" style="margin-bottom:28px">
-          <h2>Principes</h2>
-          <p>Nous collectons le minimum de données nécessaires. Aucun cookie tiers, aucune analyse publicitaire.</p>
-
-          <h2>Formulaire de contact</h2>
-          <p>Données traitées: nom, email, message. Finalité: répondre à votre demande. Base légale: intérêt légitime.</p>
-          <p>Conservation: jusqu’à 12 mois après le dernier échange ou le temps de traiter votre demande.</p>
-
-          <h2>Journaux techniques</h2>
-          <p>Le serveur peut enregistrer des données techniques limitées (ex: date, URL demandée, user agent, adresse IP). Finalité: sécurité et maintenance. Conservation courte.</p>
-
-          <h2>Cookies</h2>
-          <p>Cookies strictement nécessaires uniquement. Pas de cookies d’analyse tiers.</p>
-
-          <h2>Vos droits</h2>
-          <p>Accès, rectification, effacement, limitation, opposition. Écrivez à <a href="mailto:ricci@igbmc.fr">ricci@igbmc.fr</a>.</p>
-
-          <h2>Contact</h2>
-          <p>Pour toute question relative à la vie privée: <a href="mailto:ricci@igbmc.fr">ricci@igbmc.fr</a>.</p>
-        </article>
-
-        <hr style="border:none;border-top:1px solid var(--line);margin:22px 0" />
-
-        <!-- EN -->
-        <article id="en" lang="en">
-          <h2>Principles</h2>
-          <p>We collect only what is necessary. No third party cookies, no ad analytics.</p>
-
-          <h2>Contact form</h2>
-          <p>Processed data: name, email, message. Purpose: responding to your inquiry. Lawful basis: legitimate interest.</p>
-          <p>Retention: up to 12 months after our last exchange or until your request is handled.</p>
-
-          <h2>Technical logs</h2>
-          <p>The server may record limited technical data (for example date, requested URL, user agent, IP address) for security and maintenance. Short retention.</p>
-
-          <h2>Cookies</h2>
-          <p>Only strictly necessary cookies. No third party analytics cookies.</p>
-
-          <h2>Your rights</h2>
-          <p>Access, rectification, erasure, restriction, objection. Write to <a href="mailto:ricci@igbmc.fr">ricci@igbmc.fr</a>.</p>
-
-          <h2>Contact</h2>
-          <p>For privacy questions: <a href="mailto:ricci@igbmc.fr">ricci@igbmc.fr</a>.</p>
-        </article>
+        <p>Content coming soon…</p>
       </div>
     </section>
   </main>
@@ -111,10 +48,12 @@
   <footer>
     ©<span id="y"></span> Ricci Lab ·
     <a href="legal.html">Mentions légales</a> ·
-    <a href="privacy.html" aria-current="page">Vie privée</a>
+    <a href="privacy.html">Vie privée</a>
     <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
   </footer>
 
-  <script src="assets/nav.js?v=1" defer></script>
+  <!-- JS -->
+  <script src="assets/nav.js" defer></script>
 </body>
 </html>
+

@@ -1,45 +1,28 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta content="width=device-width, initial-scale=1" name="viewport" />
-  <title>Mentions légales · Ricci Lab</title>
-
-  <!-- Favicon / icons -->
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <title>Ricci Lab — Page Title</title>
+  <link href="assets/style.css" rel="stylesheet">
   <link rel="icon" href="assets/favicon.png" sizes="32x32">
-  <link rel="manifest" href="manifest.webmanifest">
-  <meta name="theme-color" content="#0d1220">
-  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-  <link rel="alternate" type="application/rss+xml" title="Ricci Lab · News" href="news.xml">
-  <link rel="sitemap" type="application/xml" title="Sitemap" href="sitemap.xml">
-
-  <!-- Basic SEO -->
-  <meta name="description" content="Mentions légales et informations juridiques du Ricci Lab.">
-  <link href="assets/style.css?v=igbmc_fix6" rel="stylesheet" />
-  <link rel="canonical" href="https://riccilab.org/legal.html">
-
+  <meta name="description" content="Short description for this page.">
 </head>
+<body data-page="legal">  <!-- change to the page key: research, team, sponsors, news, ... -->
 
-<body data-page="legal">
-  <a href="#main" class="skip">Aller au contenu</a>
-
+  <!-- Canonical header (paste exactly as given in step 2) -->
   <header>
-   <div class="container wide nav">
+    <div class="container wide nav">
       <div class="brand"></div>
-      <!-- Mobile hamburger -->
-      <button class="hamburger" id="navToggle"
-              aria-controls="site-nav"
-              aria-expanded="false"
-              aria-label="Menu">
+      <button class="hamburger" id="navToggle" aria-controls="site-nav" aria-expanded="false" aria-label="Menu">
         <span class="bar"></span><span class="bar"></span><span class="bar"></span>
       </button>
-
-      <nav id="site-nav" style="flex:1;display:grid!important;grid-template-columns:repeat(8,1fr);gap:12px;width:100%;">
-        <a class="cardbox navbox" href="index.html" style="display:block;width:100%;text-align:center;padding:16px 20px;font-size:1.1rem;border-radius:14px;">Home</a>
-        <a class="light cardbox navbox" href="research.html">Research</a>
+      <nav id="site-nav">
+        <a class="cardbox navbox" href="index.html">Home</a>
+        <a class="cardbox navbox" href="research.html">Research</a>
         <a class="cardbox navbox" href="team.html">Team</a>
-        <a class="light cardbox navbox" href="publications.html">Publications</a>
-        <a class="light cardbox navbox" href="join.html">Join Us</a>
+        <a class="cardbox navbox" href="publications.html">Publications</a>
+        <a class="cardbox navbox" href="join.html">Join Us</a>
         <a class="cardbox navbox" href="news.html">News</a>
         <a class="cardbox navbox" href="sponsors.html">Funding</a>
         <a class="cardbox navbox" href="contact.html">Contact</a>
@@ -48,83 +31,28 @@
   </header>
 
   <main id="main" role="main">
-    <section class="pagehead">
-      <div class="container">
-        <h1>Mentions légales</h1>
-        <p class="muted" style="margin-top:6px">
-          <a href="#fr" aria-current="page">FR</a> · <a href="#en">EN</a>
-        </p>
+    <section class="subhero" style="background-image:url('assets/placeholder-hero.jpg')">
+      <div class="container inner">
+        <h1>Under renovation</h1>
+        <p class="lead">We’re rebuilding this page.</p>
       </div>
     </section>
 
     <section class="page">
       <div class="container">
-        <!-- FR -->
-        <article id="fr" lang="fr" style="margin-bottom:28px">
-          <h2>Éditeur du site</h2>
-          <p>Laboratoire de Roméo Ricci, IGBMC.</p>
-
-          <h2>Responsable de la publication</h2>
-          <p>Roméo Ricci.</p>
-
-          <h2>Hébergement</h2>
-          <p>IGBMC / CNRS / Inserm.</p>
-
-          <h2>Contact</h2>
-          <p><a href="mailto:ricci@igbmc.fr">ricci@igbmc.fr</a></p>
-
-          <h2>Crédits</h2>
-          <p>Photos et contenus © Ricci Lab, sauf mention contraire.</p>
-
-          <h2>Propriété intellectuelle</h2>
-          <p>Les contenus de ce site sont protégés. Toute reproduction ou réutilisation nécessite une autorisation préalable. Les courtes citations sont possibles avec indication de la source.</p>
-
-          <h2>Données personnelles</h2>
-          <p>Voir la page <a href="privacy.html">Vie privée</a> pour le détail du traitement des données.</p>
-
-          <h2>Accessibilité</h2>
-          <p>Nous visons une accessibilité élevée. Pour signaler un problème, écrivez à <a href="mailto:ricci@igbmc.fr">ricci@igbmc.fr</a>.</p>
-        </article>
-
-        <hr style="border:none;border-top:1px solid var(--line);margin:22px 0" />
-
-        <!-- EN -->
-        <article id="en" lang="en">
-          <h2>Site publisher</h2>
-          <p>Laboratory of Romeo Ricci, IGBMC.</p>
-
-          <h2>Publication director</h2>
-          <p>Romeo Ricci.</p>
-
-          <h2>Hosting</h2>
-          <p>IGBMC / CNRS / Inserm.</p>
-
-          <h2>Contact</h2>
-          <p><a href="mailto:ricci@igbmc.fr">ricci@igbmc.fr</a></p>
-
-          <h2>Credits</h2>
-          <p>Photos and content © Ricci Lab, unless stated otherwise.</p>
-
-          <h2>Intellectual property</h2>
-          <p>Site content is protected. Reuse requires prior permission. Short quotations are permitted with source attribution.</p>
-
-          <h2>Personal data</h2>
-          <p>See the <a href="privacy.html">Privacy</a> page for data processing details.</p>
-
-          <h2>Accessibility</h2>
-          <p>We aim for strong accessibility. To report an issue, email <a href="mailto:ricci@igbmc.fr">ricci@igbmc.fr</a>.</p>
-        </article>
+        <p>Content coming soon…</p>
       </div>
     </section>
   </main>
 
   <footer>
     ©<span id="y"></span> Ricci Lab ·
-    <a href="legal.html" aria-current="page">Mentions légales</a> ·
+    <a href="legal.html">Mentions légales</a> ·
     <a href="privacy.html">Vie privée</a>
     <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
   </footer>
 
-  <script src="assets/nav.js?v=1" defer></script>
+  <!-- JS -->
+  <script src="assets/nav.js" defer></script>
 </body>
 </html>

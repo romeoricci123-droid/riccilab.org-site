@@ -1,54 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1" name="viewport"/>
-
-  <!-- Favicon / icons -->
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <title>Ricci Lab — Page Title</title>
+  <link href="assets/style.css" rel="stylesheet">
   <link rel="icon" href="assets/favicon.png" sizes="32x32">
-  <link rel="manifest" href="manifest.webmanifest">
-  <meta name="theme-color" content="#0d1220">
-  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-  <link rel="alternate" type="application/rss+xml" title="Ricci Lab — News" href="news.xml">
-  <link rel="sitemap" type="application/xml" title="Sitemap" href="sitemap.xml">
-
-  <!-- Basic SEO -->
-  <meta name="description" content="Ricci Lab — Organelle crosstalk in disease. Metabolism and innate immunity through lipids and membranes.">
-
-  <!-- Open Graph / Twitter -->
-  <meta property="og:title" content="Ricci Lab — Publications">
-  <meta property="og:description" content="Our key publications in metabolism, immunity, and organelle biology.">
-  <meta property="og:image" content="https://riccilab.org/assets/og-publications.jpg">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://riccilab.org/publications.html">
-  <meta name="twitter:card" content="summary_large_image">
-
-  <title>Selected publications — Ricci Lab</title>
-  <link href="assets/style.css?v=igbmc_fix5" rel="stylesheet" />
-  <link rel="canonical" href="https://riccilab.org/publications.html">
-
+  <meta name="description" content="Short description for this page.">
 </head>
+<body data-page="publications">  <!-- change to the page key: research, team, sponsors, news, ... -->
 
-<body data-page="publications">
-  <a href="#main" class="skip">Skip to content</a>
-
+  <!-- Canonical header (paste exactly as given in step 2) -->
   <header>
-   <div class="container wide nav">
+    <div class="container wide nav">
       <div class="brand"></div>
-      <!-- Mobile hamburger -->
-      <button class="hamburger" id="navToggle"
-              aria-controls="site-nav"
-              aria-expanded="false"
-              aria-label="Menu">
+      <button class="hamburger" id="navToggle" aria-controls="site-nav" aria-expanded="false" aria-label="Menu">
         <span class="bar"></span><span class="bar"></span><span class="bar"></span>
       </button>
-
-      <nav id="site-nav" style="flex:1;display:grid!important;grid-template-columns:repeat(8,1fr);gap:12px;width:100%;">
-        <a class="cardbox navbox" href="index.html" style="display:block;width:100%;text-align:center;padding:16px 20px;font-size:1.1rem;border-radius:14px;">Home</a>
-        <a class="light cardbox navbox" href="research.html">Research</a>
+      <nav id="site-nav">
+        <a class="cardbox navbox" href="index.html">Home</a>
+        <a class="cardbox navbox" href="research.html">Research</a>
         <a class="cardbox navbox" href="team.html">Team</a>
-        <a class="light cardbox navbox" href="publications.html" aria-current="page">Publications</a>
-        <a class="light cardbox navbox" href="join.html">Join Us</a>
+        <a class="cardbox navbox" href="publications.html">Publications</a>
+        <a class="cardbox navbox" href="join.html">Join Us</a>
         <a class="cardbox navbox" href="news.html">News</a>
         <a class="cardbox navbox" href="sponsors.html">Funding</a>
         <a class="cardbox navbox" href="contact.html">Contact</a>
@@ -57,57 +31,19 @@
   </header>
 
   <main id="main" role="main">
-    <section class="subhero" style="background-image: url('assets/publication.jpg')">
+    <section class="subhero" style="background-image:url('assets/placeholder-hero.jpg')">
       <div class="container inner">
-        <h1>Selected publications</h1>
-        <p class="lead">Most important publications to understand our current research activity.</p>
+        <h1>Under renovation</h1>
+        <p class="lead">We’re rebuilding this page.</p>
       </div>
     </section>
 
-    <section class="page" id="pubs">
+    <section class="page">
       <div class="container">
-        <div id="pub-layout">
-          <!-- LEFT: the ONLY Cell cover -->
-          <aside id="pub-cover">
-            <a class="cover-link" href="https://doi.org/10.1016/j.cell.2008.11.018" target="_blank" rel="noopener">
-              <img src="assets/cell_cover.png" alt="Cell cover, A New Route for Insulin Secretion">
-            </a>
-          </aside>
-
-          <!-- RIGHT: publications list -->
-          <div id="pub-list" class="paper-list" aria-live="polite"></div>
-        </div>
+        <p>Content coming soon…</p>
       </div>
     </section>
   </main>
-
-  <!-- Data file -->
-  <script src="assets/publications.js?v=7"></script>
-
-  <!-- Build the list once -->
-  <script>
-  (function () {
-    var list = document.getElementById('pub-list');
-    if (!list) return;
-    list.innerHTML = '';
-
-    var DATA = (window.PUBLICATIONS && window.PUBLICATIONS.length) ? window.PUBLICATIONS : [];
-    var AREA = { inflammasome:"Inflammasome", beta:"β-cell", neuron:"Neuroscience" };
-
-    DATA.forEach(function(p){
-      var a = document.createElement('a');
-      a.className = 'paper-card';
-      a.href = p.doi ? ('https://doi.org/' + p.doi) : '#';
-      a.target = '_blank'; a.rel = 'noopener';
-      a.innerHTML =
-        '<div class="paper-title">' + p.title + '</div>' +
-        '<div class="paper-authors">' + (p.authors||'') + '</div>' +
-        '<div class="paper-meta">' + (p.venue||'') + (p.year ? ' (' + p.year + ')' : '') + '</div>' +
-        (p.area ? '<div class="paper-tags"><span class="tag">' + (AREA[p.area] || p.area) + '</span></div>' : '');
-      list.appendChild(a);
-    });
-  })();
-  </script>
 
   <footer>
     ©<span id="y"></span> Ricci Lab ·
@@ -116,7 +52,8 @@
     <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
   </footer>
 
-  <!-- Hamburger behavior -->
-  <script src="assets/nav.js?v=1" defer></script>
+  <!-- JS -->
+  <script src="assets/nav.js" defer></script>
 </body>
 </html>
+

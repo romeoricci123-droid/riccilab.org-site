@@ -1,69 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Favicon / icons -->
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <title>Ricci Lab — Page Title</title>
+  <link href="assets/style.css" rel="stylesheet">
   <link rel="icon" href="assets/favicon.png" sizes="32x32">
-  <link rel="manifest" href="manifest.webmanifest">
-  <meta name="theme-color" content="#0d1220">
-  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-  <link rel="alternate" type="application/rss+xml" title="Ricci Lab — News" href="/news.xml">
-  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
-
-  <!-- Basic SEO -->
-  <meta name="description" content="Ricci Lab — Organelle crosstalk in disease. Metabolism and innate immunity through lipids and membranes.">
-
-  <!-- Open Graph / Twitter -->
-  <meta property="og:title" content="Ricci Lab — Join Us">
-  <meta property="og:description" content="We are looking for motivated scientists to join our research team.">
-  <meta property="og:image" content="https://riccilab.org/assets/JoinUs.jpg">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://riccilab.org/join.html">
-  <meta name="twitter:card" content="summary_large_image">
-
-  <meta charset="utf-8" />
-  <meta content="width=device-width, initial-scale=1" name="viewport" />
-  <title>Join us — Ricci Lab</title>
-  <link href="assets/style.css?v=igbmc_fix6" rel="stylesheet" />
-  <link rel="canonical" href="https://riccilab.org/join.html">
-
-  <style>
-    /* Page-scoped hero tweaks for JOIN only */
-    .join-hero{
-      background-size: cover;
-      background-position: 50% 35%;   /* desktop/tablet: show bands area */
-      background-repeat: no-repeat;
-      min-height: 60vh;
-    }
-    /* iPhone/phones: swap to a cropped image that clearly shows the bands */
-    @media (max-width: 740px){
-      .join-hero{
-        background-image: url('assets/join-hero-mobile.jpg') !important;
-        background-position: center 35% !important; /* fine-tune if needed */
-      }
-    }
-  </style>
+  <meta name="description" content="Short description for this page.">
 </head>
+<body data-page="join">  <!-- change to the page key: research, team, sponsors, news, ... -->
 
-<body data-page="join">
-  <a href="#main" class="skip">Skip to content</a>
-
+  <!-- Canonical header (paste exactly as given in step 2) -->
   <header>
-   <div class="container wide nav">
+    <div class="container wide nav">
       <div class="brand"></div>
-      <!-- Mobile hamburger -->
-      <button class="hamburger" id="navToggle"
-              aria-controls="site-nav"
-              aria-expanded="false"
-              aria-label="Menu">
+      <button class="hamburger" id="navToggle" aria-controls="site-nav" aria-expanded="false" aria-label="Menu">
         <span class="bar"></span><span class="bar"></span><span class="bar"></span>
       </button>
-
-      <nav id="site-nav" style="flex:1;display:grid!important;grid-template-columns:repeat(8,1fr);gap:12px;width:100%;">
-        <a class="cardbox navbox" href="index.html" style="display:block;width:100%;text-align:center;padding:16px 20px;font-size:1.1rem;border-radius:14px;">Home</a>
-        <a class="light cardbox navbox" href="research.html">Research</a>
+      <nav id="site-nav">
+        <a class="cardbox navbox" href="index.html">Home</a>
+        <a class="cardbox navbox" href="research.html">Research</a>
         <a class="cardbox navbox" href="team.html">Team</a>
-        <a class="light cardbox navbox" href="publications.html">Publications</a>
-        <a class="light cardbox navbox" href="join.html" aria-current="page">Join Us</a>
+        <a class="cardbox navbox" href="publications.html">Publications</a>
+        <a class="cardbox navbox" href="join.html">Join Us</a>
         <a class="cardbox navbox" href="news.html">News</a>
         <a class="cardbox navbox" href="sponsors.html">Funding</a>
         <a class="cardbox navbox" href="contact.html">Contact</a>
@@ -71,55 +30,30 @@
     </div>
   </header>
 
-  <!-- Desktop image set inline; mobile image swapped via CSS above -->
-  <section class="subhero join-hero"
-           style="background-image:url('assets/JoinUs.jpg')">
-    <div class="container inner">
-      <h1>Join us</h1>
-      <p class="lead">We welcome motivated scientists to work on lipid and membrane biology in innate immunity, β cell biology, and neuronal energy homeostasis.</p>
-    </div>
-  </section>
-
   <main id="main" role="main">
+    <section class="subhero" style="background-image:url('assets/placeholder-hero.jpg')">
+      <div class="container inner">
+        <h1>Under renovation</h1>
+        <p class="lead">We’re rebuilding this page.</p>
+      </div>
+    </section>
+
     <section class="page">
       <div class="container">
-        <h2>Open calls</h2>
-        <ul class="clean">
-          <li><strong>Postdoctoral researchers</strong>: experience in membrane biology, immunology, β cell physiology, or neurobiology is a plus.</li>
-          <li><strong>PhD students</strong>: curiosity, rigor, and enthusiasm for quantitative biology.</li>
-          <li><strong>M2/visiting students</strong>: 4 to 6 month research projects.</li>
-        </ul>
-
-        <h2>Focus areas</h2>
-        <ul class="clean">
-          <li><strong>Endosome anchored NLRP3 inflammasomes</strong>: assembly on PI4P enriched endomembranes and downstream signaling.</li>
-          <li><strong>Insulin granule turnover</strong>: decision between secretion and lysosomal routing in β cells.</li>
-          <li><strong>Hypothalamic neuron trafficking</strong>: membrane routing shaping energy balance circuits.</li>
-        </ul>
-
-        <h2>How to apply</h2>
-        <p>Please email us a single PDF including:</p>
-        <ul class="clean">
-          <li>Short cover letter (what you would like to work on and why).</li>
-          <li>CV (with publications).</li>
-          <li>Contact details for 2 referees.</li>
-        </ul>
-
-        <p class="muted">We review applications continuously. We are committed to a supportive, rigorous, and inclusive environment.</p>
+        <p>Content coming soon…</p>
       </div>
     </section>
   </main>
 
   <footer>
-    ©<span id="y"></span> Ricci Lab · 
-    <a href="legal.html">Mentions légales</a> · 
+    ©<span id="y"></span> Ricci Lab ·
+    <a href="legal.html">Mentions légales</a> ·
     <a href="privacy.html">Vie privée</a>
-    <script>
-      document.getElementById('y').textContent = new Date().getFullYear()
-    </script>
+    <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
   </footer>
 
-  <!-- Mobile nav script -->
-  <script src="assets/nav.js?v=1" defer></script>
+  <!-- JS -->
+  <script src="assets/nav.js" defer></script>
 </body>
 </html>
+
