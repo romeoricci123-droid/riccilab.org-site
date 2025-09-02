@@ -1,15 +1,15 @@
 /* =========================================================
    EASL — Canonical Stylesheet (single source of truth)
-   No page-scoped overrides. Replace the file with this.
+   No page-scoped overrides.
    ========================================================= */
 
 /* ---- Reset / Tokens ---- */
 * { box-sizing: border-box; }
 :root{
-  --ink:#0b0d12; --muted:#4f5966; --line:#e7edf2; --accent:#111; --bg:#fff;
+  --ink:#0b0d12; --muted:#4f5966; --line:#e7edf2; --accent:#111; --bg:#faf9f7;
 
   /* Global frame width used everywhere (header, hero, subhero, content) */
-  --frame: min(1200px, 92%);
+  --frame: min(1152px, 92%);
 
   /* Elevation */
   --shadow-1: 0 1px 2px rgba(0,0,0,.06), 0 1px 1px rgba(0,0,0,.04);
@@ -17,7 +17,7 @@
   --shadow-3: 0 28px 84px 10px rgba(0,0,0,.38), 0 14px 32px rgba(0,0,0,.22), 0 1px 0 rgba(0,0,0,.06);
 
   /* Orbit sizes */
-  --orbit-center: 700px;   /* center circle desktop */
+  --orbit-center: 560px;   /* center circle desktop */
   --orbit-side:   240px;   /* side circles desktop */
   --orbit-center-m: 420px; /* center circle mobile */
   --orbit-side-m:   200px; /* side circles mobile */
@@ -28,10 +28,29 @@
 html,body{
   margin:0; padding:0; background:var(--bg); color:var(--ink);
   font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial;
+
+  /* ultra-subtle paper grain */
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.03'/></svg>");
+  background-repeat: repeat;
+  background-size: 180px 180px;
 }
 a{ color:var(--accent); text-decoration:none; }
 a:hover{ text-decoration:underline; }
 [id]{ scroll-margin-top:84px; }
+/* Card links never show underlines */
+.cardbox,
+.cardbox:hover,
+.cardbox:focus-visible{ text-decoration:none; }
+
+/* Skip link visibility */
+.skip{
+  position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;
+}
+.skip:focus{
+  position:fixed; left:16px; top:16px; width:auto; height:auto; padding:10px 14px;
+  background:#000; color:#fff; border-radius:10px; z-index:1000; text-decoration:none;
+  box-shadow:var(--shadow-2);
+}
 
 /* ---- Layout containers (same width everywhere) ---- */
 .container,
@@ -51,40 +70,94 @@ header .container.wide.nav,
 /* ---- Header ---- */
 header{
   position:sticky; top:0; z-index:20;
-  background:#fff; border-bottom:1px solid var(--line);
+  background:var(--bg);
+  background-image:inherit;               /* reuse subtle grain */
+  border-bottom:2px solid #b0b5bd;        /* full-width metal rim */
 }
+/* NEW */
 header .container.wide.nav{
-  display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px 0;
+  display:flex;
+  align-items:flex-end;                 /* line up nav with header bottom */
+  justify-content:space-between;
+  gap:12px;
+  padding:8px 0 0;                      /* remove bottom padding */
 }
 .brand .lab{ font-weight:950; letter-spacing:-.3px; font-size:28px; color:#0a0a0a; }
 
+
 /* ---- Nav grid: 8 equal black buttons (identical on every page) ---- */
+/* NEW */
 #site-nav{
   flex:1;
-  display:grid; grid-template-columns:repeat(8, minmax(0,1fr));
-  gap:12px; align-items:stretch; min-width:0;
+  display:grid;
+  grid-template-columns:repeat(8,minmax(0,1fr));
+  gap:12px;
+  align-items:end;                      /* tabs sit on the row baseline */
+  min-width:0;
+  margin-bottom:-2px;                   /* pull tabs down to meet page/rim */
 }
 #site-nav > a.navbox{
   display:flex; align-items:center; justify-content:center;
-  padding:16px 20px; margin:0; height:100%;
-  border-radius:14px; line-height:1.2; text-align:center;
+  padding:14px 18px; margin:0; height:100%;
+  line-height:1.2; text-align:center;
 
-  background:#000; color:#fff; border:1px solid #000;
-  box-shadow:var(--shadow-1);
-  transition:transform .12s ease, box-shadow .12s ease, filter .12s ease;
+  background:var(--bg);
+  color:var(--ink);
+  border:1px solid #c7ccd6;
+  border-bottom:none;
+  border-radius:12px 12px 0 0;
+
+  /* recessed “behind” impression */
+  box-shadow: inset 0 -2px 0 #c7ccd6;
+
+  transition:transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+  cursor:pointer;
+  position:relative;
+  z-index:2;        /* sits above header border; active tab will be higher */
 }
-#site-nav > a.navbox:hover, #site-nav > a.navbox:focus-visible{
+
+/* Keep nav link color identical for unvisited/visited */
+#site-nav > a.navbox:link,
+#site-nav > a.navbox:visited{
+  color:var(--ink);
+}
+
+#site-nav > a.navbox:hover,
+#site-nav > a.navbox:focus-visible{
   transform:translateY(-1px);
-  box-shadow:var(--shadow-2);
-  filter:brightness(1.05);
+  background:var(--bg);              /* stays consistent */
+  border-color:#c7ccd6;
+  box-shadow:0 -2px 6px rgba(0,0,0,0.06);
+  outline:none;
 }
+
 #site-nav > a.navbox[aria-current="page"]{
-  position:relative; outline:none;
-  box-shadow:inset 0 0 0 2px #fff, var(--shadow-1);
+  background:var(--bg);
+  color:var(--ink);
+
+  /* tab’s own rim (top + sides only) */
+  border:2px solid #b0b5bd;
+  border-bottom:none;
+  border-radius:12px 12px 0 0;
+
+  position:relative;
+  z-index:3; /* above inactive tabs and header rim */
+
+  /* KEY TRICK:
+     paint a 2px “strip” of page color right under the tab
+     so the header’s bottom border is hidden beneath it */
+  box-shadow:
+    0 2px 0 var(--bg),               /* erase header rim directly under tab */
+    0 -3px 18px rgba(0,0,0,0.15);    /* soft upward lift */
+
+  /* locked (not clickable) */
+  pointer-events:none;
+  cursor:default;
+  transform:none !important;
 }
-#site-nav > a.navbox[aria-current="page"]::after{
-  content:""; position:absolute; left:12px; right:12px; bottom:6px; height:2px; background:#fff; border-radius:2px;
-}
+
+/* no underline/extra markers */
+#site-nav > a.navbox[aria-current="page"]::after{ content:none; }
 
 /* ---- Mobile nav toggle (single source) ---- */
 .hamburger{ display:none; }
@@ -121,46 +194,93 @@ header .container.wide.nav{
 .btn.alt{ background:#fff; color:#111; border-color:#111; }
 .btn.alt:hover{ background:#f7f7f7; }
 
+/* ==== Hiring banner ==== */
+.hiring{
+  display:block;
+  margin:24px 0 12px;              /* tighter spacing; closer to publications */
+  padding:20px 32px;
+  width:100%;                      /* span the full container width */
+  border-radius:14px;              /* keep rounded edges */
+  border:none;
+  background:linear-gradient(135deg,#fef6e7,#ffffff);
+  box-shadow:var(--shadow-1);
+  color:inherit;
+  text-decoration:none;
+  transition:transform .12s ease, box-shadow .12s ease, filter .12s ease;
+}
+.hiring:hover,
+.hiring:focus-visible{
+  text-decoration:none;                /* keep it off on hover/focus */
+  transform:translateY(-2px);
+  box-shadow:var(--shadow-2);
+  filter:brightness(1.02);
+  outline:none;
+}
+.hiring .row{ display:flex; align-items:center; gap:12px; }
+.hiring .dot{
+  width:14px; height:14px; border-radius:50%;
+  background:#e63946; flex-shrink:0;
+  box-shadow:0 0 0 4px rgba(230,57,70,.2);
+}
+.hiring .copy{ font-size:1.05rem; font-weight:600; line-height:1.3; }
+
+/* OK to have this or omit entirely */
+main{
+  background:var(--bg);
+  /* no margin-top and no border-top */
+}
+
 /* =========================================================
    ORBIT (center emblem + 3 side circles) — locked geometry
    ========================================================= */
 .orbit{
-  /* Left and right columns have a minimum so layout stays symmetrical */
   display:grid;
-  grid-template-columns: minmax(360px,1fr) var(--orbit-center) minmax(360px,1fr);
+  grid-template-columns: minmax(var(--orbit-side),1fr) var(--orbit-center) minmax(var(--orbit-side),1fr);
   grid-template-rows: auto auto;
   grid-template-areas:
     "left center rt"
     "left center rb";
   gap:28px 56px;
-  align-items:start; justify-items:center;
-  width:var(--frame); margin:0 auto;
+  align-items:start; justify-items:center; justify-content:center;
+  width:var(--frame); margin:40px auto 0;   /* add top margin to push circles down */
 }
-.orbit-left{   grid-area:left;   }
+.orbit-left{
+  grid-area:left;
+  align-self:center;   /* center the left circle across the two rows */
+}
 .orbit-center{ grid-area:center; }
-.orbit-rt{     grid-area:rt;     }
-.orbit-rb{     grid-area:rb;     }
+.orbit-rt{     grid-area:rt; }
+.orbit-rb{     grid-area:rb; }
 
-/* Side circles */
+/* Side circles (no ring, softer shadow) */
 .round-link.circle-card{
   width:var(--orbit-side); height:var(--orbit-side);
-  border-radius:50%; overflow:hidden; position:relative; display:block; background:#fff;
-  box-shadow:0 18px 44px -12px rgba(0,0,0,.32), 0 6px 16px -6px rgba(0,0,0,.22), 0 1px 0 rgba(0,0,0,.06);
+  border-radius:50%; overflow:hidden; position:relative; display:block;
+  background:transparent;                              /* no fill, no ring */
+  box-shadow:0 12px 24px rgba(0,0,0,0.18);             /* softer edge */
   transition:box-shadow .12s ease, transform .12s ease;
 }
 .round-link.circle-card:hover{
   transform:translateY(-2px);
-  box-shadow:0 24px 64px -14px rgba(0,0,0,.36), 0 10px 24px -8px rgba(0,0,0,.24), 0 1px 0 rgba(0,0,0,.06);
+  box-shadow:0 18px 32px rgba(0,0,0,0.24);
 }
 .round-link.circle-card > img.circle-img{
-  position:absolute; inset:-22px; width:calc(100% + 44px); height:calc(100% + 44px);
+  position:absolute; inset:-18px;                      /* slight overscan to hide any background edge */
+  width:calc(100% + 36px); height:calc(100% + 36px);
   display:block; object-fit:cover; border:0; border-radius:0;
+  z-index:0;
 }
 
-/* Center emblem (bigger + stronger shadow) */
+
+/* Center emblem */
 .round-link.emblem-link{
-  width:var(--orbit-center); height:var(--orbit-center);
-  border-radius:50%; overflow:hidden; position:relative; display:block; background:#fff;
+  width:var(--orbit-center);
+  height:var(--orbit-center);
+  border-radius:50%;
+  overflow:hidden;
+  position:relative;           /* needed for img transform */
+  display:block;
+  background:transparent;
   box-shadow:var(--shadow-3);
   transition:box-shadow .12s ease, transform .12s ease;
 }
@@ -168,14 +288,43 @@ header .container.wide.nav{
   transform:translateY(-2px);
   box-shadow:0 34px 100px 12px rgba(0,0,0,.42), 0 16px 36px rgba(0,0,0,.24), 0 1px 0 rgba(0,0,0,.06);
 }
-.round-link.emblem-link > img{ width:100%; height:100%; object-fit:cover; display:block; box-shadow:none; }
+.round-link.emblem-link > img{
+  width:100%; height:100%; object-fit:cover; display:block; box-shadow:none;
+  transform: translateY(-1%) scale(1.3); transform-origin:center;
+}
 
-/* Captions under circles (larger, unified) */
+/* Tagline under the center emblem */
+.orbit-center .tagline{
+  margin-top:48px;                 /* enough space below emblem */
+  font-size:2rem;
+  font-weight:800;
+  text-align:center;
+}
+
+.orbit-center .tagline-sub{
+  margin-top:16px;
+  font-size:1.2rem;
+  font-weight:400;
+  color:var(--muted);
+  text-align:center;
+  margin-bottom:16px;              /* reduce gap to hiring banner */
+}
+
+/* Captions under side circles */
 .orbit .body{ margin-top:16px; max-width:26ch; text-align:center; }
-.orbit .body h3{ margin:0 0 8px; font-size:1.5rem; line-height:1.2; font-weight:800; letter-spacing:-0.01em; }
-.orbit .body p{  margin:0;        font-size:1.1rem; line-height:1.28; opacity:.96; }
 
-/* ---- Grids / tiles / papers ---- */
+/* Captions under circles */
+.orbit .body{ margin-top:16px; max-width:26ch; text-align:center; }
+.orbit .body h3{ margin:0 0 8px; font-size:1.35rem; line-height:1.2; font-weight:800; letter-spacing:-0.01em; }
+.orbit .body p{  margin:0;        font-size:1.05rem; line-height:1.28; opacity:.96; }
+/* Orbit tagline text under emblem */
+.tagline-sub{
+  font-size:1.25rem;
+  color:#0b0d12 !important;   /* force ink color */
+  margin-top:12px;
+  text-align:center;
+}
+/* ---- Grids / tiles ---- */
 .grid{ display:grid; grid-template-columns:repeat(12,1fr); gap:14px; }
 .tile{
   grid-column:span 4; border:1px solid var(--line); border-radius:12px; overflow:hidden; background:#fff;
@@ -186,24 +335,6 @@ header .container.wide.nav{
 .tile .body{ padding:12px; }
 .tile h3{ margin:0 0 6px; font-size:18px; }
 .tile p{ margin:0 0 8px; color:#4d5665; }
-
-/* Paper list */
-.paper-list{ display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:14px; }
-a.paper-card{
-  display:block; padding:14px 16px; border-radius:14px; text-decoration:none;
-  border:1px solid #0b0d12; background:linear-gradient(#fff,#f7f8fb); color:#0b0d12;
-  box-shadow:0 1px 0 rgba(0,0,0,.12), 0 6px 14px rgba(0,0,0,.06);
-  transition:transform .05s ease, box-shadow .15s ease;
-}
-a.paper-card:hover{ transform:translateY(-1px); box-shadow:0 2px 0 rgba(0,0,0,.14), 0 12px 22px rgba(0,0,0,.10); }
-.paper-title{ font-weight:700; margin:0 0 6px; }
-.paper-authors{ color:#334155; font-size:.95rem; }
-.paper-meta{ color:#475569; font-size:.9rem; margin-top:3px; }
-.paper-tags{ margin-top:8px; }
-.paper-tags .tag{
-  display:inline-block; background:#eef2ff; border:1px solid #e2e8f0; color:#334155;
-  border-radius:999px; padding:2px 8px; font-size:.8rem; margin-right:6px;
-}
 
 /* ---- Research / side column layouts ---- */
 .research-wrap{ display:grid; grid-template-columns:0.45fr 1.55fr; gap:20px; align-items:start; }
@@ -241,7 +372,7 @@ a.paper-card:hover{ transform:translateY(-1px); box-shadow:0 2px 0 rgba(0,0,0,.1
   box-shadow:var(--shadow-1);
 }
 .partner-card:hover{ transform:translateY(-2px); box-shadow:var(--shadow-2); border-color:#dfe6ee; }
-.partner-card img{ max-height:48px; width:auto; height:auto; object-fit:contain; display:block; }
+.partner-card img{ max-height:64px; width:auto; height:auto; object-fit:contain; display:block; }
 
 .sponsor-grid{
   display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:16px; margin:0; padding:0; list-style:none;
@@ -255,19 +386,7 @@ a.paper-card:hover{ transform:translateY(-1px); box-shadow:0 2px 0 rgba(0,0,0,.1
 .sponsor-card a:hover{ transform:translateY(-2px); box-shadow:var(--shadow-2); border-color:#dfe6ee; }
 .sponsor-card img{ max-height:64px; width:auto; height:auto; object-fit:contain; display:block; }
 
-/* ---- News ---- */
-.news-list{
-  display:grid; gap:16px; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
-  margin:0; padding:0; list-style:none;
-}
-.news-item{
-  display:block; padding:14px; background:#fff; color:inherit;
-  border:1px solid rgba(0,0,0,.08); border-radius:12px; box-shadow:var(--shadow-1);
-}
-.news-item .meta{ color:var(--muted); font-size:.9rem; margin-bottom:6px; }
-.news-item h3{ margin:4px 0 6px; font-size:1.1rem; }
-.news-item p{ margin:0; }
-
+/* ---- Long-form news entries ---- */
 .news-entry{
   background:#fff; border:1px solid rgba(0,0,0,.08); border-radius:12px;
   padding:16px 18px; margin:18px 0; scroll-margin-top:84px;
@@ -276,11 +395,106 @@ a.paper-card:hover{ transform:translateY(-1px); box-shadow:0 2px 0 rgba(0,0,0,.1
 .news-entry h3{ margin:4px 0 10px; font-size:1.25rem; }
 .news-entry h4{ margin:14px 0 8px; font-size:1.05rem; }
 
-/* ---- Footer ---- */
-footer{
-  border-top:1px solid var(--line); padding:16px 0; color:#6a7380; font-size:14px; margin-top:22px; text-align:center;
+/* ==== Footer layout ==== */
+footer {
+  background:var(--bg);
+  background-image:inherit;  /* reuse subtle grain */
+}
+footer .container.foot{
+  width:var(--frame);
+  margin:0 auto;
+  padding:16px 0 24px;
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center; gap:8px;
+  text-align:center;
+}
+footer .foot-partners{
+  display:flex; align-items:center; justify-content:center; gap:12px;
+}
+footer .foot-meta{ text-align:center; font-size:.95rem; color:var(--muted); }
+
+/* ==== Footer partner logo (IGBMC) — fixed small card ==== */
+footer .foot-partners .partner-card{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  flex:0 0 auto;              /* never stretch full width */
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:12px 16px;
+  margin:12px auto;
+  max-width:200px;            /* small box */
+  box-shadow:var(--shadow-1);
+  transition:transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+}
+footer .foot-partners .partner-card:hover{
+  transform:translateY(-2px);
+  box-shadow:var(--shadow-2);
+  border-color:#dfe6ee;
 }
 
+footer .foot-partners .partner-card img{
+  display:block;
+  max-height:64px;            /* clean scaling */
+  width:auto;
+  height:auto;
+  object-fit:contain;
+}
+footer .foot-partners .partner-card:focus-visible{
+  transform:translateY(-2px);
+  box-shadow:var(--shadow-2);
+  border-color:#dfe6ee;
+  outline:none;
+}
+
+/* ==== Publications — single system, equal heights per row ==== */
+.pub-grid{
+  display:grid; grid-template-columns: repeat(3, minmax(0,1fr));
+  gap:16px; list-style:none; margin:0; padding:0;
+}
+.pub-grid > li{ list-style:none; display:flex; }
+.pub-grid > li > a.cardbox.pub-item{ display:flex; flex:1; text-decoration:none; }
+.pub-card{
+  display:flex; flex-direction:column; flex:1;
+  padding:14px 16px; border-radius:14px; border:1px solid rgba(0,0,0,.06);
+  background: linear-gradient(135deg, #ffe9d6, #ffffff);
+  box-shadow: var(--shadow-1); color:#0b0d12;
+  transition: transform .12s ease, box-shadow .12s ease, filter .12s ease;
+}
+.pub-card:hover{ transform: translateY(-2px); box-shadow: var(--shadow-2); filter: brightness(1.02); }
+.pub-venue{ font-weight:600; margin-bottom:6px; }
+.pub-title{ margin:0 0 6px; font-size:1.05rem; }
+.pub-meta { margin-top:auto; opacity:.85; font-size:.95rem; }
+
+/* ==== News — single system, equal heights per row ==== */
+.news-list.clean{
+  display:grid; grid-template-columns: repeat(3, minmax(0,1fr));
+  gap:16px; list-style:none; margin:0; padding:0;
+}
+.news-list.clean > li{ list-style:none; display:flex; }
+.news-list.clean > li > a.cardbox.news-item{
+  display:flex; flex-direction:column; flex:1;
+  padding:16px; border-radius:14px;
+  border:1px solid rgba(0,0,0,.06);
+  background:linear-gradient(135deg,#e6f2ff,#ffffff); /* ensure blue box */
+  box-shadow:var(--shadow-1);
+  color:inherit;
+  text-decoration:none;
+  transition:transform .12s ease, box-shadow .12s ease, filter .12s ease;
+}
+.news-list.clean > li > a.cardbox.news-item:hover,
+.news-list.clean > li > a.cardbox.news-item:focus-visible{
+  transform:translateY(-2px);
+  box-shadow:var(--shadow-2);
+  filter:brightness(1.02);
+  outline:none;
+  text-decoration:none; /* no underline on hover/focus */
+}
+.news-list.clean .meta{ color: var(--muted); font-size:.9rem; margin-bottom:6px; }
+.news-list.clean h3{ margin:4px 0 6px; font-size:1.1rem; }
+.news-list.clean p{ margin:0; }
+.news-list.clean time{ font-weight:600; }
 /* ---- Responsive ---- */
 @media (max-width:1100px){
   .research-wrap{ grid-template-columns:1fr; } .research-aside{ position:static; }
@@ -295,6 +509,10 @@ footer{
   }
   .round-link.emblem-link{ width:var(--orbit-center-m); height:var(--orbit-center-m); }
   .round-link.circle-card{ width:var(--orbit-side-m); height:var(--orbit-side-m); }
+
+  /* One-column lists on smaller screens */
+  .pub-grid{ grid-template-columns: 1fr; }
+  .news-list.clean{ grid-template-columns: 1fr; }
 }
 @media (max-width:960px){ .tile{ grid-column:span 6; } }
 @media (max-width:640px){ .tile{ grid-column:span 12; } }
