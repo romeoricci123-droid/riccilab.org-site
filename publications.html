@@ -31,19 +31,54 @@
   </header>
 
   <main id="main" role="main">
-    <section class="subhero" style="background-image:url('assets/placeholder-hero.jpg')">
+    <section class="subhero" style="background-image:url('assets/publications-hero-ricci.png')">
       <div class="container inner">
-        <h1>Under renovation</h1>
-        <p class="lead">We’re rebuilding this page.</p>
       </div>
     </section>
 
-    <section class="page">
-      <div class="container">
-        <p>Content coming soon…</p>
-      </div>
-    </section>
-  </main>
+    <section class="page" id="pubs">
+  <div class="container">
+    <div id="pub-layout">
+      <!-- LEFT: the ONLY Cell cover -->
+      <aside id="pub-cover">
+        <a class="cover-link" href="https://doi.org/10.1016/j.cell.2008.11.018" target="_blank" rel="noopener">
+          <img class="photo-rim" src="assets/cell_cover.png" alt="Cell cover, A New Route for Insulin Secretion">
+        </a>
+      </aside>
+
+      <!-- RIGHT: publications list from publications.js -->
+      <div id="pub-list" class="paper-list" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Data file -->
+<script src="assets/publications.js?v=7"></script>
+
+<!-- Build the list once -->
+<script>
+(function () {
+  var list = document.getElementById('pub-list');
+  if (!list) return;
+  list.innerHTML = '';
+
+  var DATA = (window.PUBLICATIONS && window.PUBLICATIONS.length) ? window.PUBLICATIONS : [];
+  var AREA = { inflammasome:"Inflammasome", beta:"β-cell", neuron:"Neuroscience" };
+
+  DATA.forEach(function(p){
+    var a = document.createElement('a');
+    a.className = 'paper-card';
+    a.href = p.doi ? ('https://doi.org/' + p.doi) : '#';
+    a.target = '_blank'; a.rel = 'noopener';
+    a.innerHTML =
+      '<div class="paper-title">' + p.title + '</div>' +
+      '<div class="paper-authors">' + (p.authors||'') + '</div>' +
+      '<div class="paper-meta">' + (p.venue||'') + (p.year ? ' (' + p.year + ')' : '') + '</div>' +
+      (p.area ? '<div class="paper-tags"><span class="tag">' + (AREA[p.area] || p.area) + '</span></div>' : '');
+    list.appendChild(a);
+  });
+})();
+</script>
 
   <footer>
   <div class="container foot">

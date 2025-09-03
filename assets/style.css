@@ -35,12 +35,21 @@ html,body{
   background-size: 180px 180px;
 }
 a{ color:var(--accent); text-decoration:none; }
-a:hover{ text-decoration:underline; }
-[id]{ scroll-margin-top:84px; }
-/* Card links never show underlines */
+a:hover,
+a:focus,
+a:focus-visible{ text-decoration:none; }
+
+/* UI links never show underlines */
 .cardbox,
 .cardbox:hover,
-.cardbox:focus-visible{ text-decoration:none; }
+.cardbox:focus-visible,
+.funding-pill,
+.funding-pill:hover,
+.funding-pill:focus-visible{
+  text-decoration: none;
+  border-bottom: 0;
+  color: inherit;
+}
 
 /* Skip link visibility */
 .skip{
@@ -395,25 +404,47 @@ main{
 .page-aside .emblem-panel .pad{ padding:0; display:grid; justify-items:center; }
 .page-aside .emblem-panel img{ width:200px; height:200px; }
 
-/* NEWS → France 2030 pill: size + no underline/outline */
-.funding-band .funding-pill,
-.funding-band .funding-pill:hover,
-.funding-band .funding-pill:focus-visible{
-  text-decoration:none;
-  outline:none;
+/* NEWS → France 2030 pill: size, spacing, centering */
+[data-page="news"] .funding-band{
+  display: block;
+  text-align: center;            /* center the pill */
 }
-.funding-band .funding-pill img{       /* smaller logo */
-  height:56px;                         /* was 72px */
-  width:auto;
-  display:block;
+
+[data-page="news"] .funding-band .funding-pill{
+  display: inline-flex;          /* keep content sized to fit */
+  align-items: center;           /* vertical centering */
+  justify-content: center;
+  gap: 10px;                     /* space between logo and text */
+  background: #fff;
+  border: 2px solid #b0b5bd;
+  border-radius: 12px;
+  padding: 12px 18px;
+  margin: 16px auto;
+  max-width: none;               /* remove old 200px limit */
+  box-shadow: var(--shadow-1);
+  transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
 }
-.funding-band .funding-pill .txt{
-  max-width:42ch;                      /* keep copy tidy */
+
+[data-page="news"] .funding-band .funding-pill:hover{
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-2);
+  border-color: #b0b5bd;
 }
-.funding-pill{
-  display:flex; gap:14px; align-items:center; background:#fff;
-  border:1px solid #e1e6ee; border-radius:16px; padding:10px 14px;
+
+[data-page="news"] .funding-band .funding-pill img{
+  display: block;
+  height: 44px;                  /* lower logo height */
+  width: auto;
+  object-fit: contain;
 }
+
+[data-page="news"] .funding-band .funding-pill:focus-visible{
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-2);
+  border-color: #dfe6ee;
+  outline: none;
+}
+
 
 .partner-card{
   display:flex; align-items:center; justify-content:center;
@@ -434,12 +465,43 @@ main{
   transition:transform .12s ease, box-shadow .12s ease, border-color .12s ease;
   box-shadow:var(--shadow-1);
 }
+/* Funding page: uniform sponsor card size */
+[data-page="sponsors"] .sponsor-card a{
+  height:120px;                 /* fixed card height */
+  justify-content:center;       /* vertical centering */
+}
+
+/* Keep INCa + ARC logos smaller inside the uniform cards */
+[data-page="sponsors"] .sponsor-card img[src$="inca.png"],
+[data-page="sponsors"] .sponsor-card img[src$="inca.svg"],
+[data-page="sponsors"] .sponsor-card img[src$="arc.png"],
+[data-page="sponsors"] .sponsor-card img[src$="arc.svg"]{
+  max-height:48px;
+  max-width:88%;
+  object-fit:contain;
+}
+
+/* Optional: tighten on small screens */
+@media (max-width:640px){
+  [data-page="sponsors"] .sponsor-card a{ height:110px; }
+}
 .sponsor-card a:hover{ transform:translateY(-2px); box-shadow:var(--shadow-2); border-color:#dfe6ee; }
 .sponsor-card img{ max-height:64px; width:auto; height:auto; object-fit:contain; display:block; }
 
-/* ---- Long-form news entries ---- */
+/* Funding page: tighten INCa and ARC logos only here */
+[data-page="sponsors"] .sponsor-card img[src$="inca.png"],
+[data-page="sponsors"] .sponsor-card img[src$="inca.svg"],
+[data-page="sponsors"] .sponsor-card img[src$="arc.png"],
+[data-page="sponsors"] .sponsor-card img[src$="arc.svg"]{
+  max-height:48px;      /* smaller than the global 64px */
+  max-width:88%;
+  object-fit:contain;
+}
+
+  /* ---- Long-form news entries ---- */
 .news-entry{
-  background:#fff; border:1px solid rgba(0,0,0,.08); border-radius:12px;
+  background:#fff; border:2px solid #b0b5bd; border-radius:12px; /* metal rim */
+  box-shadow:var(--shadow-1);
   padding:16px 18px; margin:18px 0; scroll-margin-top:84px;
 }
 .news-entry .meta{ font-size:.9rem; opacity:.8; margin-bottom:6px; }
@@ -601,4 +663,112 @@ footer{ text-align:center; }
     justify-self:center;
   }
 }
+/* Team — tiny utilities */
+.person{ display:flex; align-items:center; gap:12px; margin:10px 0; }
+.avatar{ width:140px; height:140px; object-fit:cover; object-position:center 30%; border-radius:12px; }
+.photo-rim{ border:2px solid #b0b5bd; border-radius:12px; box-shadow:var(--shadow-1); }
+/* Mini buttons */
+.mini-btn{
+  display:inline-flex; align-items:center; gap:6px;
+  padding:8px 12px; font-size:.9rem; font-weight:600;
+  background:#000; color:#fff; border:1px solid #000;
+  border-radius:10px; box-shadow:var(--shadow-1);
+  transition:transform .1s ease, box-shadow .12s ease, background .12s ease;
+  cursor:pointer;
+}
+.mini-btn:hover,
+.mini-btn:focus-visible{
+  background:#222; transform:translateY(-1px);
+  box-shadow:var(--shadow-2); outline:none;
+}
 
+/* UI links never show underlines */
+.cardbox,
+.cardbox:hover,
+.cardbox:focus-visible,
+.funding-pill,
+.funding-pill:hover,
+.funding-pill:focus-visible{
+  text-decoration: none;
+  border-bottom: 0;
+  color: inherit;
+}
+/* Mini buttons with metal rim — no halo */
+.mini-btn{
+  display:inline-flex; align-items:center; gap:6px;
+  padding:8px 12px; font-size:.9rem; font-weight:600;
+  background:#000; color:#fff;
+  border:2px solid #b0b5bd;           /* single rim only */
+  border-radius:12px;
+  box-shadow:var(--shadow-1);          /* removed inset layer */
+  background-clip: padding-box;        /* prevents border bleed */
+  will-change: transform;
+  transition: transform .1s ease, box-shadow .12s ease;
+  cursor:pointer;
+}
+.mini-btn:hover,
+.mini-btn:focus-visible{
+  background:#222;                     /* keep rim color the same */
+  transform: translate3d(0,-1px,0);    /* smoother lift, no flicker */
+  box-shadow: var(--shadow-2);
+  outline: none;
+}
+
+/* Never underline */
+.mini-btn,
+.mini-btn:hover,
+.mini-btn:focus,
+.mini-btn:focus-visible{
+  text-decoration: none !important;
+  border-bottom: 0 !important;
+  color: #fff;
+}
+/* Nudge the small black buttons to the right on the research page */
+[data-page="research"] h3 .mini-btn{ margin-left:12px; }
+
+@media (max-width:760px){
+  [data-page="research"] h3 .mini-btn{ margin-left:8px; }
+}
+/* Publications layout */
+#pub-layout{
+  display:grid;
+  grid-template-columns: 320px 1fr;
+  gap:16px 20px;
+  align-items:start;
+}
+
+/* Left cover */
+#pub-cover .cover-link{ display:block; }
+#pub-cover img{ display:block; width:100%; height:auto; border-radius:12px; } /* photo-rim adds metal rim */
+
+/* List and cards */
+.paper-list{ display:grid; grid-template-columns:1fr; gap:12px; }
+.paper-card{
+  display:block;
+  padding:14px 16px;
+  background:#fff;
+  border:2px solid #b0b5bd;          /* metal rim */
+  border-radius:12px;
+  box-shadow:var(--shadow-1);
+  text-decoration:none;
+  color:inherit;
+  transition:transform .12s ease, box-shadow .12s ease;
+}
+.paper-card:hover,
+.paper-card:focus-visible{
+  transform:translateY(-2px);
+  box-shadow:var(--shadow-2);
+  outline:none;
+}
+/* Cell cover: subtle hover lift (no underline) */
+#pub-cover .cover-link{ display:block; cursor:pointer; }
+#pub-cover .cover-link .photo-rim{
+  display:block; width:100%; height:auto;
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+#pub-cover .cover-link:hover .photo-rim,
+#pub-cover .cover-link:focus-visible .photo-rim{
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-2);
+  outline: none;
+}
