@@ -9,7 +9,7 @@
   --ink:#0b0d12; --muted:#4f5966; --line:#e7edf2; --accent:#111; --bg:#faf9f7;
 
   /* Global frame width used everywhere (header, hero, subhero, content) */
-  --frame: min(1152px, 92%);
+  --frame: min(1800px, 96%);
 
   /* Elevation */
   --shadow-1: 0 1px 2px rgba(0,0,0,.06), 0 1px 1px rgba(0,0,0,.04);
@@ -17,9 +17,9 @@
   --shadow-3: 0 28px 84px 10px rgba(0,0,0,.38), 0 14px 32px rgba(0,0,0,.22), 0 1px 0 rgba(0,0,0,.06);
 
   /* Orbit sizes */
-  --orbit-center: 560px;   /* center circle desktop */
+  --orbit-center: 680px;   /* center circle desktop */
   --orbit-side:   240px;   /* side circles desktop */
-  --orbit-center-m: 420px; /* center circle mobile */
+  --orbit-center-m: 520px; /* center circle mobile */
   --orbit-side-m:   200px; /* side circles mobile */
 
   /* Headings */
@@ -73,7 +73,11 @@ header{
   background:var(--bg);
   background-image:inherit;               /* reuse subtle grain */
   border-bottom:2px solid #b0b5bd;        /* full-width metal rim */
+  box-shadow: 0 18px 0 var(--bg), 0 34px 24px var(--bg);
 }
+
+
+
 /* NEW */
 header .container.wide.nav{
   display:flex;
@@ -94,27 +98,29 @@ header .container.wide.nav{
   gap:12px;
   align-items:end;                      /* tabs sit on the row baseline */
   min-width:0;
-  margin-bottom:-2px;                   /* pull tabs down to meet page/rim */
+  /* no negative margin here */
 }
 #site-nav > a.navbox{
   display:flex; align-items:center; justify-content:center;
-  padding:14px 18px; margin:0; height:100%;
+  padding:16px 22px; margin:0; height:100%;
   line-height:1.2; text-align:center;
 
   background:var(--bg);
   color:var(--ink);
-  border:1px solid #c7ccd6;
+
+  border:2px solid #b0b5bd;
   border-bottom:none;
   border-radius:12px 12px 0 0;
 
-  /* recessed “behind” impression */
-  box-shadow: inset 0 -2px 0 #c7ccd6;
+  /* softer + more spread shadow from active page */
+  box-shadow:inset 0 -8px 12px -4px rgba(0,0,0,0.20);
 
   transition:transform .12s ease, box-shadow .12s ease, border-color .12s ease;
   cursor:pointer;
   position:relative;
-  z-index:2;        /* sits above header border; active tab will be higher */
+  z-index:2;   /* above header border; active tab will be z-index:3 */
 }
+
 
 /* Keep nav link color identical for unvisited/visited */
 #site-nav > a.navbox:link,
@@ -125,9 +131,12 @@ header .container.wide.nav{
 #site-nav > a.navbox:hover,
 #site-nav > a.navbox:focus-visible{
   transform:translateY(-1px);
-  background:var(--bg);              /* stays consistent */
-  border-color:#c7ccd6;
-  box-shadow:0 -2px 6px rgba(0,0,0,0.06);
+  background:var(--bg);
+  border-color:#aab0b8;
+
+  /* preserve the same shadow as inactive state */
+  box-shadow:inset 0 -8px 12px -4px rgba(0,0,0,0.20);
+
   outline:none;
 }
 
@@ -135,22 +144,16 @@ header .container.wide.nav{
   background:var(--bg);
   color:var(--ink);
 
-  /* tab’s own rim (top + sides only) */
   border:2px solid #b0b5bd;
   border-bottom:none;
   border-radius:12px 12px 0 0;
 
   position:relative;
-  z-index:3; /* above inactive tabs and header rim */
+  z-index:3;
 
-  /* KEY TRICK:
-     paint a 2px “strip” of page color right under the tab
-     so the header’s bottom border is hidden beneath it */
-  box-shadow:
-    0 2px 0 var(--bg),               /* erase header rim directly under tab */
-    0 -3px 18px rgba(0,0,0,0.15);    /* soft upward lift */
+  margin-bottom:-2px;                 /* overlap the rim by exactly 2px */
+  box-shadow:0 2px 0 var(--bg);       /* erase rim under tab only */
 
-  /* locked (not clickable) */
   pointer-events:none;
   cursor:default;
   transform:none !important;
@@ -197,12 +200,12 @@ header .container.wide.nav{
 /* ==== Hiring banner ==== */
 .hiring{
   display:block;
-  margin:24px 0 12px;              /* tighter spacing; closer to publications */
-  padding:20px 32px;
-  width:100%;                      /* span the full container width */
-  border-radius:14px;              /* keep rounded edges */
-  border:none;
-  background:linear-gradient(135deg,#fef6e7,#ffffff);
+  margin:32px 0;
+  padding:16px 20px;
+  max-width:100%;
+  border-radius:12px;
+  border:2px solid #b0b5bd;           /* metal rim */
+  background:#fff;
   box-shadow:var(--shadow-1);
   color:inherit;
   text-decoration:none;
@@ -224,6 +227,19 @@ header .container.wide.nav{
 }
 .hiring .copy{ font-size:1.05rem; font-weight:600; line-height:1.3; }
 
+/* ==== Hiring full-width band wrapper ==== */
+.hiring-band{
+  width:100vw;
+  margin-left:calc(-50vw + 50%);
+  padding:40px 0;
+  background:#f5f7f9;
+  border-top:1px solid #e6eaee;
+  border-bottom:1px solid #e6eaee;
+}
+
+@media (min-width:1024px){
+  .hiring-band{ padding:56px 0; }
+}
 /* OK to have this or omit entirely */
 main{
   background:var(--bg);
@@ -252,6 +268,20 @@ main{
 .orbit-rt{     grid-area:rt; }
 .orbit-rb{     grid-area:rb; }
 
+/* Metal rim on all circles */
+.round-link{ border:3px solid #b0b5bd; }
+
+/* Inner highlight on the metal rim */
+.round-link::before{
+  content:"";
+  position:absolute;
+  inset:3px;                 /* sits just inside the rim */
+  border-radius:50%;
+  pointer-events:none;
+  box-shadow:
+    inset 0 2px 4px rgba(255,255,255,.75),  /* soft top highlight */
+    inset 0 -2px 4px rgba(0,0,0,.08);       /* faint bottom shade */
+}
 /* Side circles (no ring, softer shadow) */
 .round-link.circle-card{
   width:var(--orbit-side); height:var(--orbit-side);
@@ -278,11 +308,12 @@ main{
   height:var(--orbit-center);
   border-radius:50%;
   overflow:hidden;
-  position:relative;           /* needed for img transform */
+  position:relative;
   display:block;
   background:transparent;
   box-shadow:var(--shadow-3);
   transition:box-shadow .12s ease, transform .12s ease;
+  margin:0 auto;                 /* force center at all widths */
 }
 .round-link.emblem-link:hover{
   transform:translateY(-2px);
@@ -379,7 +410,7 @@ main{
 }
 .sponsor-card a{
   display:flex; flex-direction:column; align-items:center; gap:10px;
-  background:#fff; border:1px solid var(--line); border-radius:12px; padding:14px; color:inherit; text-decoration:none;
+  background:#fff; border:2px solid #b0b5bd; border-radius:12px; padding:14px; color:inherit; text-decoration:none;
   transition:transform .12s ease, box-shadow .12s ease, border-color .12s ease;
   box-shadow:var(--shadow-1);
 }
@@ -420,7 +451,7 @@ footer .foot-partners .partner-card{
   justify-content:center;
   flex:0 0 auto;              /* never stretch full width */
   background:#fff;
-  border:1px solid var(--line);
+  border:2px solid #b0b5bd;
   border-radius:14px;
   padding:12px 16px;
   margin:12px auto;
@@ -431,7 +462,7 @@ footer .foot-partners .partner-card{
 footer .foot-partners .partner-card:hover{
   transform:translateY(-2px);
   box-shadow:var(--shadow-2);
-  border-color:#dfe6ee;
+  border:2px solid #b0b5bd;
 }
 
 footer .foot-partners .partner-card img{
@@ -457,10 +488,11 @@ footer .foot-partners .partner-card:focus-visible{
 .pub-grid > li > a.cardbox.pub-item{ display:flex; flex:1; text-decoration:none; }
 .pub-card{
   display:flex; flex-direction:column; flex:1;
-  padding:14px 16px; border-radius:14px; border:1px solid rgba(0,0,0,.06);
-  background: linear-gradient(135deg, #ffe9d6, #ffffff);
-  box-shadow: var(--shadow-1); color:#0b0d12;
-  transition: transform .12s ease, box-shadow .12s ease, filter .12s ease;
+  padding:14px 16px; border-radius:12px;
+  border:2px solid #b0b5bd;           /* metal rim */
+  background:#fff;
+  box-shadow:var(--shadow-1); color:#0b0d12;
+  transition:transform .12s ease, box-shadow .12s ease, filter .12s ease;
 }
 .pub-card:hover{ transform: translateY(-2px); box-shadow: var(--shadow-2); filter: brightness(1.02); }
 .pub-venue{ font-weight:600; margin-bottom:6px; }
@@ -475,12 +507,10 @@ footer .foot-partners .partner-card:focus-visible{
 .news-list.clean > li{ list-style:none; display:flex; }
 .news-list.clean > li > a.cardbox.news-item{
   display:flex; flex-direction:column; flex:1;
-  padding:16px; border-radius:14px;
-  border:1px solid rgba(0,0,0,.06);
-  background:linear-gradient(135deg,#e6f2ff,#ffffff); /* ensure blue box */
-  box-shadow:var(--shadow-1);
-  color:inherit;
-  text-decoration:none;
+  padding:16px; border-radius:12px;
+  border:2px solid #b0b5bd;           /* metal rim */
+  background:#fff;
+  box-shadow:var(--shadow-1); color:inherit; text-decoration:none;
   transition:transform .12s ease, box-shadow .12s ease, filter .12s ease;
 }
 .news-list.clean > li > a.cardbox.news-item:hover,
@@ -495,6 +525,10 @@ footer .foot-partners .partner-card:focus-visible{
 .news-list.clean h3{ margin:4px 0 6px; font-size:1.1rem; }
 .news-list.clean p{ margin:0; }
 .news-list.clean time{ font-weight:600; }
+@media (max-width:1400px){
+  .pub-grid{ grid-template-columns: repeat(3, minmax(0,1fr)); }
+  .news-list.clean{ grid-template-columns: repeat(3, minmax(0,1fr)); }
+}
 /* ---- Responsive ---- */
 @media (max-width:1100px){
   .research-wrap{ grid-template-columns:1fr; } .research-aside{ position:static; }
@@ -516,6 +550,7 @@ footer .foot-partners .partner-card:focus-visible{
 }
 @media (max-width:960px){ .tile{ grid-column:span 6; } }
 @media (max-width:640px){ .tile{ grid-column:span 12; } }
+
 @media (max-width:760px){
   header .nav{ position:relative; }
   .hamburger{
@@ -527,4 +562,21 @@ footer .foot-partners .partner-card:focus-visible{
   #site-nav.open{ display:grid; }
 }
 @media (max-width:680px){ .news-entry{ padding:14px; } }
-
+@media (max-width:1320px){
+  .orbit{
+    width:100%;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "center"
+      "left"
+      "rt"
+      "rb";
+    gap:20px;
+  }
+  .orbit-left,
+  .orbit-rt,
+  .orbit-rb,
+  .orbit-center{
+    justify-self:center;
+  }
+}
