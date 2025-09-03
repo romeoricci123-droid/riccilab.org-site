@@ -171,6 +171,17 @@ header .container.wide.nav{
   position:relative; min-height:60vh; display:flex; align-items:flex-end; overflow:hidden;
   background:#0d1220; background-size:cover; background-position:center; background-repeat:no-repeat;
 }
+
+/* Subhero metal rim — crisp lines only (no glow) */
+.subhero{
+  border-top:3px solid #b0b5bd;     /* metal rim */
+  border-bottom:3px solid #b0b5bd;  /* metal rim */
+  position:relative;
+}
+/* (removed .subhero::before) */
+
+/* +4 cm height for all subheros */
+.subhero{ min-height: calc(60vh + 4cm); }
 .hero::before, .subhero::before{
   content:""; position:absolute; inset:0;
   background-image:linear-gradient(180deg, rgba(10,14,22,.02) 0, rgba(10,14,22,.28) 60%, rgba(10,14,22,.40) 100%);
@@ -317,21 +328,6 @@ main{
   margin:0 auto;                 /* force center at all widths */
 }
 
-/* TM badge inside the emblem */
-.tm-badge{
-  position:absolute;
-  top:8px; right:8px;
-  font-size:10px; font-weight:800; line-height:1;
-  color:#0b0d12;
-  background:#fff;
-  border:2px solid #b0b5bd;
-  border-radius:9999px;
-  padding:2px 6px;
-  box-shadow:var(--shadow-1);
-  pointer-events:none;
-  z-index:2;
-}
-
 .round-link.emblem-link:hover{
   transform:translateY(-2px);
   box-shadow:0 34px 100px 12px rgba(0,0,0,.42), 0 16px 36px rgba(0,0,0,.24), 0 1px 0 rgba(0,0,0,.06);
@@ -399,20 +395,25 @@ main{
 .page-aside .emblem-panel .pad{ padding:0; display:grid; justify-items:center; }
 .page-aside .emblem-panel img{ width:200px; height:200px; }
 
-/* ---- Funding / Sponsor / Partner ---- */
-.funding-band{ background:#f7f9fc; color:#0b0d12; border-top:1px solid #e7edf2; border-bottom:1px solid #e7edf2; }
-.funding-band .container{
-  display:flex; gap:28px; align-items:center; flex-wrap:wrap; justify-content:center; padding:20px 0;
+/* NEWS → France 2030 pill: size + no underline/outline */
+.funding-band .funding-pill,
+.funding-band .funding-pill:hover,
+.funding-band .funding-pill:focus-visible{
+  text-decoration:none;
+  outline:none;
+}
+.funding-band .funding-pill img{       /* smaller logo */
+  height:56px;                         /* was 72px */
+  width:auto;
+  display:block;
+}
+.funding-band .funding-pill .txt{
+  max-width:42ch;                      /* keep copy tidy */
 }
 .funding-pill{
   display:flex; gap:14px; align-items:center; background:#fff;
   border:1px solid #e1e6ee; border-radius:16px; padding:10px 14px;
 }
-.funding-pill img{ height:72px; width:auto; display:block; }
-.funding-pill .txt{ line-height:1.2; }
-.funding-pill .txt .kicker{ opacity:.85; font-size:.9rem; letter-spacing:.02em; }
-.funding-pill .txt a{ color:#0b0d12; text-decoration:underline; }
-.funding-pill .txt a:hover{ color:#111; text-decoration:none; }
 
 .partner-card{
   display:flex; align-items:center; justify-content:center;
@@ -600,3 +601,4 @@ footer{ text-align:center; }
     justify-self:center;
   }
 }
+
