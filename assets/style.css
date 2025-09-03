@@ -183,6 +183,7 @@ header .container.wide.nav{
 .hero .pi{ font-size:16px; color:#d7deec; margin-top:6px; }
 .cta{ display:flex; gap:16px; flex-wrap:wrap; margin-top:16px; align-items:center; }
 .cta > *{ margin:0; }
+.subhero{ margin-top:3cm; }
 
 /* ---- Buttons ---- */
 .btn{
@@ -315,13 +316,31 @@ main{
   transition:box-shadow .12s ease, transform .12s ease;
   margin:0 auto;                 /* force center at all widths */
 }
+
+/* TM badge inside the emblem */
+.tm-badge{
+  position:absolute;
+  top:8px; right:8px;
+  font-size:10px; font-weight:800; line-height:1;
+  color:#0b0d12;
+  background:#fff;
+  border:2px solid #b0b5bd;
+  border-radius:9999px;
+  padding:2px 6px;
+  box-shadow:var(--shadow-1);
+  pointer-events:none;
+  z-index:2;
+}
+
 .round-link.emblem-link:hover{
   transform:translateY(-2px);
   box-shadow:0 34px 100px 12px rgba(0,0,0,.42), 0 16px 36px rgba(0,0,0,.24), 0 1px 0 rgba(0,0,0,.06);
 }
+
 .round-link.emblem-link > img{
   width:100%; height:100%; object-fit:cover; display:block; box-shadow:none;
   transform: translateY(-1%) scale(1.3); transform-origin:center;
+  position:relative; z-index:0;     /* allow ::after badge to sit above */
 }
 
 /* Tagline under the center emblem */
@@ -478,6 +497,7 @@ footer .foot-partners .partner-card:focus-visible{
   border-color:#dfe6ee;
   outline:none;
 }
+footer{ text-align:center; }
 
 /* ==== Publications — single system, equal heights per row ==== */
 .pub-grid{
