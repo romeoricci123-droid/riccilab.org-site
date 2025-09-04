@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1" name="viewport">
-  <title>Ricci Lab — Page Title</title>
-  <link href="assets/style.css" rel="stylesheet">
-  <link rel="icon" href="assets/favicon.png" sizes="32x32">
-  <meta name="description" content="Short description for this page.">
-</head>
-<body data-page="legal">  <!-- change to the page key: research, team, sponsors, news, ... -->
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <title>Legal Notice — Ricci Lab</title>
 
-  <!-- Canonical header (paste exactly as given in step 2) -->
+  <meta name="description" content="Legal information about the Ricci Lab website: site publisher, hosting, intellectual property, liability, applicable law." />
+  <link rel="canonical" href="https://riccilab.org/legal.html" />
+
+  <link rel="icon" href="assets/favicon.png" sizes="32x32">
+  <link href="assets/style.css" rel="stylesheet">
+</head>
+<body data-page="legal">
+  <a href="#main" class="skip">Skip to content</a>
+
+  <!-- Canonical header -->
   <header>
     <div class="container wide nav">
       <div class="brand"></div>
@@ -30,29 +34,78 @@
     </div>
   </header>
 
-  <main id="main" role="main">
-    <section class="subhero" style="background-image:url('assets/placeholder-hero.jpg')">
-      <div class="container inner">
-        <h1>Under renovation</h1>
-        <p class="lead">We’re rebuilding this page.</p>
-      </div>
-    </section>
+  <!-- Spacer to keep text away from the top rim/fade -->
+  <div aria-hidden="true" style="height:56px"></div>
 
+  <section class="pagehead">
+    <div class="container">
+      <h1>Legal Notice</h1>
+      <p class="meta">Last updated: <time datetime="2025-09-04">4 September 2025</time></p>
+    </div>
+  </section>
+
+  <main id="main" role="main">
     <section class="page">
       <div class="container">
-        <p>Content coming soon…</p>
+        <!-- Use the same metal-rim card language -->
+        <article class="news-entry" id="publisher">
+          <h3>Site Publisher</h3>
+          <p><strong>Ricci Lab</strong> — IGBMC (CNRS UMR 7104 / Inserm U1258)<br>
+             1 rue Laurent Fries, BP 10142, 67404 Illkirch-Graffenstaden CEDEX, France<br>
+             Email: <a href="mailto:ricci@igbmc.fr">ricci@igbmc.fr</a></p>
+        </article>
+
+        <article class="news-entry" id="editor">
+          <h3>Editorial Responsibility</h3>
+          <p>Ricci Lab communications. Contact: <a href="mailto:ricci@igbmc.fr">ricci@igbmc.fr</a></p>
+        </article>
+
+        <article class="news-entry" id="hosting">
+          <h3>Hosting</h3>
+          <p>This website is hosted by GitHub Pages (GitHub, Inc., USA).</p>
+        </article>
+
+        <article class="news-entry" id="ip">
+          <h3>Intellectual Property</h3>
+          <p>Unless otherwise stated, all content on this site (texts, images, graphics, logo, and layout) is protected by intellectual property laws and is the property of the Ricci Lab or its respective authors. Any reproduction or reuse requires prior written permission.</p>
+        </article>
+
+        <article class="news-entry" id="links">
+          <h3>External Links</h3>
+          <p>Links to third-party websites are provided for convenience. We are not responsible for their content or practices.</p>
+        </article>
+
+        <article class="news-entry" id="liability">
+          <h3>Liability</h3>
+          <p>We strive to keep information accurate and up to date; however, errors or omissions may occur. Use of the site is at your own risk. We accept no liability for any direct or indirect damage resulting from use of the site.</p>
+        </article>
+
+        <article class="news-entry" id="law">
+          <h3>Applicable Law & Jurisdiction</h3>
+          <p>This site is governed by French law. Any dispute falls within the jurisdiction of the competent French courts.</p>
+        </article>
+
+        <article class="news-entry" id="contact">
+          <h3>Contact</h3>
+          <p>For any legal question regarding this website, email <a href="mailto:ricci@igbmc.fr">ricci@igbmc.fr</a>.</p>
+        </article>
       </div>
     </section>
   </main>
 
   <footer>
-    ©<span id="y"></span> Ricci Lab ·
-    <a href="legal.html">Mentions légales</a> ·
-    <a href="privacy.html">Vie privée</a>
+    <div class="container foot">
+      <div class="foot-meta">
+        ©<span id="y"></span> Ricci Lab ·
+        <a href="legal.html" aria-current="page">Legal Notice</a> ·
+        <a href="privacy.html">Privacy</a>
+      </div>
+    </div>
     <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
   </footer>
 
-  <!-- JS -->
   <script src="assets/nav.js" defer></script>
 </body>
 </html>
+
+

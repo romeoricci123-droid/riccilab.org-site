@@ -29,59 +29,70 @@
       </nav>
     </div>
   </header>
-
+</div>
   <main id="main" role="main">
-    <section class="subhero" style="background-image:url('assets/contact-hero-ricci.png')">
-      <div class="container inner">
-      </div>
-    </section>
+  <section class="subhero">
+  <img class="subhero-img" src="assets/contact-hero-ricci.png" alt="">
+  </section>
 
-    <section class="page">
-  <div class="container">
-    <div class="contact-wrap">
-      <!-- Left: info card (metal rim) -->
-      <aside class="contact-card" aria-labelledby="contact-info">
-        <h2 id="contact-info">Get in touch</h2>
-        <p><strong>Institute:</strong> IGBMC</p>
-        <p><strong>Email:</strong> <a href="mailto:ricci@igbmc.fr">ricci@igbmc.fr</a></p>
-      </aside>
+  <section class="page">
+    <div class="container">
+      <div class="contact-wrap">
+        <!-- Left: info card (metal rim) -->
+        <aside class="contact-card" aria-labelledby="contact-info">
+          <h2 id="contact-info">Get in touch</h2>
+          <p><strong>Email:</strong> <a href="mailto:ricci@igbmc.fr">ricci@igbmc.fr</a></p>
 
-      <!-- Right: form card (metal rim) -->
-      <div class="contact-card">
-        <form id="contactForm" class="contact-form"
-              action="https://formspree.io/f/xwpnkrzk" method="POST" novalidate>
-          <!-- honeypot -->
-          <input type="text" name="website" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
+          <!-- Postal subcard INSIDE the left card -->
+          <div class="subcard">
+            <h3 style="margin:0 0 8px">Postal address</h3>
+            <address style="font-style:normal; line-height:1.5; margin:0">
+              <strong>IGBMC — CNRS UMR 7104 / Inserm U1258</strong><br>
+              1 rue Laurent Fries, BP 10142<br>
+              67404 Illkirch-Graffenstaden CEDEX, France
+            </address>
+            <div class="cta" style="margin-top:12px">
+              <a class="mini-btn" href="https://www.google.com/maps/search/?api=1&query=IGBMC%2C+1+rue+Laurent+Fries%2C+67404+Illkirch+CEDEX%2C+France" target="_blank" rel="noopener">
+                Open in Google Maps
+              </a>
+            </div>
+          </div>
+        </aside>
 
-          <label for="name">Name</label>
-          <input id="name" name="name" required placeholder="Your name">
+        <!-- Right: form card (metal rim) -->
+        <div class="contact-card">
+          <form id="contactForm" class="contact-form"
+                action="https://formspree.io/f/xwpnkrzk" method="POST" novalidate>
+            <!-- honeypot -->
+            <input type="text" name="website" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
 
-          <label for="email">Email</label>
-          <input id="email" name="email" type="email" required placeholder="your@email">
+            <label for="name">Name</label>
+            <input id="name" name="name" required placeholder="Your name">
 
-          <label for="message">Message</label>
-          <textarea id="message" name="message" rows="5" required placeholder="How can we help?"></textarea>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required placeholder="your@email">
 
-          <input type="hidden" name="_subject" value="New message from Ricci Lab site">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required placeholder="How can we help?"></textarea>
 
-          <button class="btn" type="submit">Send</button>
+            <input type="hidden" name="_subject" value="New message from Ricci Lab site">
+            <button class="btn" type="submit">Send</button>
 
-          <!-- status line -->
-          <p id="msg" class="status" aria-live="polite" hidden></p>
-        </form>
+            <!-- neutral status line -->
+            <p id="msg" class="status" aria-live="polite" hidden></p>
+          </form>
+        </div>
       </div>
     </div>
-  </div>
-</section>
-
-  </main>
+  </section>
+</main>
 
   <footer>
   <div class="container foot">
     <div class="foot-meta">
       ©<span id="y"></span> Ricci Lab ·
-      <a href="legal.html">Mentions légales</a> ·
-      <a href="privacy.html">Vie privée</a>
+      <a href="legal.html">Legal Notice</a> ·
+      <a href="privacy.html">Privacy</a>
     </div>
   </div>
   <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
