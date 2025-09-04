@@ -31,18 +31,49 @@
   </header>
 
   <main id="main" role="main">
-    <section class="subhero" style="background-image:url('assets/placeholder-hero.jpg')">
+    <section class="subhero" style="background-image:url('assets/contact-hero-ricci.png')">
       <div class="container inner">
-        <h1>Under renovation</h1>
-        <p class="lead">We’re rebuilding this page.</p>
       </div>
     </section>
 
     <section class="page">
-      <div class="container">
-        <p>Content coming soon…</p>
+  <div class="container">
+    <div class="contact-wrap">
+      <!-- Left: info card (metal rim) -->
+      <aside class="contact-card" aria-labelledby="contact-info">
+        <h2 id="contact-info">Get in touch</h2>
+        <p><strong>Institute:</strong> IGBMC</p>
+        <p><strong>Email:</strong> <a href="mailto:ricci@igbmc.fr">ricci@igbmc.fr</a></p>
+      </aside>
+
+      <!-- Right: form card (metal rim) -->
+      <div class="contact-card">
+        <form id="contactForm" class="contact-form"
+              action="https://formspree.io/f/xwpnkrzk" method="POST" novalidate>
+          <!-- honeypot -->
+          <input type="text" name="website" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
+
+          <label for="name">Name</label>
+          <input id="name" name="name" required placeholder="Your name">
+
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required placeholder="your@email">
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required placeholder="How can we help?"></textarea>
+
+          <input type="hidden" name="_subject" value="New message from Ricci Lab site">
+
+          <button class="btn" type="submit">Send</button>
+
+          <!-- status line -->
+          <p id="msg" class="status" aria-live="polite" hidden></p>
+        </form>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
+
   </main>
 
   <footer>
@@ -55,7 +86,43 @@
   </div>
   <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
 </footer>
+<script>
+(function () {
+  const form = document.getElementById('contactForm');
+  const msg  = document.getElementById('msg');
+  if (!form) return;
 
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+
+    // honeypot
+    if (data.get('website')) return;
+
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      msg.hidden = false;
+      if (res.ok) {
+        form.reset();
+        msg.textContent = 'Thanks, your message was sent.';
+        msg.classList.remove('error'); msg.classList.add('ok');
+      } else {
+        msg.textContent = 'Sorry, there was a problem. Please try again later.';
+        msg.classList.remove('ok'); msg.classList.add('error');
+      }
+    } catch (err) {
+      msg.hidden = false;
+      msg.textContent = 'Network error. Please try again later.';
+      msg.classList.remove('ok'); msg.classList.add('error');
+    }
+  });
+}());
+</script>
   <!-- JS -->
   <script src="assets/nav.js" defer></script>
 </body>

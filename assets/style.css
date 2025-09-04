@@ -772,3 +772,49 @@ footer{ text-align:center; }
   box-shadow: var(--shadow-2);
   outline: none;
 }
+/* Contact layout */
+.contact-wrap{
+  display:grid;
+  grid-template-columns:0.45fr 1.55fr;
+  gap:20px;
+  align-items:start;
+}
+@media (max-width:1100px){
+  .contact-wrap{ grid-template-columns:1fr; }
+}
+
+/* Metal-rim cards (same language as news/pubs) */
+.contact-card{
+  background:#fff;
+  border:2px solid #b0b5bd;   /* metal rim */
+  border-radius:12px;
+  box-shadow:var(--shadow-1);
+  padding:16px 18px;
+}
+
+/* Form basics */
+.contact-form label{ display:block; font-weight:600; margin:10px 0 6px; }
+.contact-form input,
+.contact-form textarea{
+  width:100%;
+  padding:10px 12px;
+  border:1px solid var(--line);
+  border-radius:8px;
+  font:inherit;
+  background:#fff;
+}
+.contact-form .hp{ position:absolute; left:-5000px; opacity:0; }
+
+.contact-form .status{
+  margin:10px 0 0;
+  padding:10px 12px;
+  border:1px solid #e7edf2;
+  border-radius:10px;
+  background:#f7fafc;
+}
+.contact-form .status.ok{
+  border-color:#10b981; background:#ecfdf5; color:#065f46;
+}
+.contact-form .status.error{
+  border-color:#f59e0b; background:#fffbeb; color:#92400e;
+}
