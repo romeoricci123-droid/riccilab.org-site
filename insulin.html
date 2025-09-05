@@ -3,14 +3,20 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1" name="viewport">
-  <title>Ricci Lab — Page Title</title>
+  <title>Insulin granule turnover — Ricci Lab</title>
   <link href="assets/style.css" rel="stylesheet">
   <link rel="icon" href="assets/favicon.png" sizes="32x32">
-  <meta name="description" content="Short description for this page.">
+  <meta name="description" content="Lysosomal routing versus secretion shapes β cell output and glucose control.">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Ricci Lab · Insulin & Metabolism">
+  <meta property="og:description" content="Exploring insulin granules, secretion, and their role in diabetes and autophagy.">
+  <meta property="og:image" content="https://riccilab.org/assets/og-insulin.jpg">
+  <meta property="og:type" content="article">
 </head>
-<body data-page="research">  <!-- change to the page key: research, team, sponsors, news, ... -->
+<body data-page="research">
+  <a href="#main" class="skip">Skip to content</a>
 
-  <!-- Canonical header (paste exactly as given in step 2) -->
+  <!-- Canonical header -->
   <header>
     <div class="container wide nav">
       <div class="brand"></div>
@@ -31,30 +37,76 @@
   </header>
 
   <main id="main" role="main">
-    <section class="subhero">
-  <img class="subhero-img" src="assets/insulin-hero-ricci.png" alt="">
+    <!-- Subhero image only (no overlay text) -->
+    <section class="subhero subhero--boxed">
+  <div class="subhero-frame">
+      <img class="subhero-img" src="assets/insulin-hero-ricci.png" alt="">
+    </div>
     </section>
 
+    <!-- Page content (no emblem sidebar) -->
     <section class="page">
       <div class="container">
-        <p>Content coming soon…</p>
+        <div class="page-main">
+          <h1>Insulin granule turnover</h1>
+          <p class="lead">Lysosomal routing versus secretion shapes β cell output and glucose control.</p>
+
+          <h2>What we have shown so far</h2>
+          <ul class="clean">
+            <li><strong>SINGD/crinophagy paradigm:</strong> Under nutrient stress, <em>newly formed</em> insulin granules are diverted to lysosomes instead of secretion, reducing insulin stores and activating lysosomal mTORC1, which transiently suppresses macroautophagy.</li>
+            <li><strong>PKD as a nutrient state dial:</strong> Protein kinase D activity couples nutrient state to the decision between secretion and lysosomal degradation of nascent granules.</li>
+            <li><strong>Pathophysiology:</strong> In metabolic stress and diabetes models, excessive lysosomal degradation of nascent granules contributes to β cell dysfunction; modulating this route impacts disease onset and severity in vivo.</li>
+          </ul>
+
+          <h2>Project</h2>
+          <div class="two-col">
+            <div>
+              <h3>Aim 1: Quantify nascent granule flux</h3>
+              <p>Establish robust, endogenous readouts of granule → lysosome flux across nutrient contexts in β cells and human islets.</p>
+            </div>
+            <div>
+              <h3>Aim 2: Membrane contacts and lipid logic</h3>
+              <p>Test whether tuning ER-TGN contacts and a TGN lipid code (for example, PI4P ↔ cholesterol) biases nascent granules toward secretion versus lysosomal routing.</p>
+            </div>
+            <div>
+              <h3>Aim 3: PKD causality</h3>
+              <p>Map how PKD activity writes the contact and lipid state and sets the fusion readiness that determines granule fate.</p>
+            </div>
+            <div>
+              <h3>Aim 4: Disease relevance</h3>
+              <p>Probe whether dialing this decision preserves insulin content and GSIS in diabetic islets.</p>
+            </div>
+          </div>
+
+          <h3 style="margin-top:18px">Key tools (selected)</h3>
+          <ul class="clean">
+            <li>Endogenous imaging of granule → lysosome routing in β cells and islets</li>
+            <li>Live reporters for <strong>PI4P</strong> and accessible <strong>cholesterol</strong> at the TGN</li>
+            <li>Acute modulation of <strong>ER-TGN contacts</strong> and secretory/lysosomal fusion steps</li>
+            <li>Nutrient/kinase dialing to connect <strong>p38δ → PKD</strong> with routing outcomes</li>
+            <li>Functional readouts: insulin content and <strong>GSIS</strong></li>
+          </ul>
+
+          <p class="muted">Public overview. Operational protocols, constructs, and parameter values are intentionally not disclosed.</p>
+        </div>
       </div>
     </section>
   </main>
 
   <footer>
-  <div class="container foot">
-    <div class="foot-meta">
-      ©<span id="y"></span> Ricci Lab ·
-      <a href="legal.html">Legal Notice</a> ·
-      <a href="privacy.html">Privacy</a>
+    <div class="container foot">
+      <div class="foot-meta">
+        ©<span id="y"></span> Ricci Lab ·
+        <a href="legal.html">Legal Notice</a> ·
+        <a href="privacy.html">Privacy</a>
+      </div>
     </div>
-  </div>
-  <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
-</footer>
+    <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
+  </footer>
 
   <!-- JS -->
   <script src="assets/nav.js" defer></script>
 </body>
 </html>
+
 

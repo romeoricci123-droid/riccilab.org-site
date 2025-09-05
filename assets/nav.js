@@ -20,10 +20,11 @@
         btn.setAttribute('aria-expanded', String(open));
       });
     }
+    if (!nav) return;
 
-    // aria-current on the active link
+    // 1) Primary: filename match (e.g., news.html, team.html, etc.)
     var here = filename(location.href);
-    document.querySelectorAll('#site-nav a[href]').forEach(function (a) {
+    nav.querySelectorAll('a[href]').forEach(function (a) {
       var target = filename(a.getAttribute('href'));
       if (target === here) {
         a.setAttribute('aria-current', 'page');
@@ -31,5 +32,27 @@
         a.removeAttribute('aria-current');
       }
     });
+
+    // 2) Fallback: if nothing matched, map by page “section” (body[data-page])
+    if (!nav.querySelector('[aria-current="page"]')) {
+      var pageKey = (document.body.getAttribute('data-page') || '').toLowerCase();
+      // Map section keys to their parent tab hrefs
+      var parentByKey = {
+        // top-level pages
+        home: 'index.html',
+        research: 'research.html',
+        team: 'team.html',
+        publications: 'publications.html',
+        sponsors: 'sponsors.html',
+        news: 'news.html',
+        contact: 'contact.html',
+        join: 'join.html'
+      };
+      var parentHref = parentByKey[pageKey];
+      if (parentHref) {
+        var parentLink = nav.querySelector('a[href$="' + parentHref + '"]');
+        if (parentLink) parentLink.setAttribute('aria-current', 'page');
+      }
+    }
   });
 })();

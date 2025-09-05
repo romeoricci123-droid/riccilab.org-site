@@ -3,14 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1" name="viewport">
-  <title>Ricci Lab — Page Title</title>
+  <title>Membrane trafficking in hypothalamic neurons — Ricci Lab</title>
   <link href="assets/style.css" rel="stylesheet">
   <link rel="icon" href="assets/favicon.png" sizes="32x32">
-  <meta name="description" content="Short description for this page.">
+  <meta name="description" content="Endosomal and synaptic membrane lipids tune hypothalamic neuron signaling and neuropeptide release governing feeding.">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Ricci Lab — Brain & Neurons">
+  <meta property="og:description" content="Investigating CaMK1D signaling in AgRP neurons and the neural control of metabolism.">
+  <meta property="og:image" content="https://riccilab.org/assets/og-brain.jpg">
+  <meta property="og:type" content="article">
 </head>
-<body data-page="research">  <!-- change to the page key: research, team, sponsors, news, ... -->
+<body data-page="research">
 
-  <!-- Canonical header (paste exactly as given in step 2) -->
+  <!-- Canonical header -->
   <header>
     <div class="container wide nav">
       <div class="brand"></div>
@@ -31,30 +36,71 @@
   </header>
 
   <main id="main" role="main">
-    <section class="subhero">
-  <img class="subhero-img" src="assets/XXX.png" alt="">
+    <!-- Subhero image only (no overlay text) -->
+    <section class="subhero subhero--boxed">
+  <div class="subhero-frame">
+      <img class="subhero-img" src="assets/neuron-hero-ricci.png" alt="">
+    </div>
     </section>
 
+    <!-- Page content (no emblem sidebar) -->
     <section class="page">
       <div class="container">
-        <p>Content coming soon…</p>
+        <div class="page-main">
+          <h1>Membrane trafficking in hypothalamic neurons</h1>
+          <p class="muted"><strong>Program lead:</strong> Karl Vivot (CRCN Inserm).</p>
+
+          <h2>What we have shown so far</h2>
+          <ul class="clean">
+            <li><strong>CaMK1D in AgRP neurons mediates ghrelin’s orexigenic action:</strong> Genetic disruption of <em>Camk1d</em> blunts ghrelin-evoked feeding, reduces body-weight gain and protects against high-fat-diet–induced obesity in mice.</li>
+            <li><strong>Neuronal mechanism:</strong> In AgRP/NPY neurons, ghrelin activates CaMK1D; loss of CaMK1D dampens downstream transcriptional responses (e.g. reduced CREB phosphorylation) and the orexigenic program.</li>
+            <li><strong>System-level outcome:</strong> The CaMK1D pathway in AgRP neurons connects fasting signals to increased food intake and adiposity in vivo.</li>
+          </ul>
+
+          <h2>Project</h2>
+          <div class="two-col">
+            <div>
+              <h3>Aim 1: Endosomal timing of energy-sensing receptors</h3>
+              <p>Quantify how endosomal routing and signaling kinetics in ARC neuron classes shape immediate neuronal activity and short-term feeding outcomes.</p>
+            </div>
+            <div>
+              <h3>Aim 2: Membrane-gated neuropeptide release</h3>
+              <p>Test whether nanoscale membrane composition at release sites tunes vesicle priming and fusion probabilities and thereby modulates circuit output.</p>
+            </div>
+            <div>
+              <h3>Aim 3: Glia→neuron lipid supply</h3>
+              <p>Probe whether lipid shuttling from glia sets neuronal membrane state and energetic demand, feeding back onto circuit activity and behavior.</p>
+            </div>
+          </div>
+
+          <h3 style="margin-top:18px">Key tools (selected)</h3>
+          <ul class="clean">
+            <li>Live reporters of receptor signaling and neuronal activity in defined hypothalamic populations</li>
+            <li>Endosome tracking and lipid-state perturbations compatible with acute physiology</li>
+            <li>pHluorin-based neuropeptide release assays and electrophysiology</li>
+            <li>Single-cell lipidomics around the median eminence; tracer-based glia→neuron lipid transfer</li>
+            <li>Behavioral and metabolic readouts aligned to circuit manipulations</li>
+          </ul>
+
+          <p class="muted">Public overview. Operational protocols, constructs, and parameter values are intentionally not disclosed.</p>
+        </div>
       </div>
     </section>
   </main>
 
   <footer>
-  <div class="container foot">
-    <div class="foot-meta">
-      ©<span id="y"></span> Ricci Lab ·
-      <a href="legal.html">Legal Notice</a> ·
-      <a href="privacy.html">Privacy</a>
+    <div class="container foot">
+      <div class="foot-meta">
+        ©<span id="y"></span> Ricci Lab ·
+        <a href="legal.html">Legal Notice</a> ·
+        <a href="privacy.html">Privacy</a>
+      </div>
     </div>
-  </div>
-  <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
-</footer>
-
+    <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
+  </footer>
 
   <!-- JS -->
   <script src="assets/nav.js" defer></script>
 </body>
 </html>
+
