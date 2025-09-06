@@ -215,6 +215,13 @@ header .container.wide.nav{
 .subhero--boxed .subhero-img{
   display:block; max-width:100%; height:auto; margin:0 auto;
 }
+/* Nur für Join us, zieht das Bild auf die Box */
+.subhero--cover .subhero-viewport { position: relative; }
+.subhero--cover .subhero-img{
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  object-fit:cover; display:block; margin:0;
+}
 
 @media (max-width: 640px){
   .subhero--boxed .subhero-frame{ max-width: 100%; }
