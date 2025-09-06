@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1" name="viewport">
-  <title>Ricci Lab — Page Title</title>
+  <title>Ricci Lab — Join Us</title>
   <link href="assets/style.css" rel="stylesheet">
   <link rel="icon" href="assets/favicon.png" sizes="32x32">
-  <meta name="description" content="Short description for this page.">
+  <meta name="description" content="Join Ricci Lab to explore metabolism and innate immunity through the lens of lipids and membranes.">
 </head>
-<body data-page="join">  <!-- page key -->
+<body data-page="join">
 
-  <!-- Canonical header -->
+  <!-- Header -->
   <header>
     <div class="container wide nav">
       <div class="brand"></div>
@@ -22,7 +22,7 @@
         <a class="cardbox navbox" href="research.html">Research</a>
         <a class="cardbox navbox" href="team.html">Team</a>
         <a class="cardbox navbox" href="publications.html">Publications</a>
-        <a class="cardbox navbox" href="join.html">Join Us</a>
+        <a class="cardbox navbox" href="join.html" aria-current="page">Join Us</a>
         <a class="cardbox navbox" href="news.html">News</a>
         <a class="cardbox navbox" href="sponsors.html">Funding</a>
         <a class="cardbox navbox" href="contact.html">Contact</a>
@@ -31,41 +31,105 @@
   </header>
 
   <main id="main" role="main">
-    <!-- Subhero: image only (no text) -->
+
+    <!-- Subhero boxed, centered at 3:2 with 1500 x 1000 cap -->
     <section class="subhero subhero--boxed">
-  <div class="subhero-frame">
-      <img class="subhero-img" src="assets/joinus-hero-ricci.png" alt="">
-   </div>
+      <div class="subhero-frame">
+        <div class="subhero-viewport">
+          <img
+            class="subhero-img"
+            src="assets/joinus-hero-ricci.png"
+            srcset="assets/joinus-hero-ricci.png 1x, assets/joinus-hero-ricci@2x.png 2x"
+            alt="Join Ricci Lab">
+        </div>
+      </div>
     </section>
 
-    <!-- Restored old content (below subhero), clean markup only -->
+    <!-- Intro call to action -->
+    <section class="page">
+      <div class="container">
+        <h1>We are hiring</h1>
+        <p>Join us to study metabolism and innate immunity in a rigorous and collaborative environment at IGBMC.</p>
+        <p><a class="button" href="#apply">Apply now</a></p>
+      </div>
+    </section>
+
+    <!-- Open positions as cards -->
     <section class="page">
       <div class="container">
         <h2>Open calls</h2>
-        <ul class="clean">
-          <li><strong>Postdoctoral researchers</strong>: experience in membrane biology, immunology, β cell physiology, or neurobiology is a plus.</li>
-          <li><strong>PhD students</strong>: curiosity, rigor, and enthusiasm for quantitative biology.</li>
-          <li><strong>M2/visiting students</strong>: 4 to 6 month research projects.</li>
-        </ul>
 
+        <div class="cards three">
+          <article class="cardbox">
+            <h3>Postdoctoral researchers</h3>
+            <p>Expertise in membrane biology, immunology, β cell physiology, or neurobiology is a plus.</p>
+            <p><a class="button ghost" href="#apply">Details and apply</a></p>
+          </article>
+
+          <article class="cardbox">
+            <h3>PhD students</h3>
+            <p>Curiosity, rigor, and enthusiasm for quantitative biology. Strong motivation to learn.</p>
+            <p><a class="button ghost" href="#apply">Details and apply</a></p>
+          </article>
+
+          <article class="cardbox">
+            <h3>M2 and visiting students</h3>
+            <p>Four to six month research projects with focused mentoring and clear outcomes.</p>
+            <p><a class="button ghost" href="#apply">Details and apply</a></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why join us -->
+    <section class="page">
+      <div class="container">
+        <h2>Why join us</h2>
+        <div class="features three">
+          <div class="feature">
+            <h3>Science</h3>
+            <p>Cutting edge research on lipids, membranes, and innate immunity.</p>
+          </div>
+          <div class="feature">
+            <h3>Collaboration</h3>
+            <p>Supportive team in a leading institute with shared expertise and tools.</p>
+          </div>
+          <div class="feature">
+            <h3>Development</h3>
+            <p>Mentoring, clear goals, and opportunities to grow your career.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Focus areas -->
+    <section class="page">
+      <div class="container">
         <h2>Focus areas</h2>
         <ul class="clean">
           <li><strong>Endosome anchored NLRP3 inflammasomes</strong>: assembly on PI4P enriched endomembranes and downstream signaling.</li>
           <li><strong>Insulin granule turnover</strong>: decision between secretion and lysosomal routing in β cells.</li>
           <li><strong>Hypothalamic neuron trafficking</strong>: membrane routing shaping energy balance circuits.</li>
         </ul>
+      </div>
+    </section>
 
+    <!-- How to apply -->
+    <section class="page" id="apply">
+      <div class="container">
         <h2>How to apply</h2>
-        <p>Please email us a single PDF including:</p>
+        <p>Please email a single PDF that includes:</p>
         <ul class="clean">
-          <li>Short cover letter (what you would like to work on and why).</li>
-          <li>CV (with publications).</li>
-          <li>Contact details for 2 referees.</li>
+          <li>Short cover letter with what you would like to work on and why.</li>
+          <li>CV with publications.</li>
+          <li>Contact details for two referees.</li>
         </ul>
 
         <p class="muted">We review applications continuously. We are committed to a supportive, rigorous, and inclusive environment.</p>
+        <p class="muted">Prefer email only. You can also write to <a href="mailto:ricci@igbmc.fr">ricci@igbmc.fr</a>.</p>
       </div>
     </section>
+
   </main>
 
   <footer>
@@ -79,8 +143,6 @@
     <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
   </footer>
 
-  <!-- JS -->
   <script src="assets/nav.js" defer></script>
 </body>
 </html>
-

@@ -818,15 +818,6 @@ footer{ text-align:center; }
   margin-bottom: var(--subhero-gap);
 }
 
-/* Boxed subhero (centered, framed, capped height) */
-:root{
-  /* Cap subhero image height to match the orbit center sizes */
-  --subhero-max-h: var(--orbit-center);
-}
-@media (max-width:1100px){
-  :root{ --subhero-max-h: var(--orbit-center-m); }
-}
-
 .subhero.subhero--boxed{
   /* stop full-bleed behavior */
   background: none;
@@ -855,7 +846,40 @@ footer{ text-align:center; }
   display: block;
   max-width: 100%;
   height: auto;                  /* proportional scaling */
-  max-height: var(--subhero-max-h); /* never taller than the circles space */
   margin: 0 auto;
   /* no blur, no crop */
 }
+
+.subhero--boxed .subhero-frame{
+  width: 100%;
+  max-width: 1100px;     /* cap the whole box */
+  margin: 0 auto;        /* center */
+  border: 3px solid #b0b5bd;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: var(--shadow-1);
+}
+
+.subhero--boxed .subhero-viewport{
+  width: 100%;
+  aspect-ratio: 3 / 2;   /* 1500 × 1000 ratio */
+  max-height: 1000px;
+  overflow: hidden;
+  position: relative;
+  background: #fff;
+}
+
+.subhero--boxed .subhero-img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* small screens */
+@media (max-width: 640px){
+  .subhero--boxed .subhero-frame{ max-width: 100%; }
+  .subhero--boxed .subhero-viewport{ max-height: none; }
+}
+
+
