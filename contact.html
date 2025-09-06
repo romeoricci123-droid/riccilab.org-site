@@ -1,16 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1" name="viewport">
-  <title>Ricci Lab — Page Title</title>
-  <link href="assets/style.css" rel="stylesheet">
-  <link rel="icon" href="assets/favicon.png" sizes="32x32">
-  <meta name="description" content="Short description for this page.">
-</head>
-<body data-page="contact">  <!-- change to the page key: research, team, sponsors, news, ... -->
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="theme-color" content="#0d1220">
 
-  <!-- Canonical header (paste exactly as given in step 2) -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.png">
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<link rel="shortcut icon" href="assets/favicon.ico">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+  <link rel="alternate" type="application/rss+xml" title="Ricci Lab · News" href="news.xml">
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="sitemap.xml">
+
+  <title>Contact — Ricci Lab</title>
+  <meta name="description" content="Get in touch with the Ricci Lab at IGBMC. Email and postal address." />
+  <link rel="canonical" href="https://riccilab.org/contact.html" />
+
+  <link rel="stylesheet" href="/assets/style.css?v=force8">
+</head>
+<body data-page="contact">
+  <a href="#main" class="skip">Skip to content</a>
+
+  <!-- Canonical header -->
   <header>
     <div class="container wide nav">
       <div class="brand"></div>
@@ -29,114 +44,121 @@
       </nav>
     </div>
   </header>
-</div>
+
   <main id="main" role="main">
-  <section class="subhero subhero--boxed">
-  <div class="subhero-frame">
-  <img class="subhero-img" src="assets/contact-hero-ricci.png" alt="">
-  </div>
-</section>
+    <section class="subhero subhero--boxed">
+      <div class="subhero-frame">
+        <img class="subhero-img" src="assets/contact-hero-ricci.png" alt="">
+      </div>
+    </section>
 
-  <section class="page">
-    <div class="container">
-      <div class="contact-wrap">
-        <!-- Left: info card (metal rim) -->
-        <aside class="contact-card" aria-labelledby="contact-info">
-          <h2 id="contact-info">Get in touch</h2>
-          <p><strong>Email:</strong> <a href="mailto:ricci@igbmc.fr">ricci@igbmc.fr</a></p>
+    <section class="page">
+      <div class="container">
+        <div class="contact-wrap">
+          <!-- Left: info card -->
+          <aside class="contact-card" aria-labelledby="contact-info">
+            <h2 id="contact-info">Get in touch</h2>
+            <p><strong>Email:</strong> <a href="mailto:ricci@igbmc.fr">ricci@igbmc.fr</a></p>
 
-          <!-- Postal subcard INSIDE the left card -->
-          <div class="subcard">
-            <h3 style="margin:0 0 8px">Postal address</h3>
-            <address style="font-style:normal; line-height:1.5; margin:0">
-              <strong>IGBMC — CNRS UMR 7104 / Inserm U1258</strong><br>
-              1 rue Laurent Fries, BP 10142<br>
-              67404 Illkirch-Graffenstaden CEDEX, France
-            </address>
-            <div class="cta" style="margin-top:12px">
-              <a class="mini-btn" href="https://www.google.com/maps/search/?api=1&query=IGBMC%2C+1+rue+Laurent+Fries%2C+67404+Illkirch+CEDEX%2C+France" target="_blank" rel="noopener">
-                Open in Google Maps
-              </a>
+            <!-- Postal subcard -->
+            <div class="subcard">
+              <h3 style="margin:0 0 8px">Postal address</h3>
+              <address style="font-style:normal; line-height:1.5; margin:0">
+                <strong>IGBMC — CNRS UMR 7104 / Inserm U1258</strong><br>
+                1 rue Laurent Fries, BP 10142<br>
+                67404 Illkirch-Graffenstaden CEDEX, France
+              </address>
+              <div class="cta" style="margin-top:12px">
+                <a class="mini-btn" href="https://www.google.com/maps/search/?api=1&query=IGBMC%2C+1+rue+Laurent+Fries%2C+67404+Illkirch+CEDEX%2C+France" target="_blank" rel="noopener">
+                  Open in Google Maps
+                </a>
+              </div>
             </div>
+          </aside>
+
+          <!-- Right: form card -->
+          <div class="contact-card">
+            <form id="contactForm" class="contact-form"
+                  action="https://formspree.io/f/xwpnkrzk" method="POST" novalidate>
+              <!-- honeypot -->
+              <input type="text" name="website" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
+
+              <label for="name">Name</label>
+              <input id="name" name="name" required placeholder="Your name" autocomplete="name">
+
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" required placeholder="your@email" autocomplete="email">
+
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" required placeholder="How can we help?"></textarea>
+
+              <input type="hidden" name="_subject" value="New message from Ricci Lab site">
+              <button class="btn" type="submit">Send</button>
+
+              <!-- neutral status line -->
+              <p id="msg" class="status" aria-live="polite" hidden></p>
+            </form>
           </div>
-        </aside>
-
-        <!-- Right: form card (metal rim) -->
-        <div class="contact-card">
-          <form id="contactForm" class="contact-form"
-                action="https://formspree.io/f/xwpnkrzk" method="POST" novalidate>
-            <!-- honeypot -->
-            <input type="text" name="website" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
-
-            <label for="name">Name</label>
-            <input id="name" name="name" required placeholder="Your name">
-
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" required placeholder="your@email">
-
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="5" required placeholder="How can we help?"></textarea>
-
-            <input type="hidden" name="_subject" value="New message from Ricci Lab site">
-            <button class="btn" type="submit">Send</button>
-
-            <!-- neutral status line -->
-            <p id="msg" class="status" aria-live="polite" hidden></p>
-          </form>
         </div>
       </div>
-    </div>
-  </section>
-</main>
+    </section>
+  </main>
 
   <footer>
-  <div class="container foot">
-    <div class="foot-meta">
-      ©<span id="y"></span> Ricci Lab ·
-      <a href="legal.html">Legal Notice</a> ·
-      <a href="privacy.html">Privacy</a>
+    <div class="container foot">
+      <div class="foot-meta">
+        ©<span id="y"></span> Ricci Lab ·
+        <a href="legal.html">Legal Notice</a> ·
+        <a href="privacy.html">Privacy</a>
+      </div>
     </div>
-  </div>
-  <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
-</footer>
-<script>
-(function () {
-  const form = document.getElementById('contactForm');
-  const msg  = document.getElementById('msg');
-  if (!form) return;
+    <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
+  </footer>
 
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const data = new FormData(form);
-
-    // honeypot
-    if (data.get('website')) return;
-
-    try {
-      const res = await fetch(form.action, {
-        method: 'POST',
-        body: data,
-        headers: { 'Accept': 'application/json' }
-      });
-
-      msg.hidden = false;
-      if (res.ok) {
-        form.reset();
-        msg.textContent = 'Thanks, your message was sent.';
-        msg.classList.remove('error'); msg.classList.add('ok');
-      } else {
-        msg.textContent = 'Sorry, there was a problem. Please try again later.';
-        msg.classList.remove('ok'); msg.classList.add('error');
-      }
-    } catch (err) {
-      msg.hidden = false;
-      msg.textContent = 'Network error. Please try again later.';
-      msg.classList.remove('ok'); msg.classList.add('error');
-    }
-  });
-}());
-</script>
   <!-- JS -->
   <script src="assets/nav.js" defer></script>
+  <script>
+  (function () {
+    const form = document.getElementById('contactForm');
+    const msg  = document.getElementById('msg');
+    if (!form) return;
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+
+      // honeypot
+      if (data.get('website')) return;
+
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        msg.hidden = false;
+        if (res.ok) {
+          form.reset();
+          msg.textContent = 'Thanks, your message was sent.';
+          msg.classList.remove('error'); msg.classList.add('ok');
+        } else {
+          msg.textContent = 'Sorry, there was a problem. Please try again later.';
+          msg.classList.remove('ok'); msg.classList.add('error');
+        }
+      } catch {
+        msg.hidden = false;
+        msg.textContent = 'Network error. Please try again later.';
+        msg.classList.remove('ok'); msg.classList.add('error');
+      }
+    });
+  }());
+  </script>
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/service-worker.js').catch(()=>{});
+}
+</script>
 </body>
 </html>
+

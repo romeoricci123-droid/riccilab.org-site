@@ -1,17 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="theme-color" content="#0d1220">
+
   <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+ <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.png">
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<link rel="shortcut icon" href="assets/favicon.ico">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+  <link rel="alternate" type="application/rss+xml" title="Ricci Lab · News" href="news.xml">
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="sitemap.xml">
+
   <title>Insulin granule turnover — Ricci Lab</title>
-  <link href="assets/style.css" rel="stylesheet">
-  <link rel="icon" href="assets/favicon.png" sizes="32x32">
-  <meta name="description" content="Lysosomal routing versus secretion shapes β cell output and glucose control.">
-  <!-- Open Graph -->
-  <meta property="og:title" content="Ricci Lab · Insulin & Metabolism">
-  <meta property="og:description" content="Exploring insulin granules, secretion, and their role in diabetes and autophagy.">
-  <meta property="og:image" content="https://riccilab.org/assets/og-insulin.jpg">
-  <meta property="og:type" content="article">
+  <meta name="description" content="Lysosomal routing versus secretion shapes β-cell output and glucose control." />
+  <link rel="canonical" href="https://riccilab.org/insulin.html" />
+
+  <link rel="stylesheet" href="/assets/style.css?v=force8">
 </head>
 <body data-page="research">
   <a href="#main" class="skip">Skip to content</a>
@@ -39,9 +48,12 @@
   <main id="main" role="main">
     <!-- Subhero image only (no overlay text) -->
     <section class="subhero subhero--boxed">
-  <div class="subhero-frame">
-      <img class="subhero-img" src="assets/insulin-hero-ricci.png" alt="">
-    </div>
+      <div class="subhero-frame">
+        <img class="subhero-img"
+             src="assets/insulin-hero-ricci.png"
+             width="1500" height="1000" loading="eager"
+             alt="Insulin granules and lysosome routing illustration">
+      </div>
     </section>
 
     <!-- Page content (no emblem sidebar) -->
@@ -59,14 +71,14 @@
           </ul>
 
           <h2>Project</h2>
-          <div class="two-col">
+          <div class="grid-2 cards">
             <div>
               <h3>Aim 1: Quantify nascent granule flux</h3>
               <p>Establish robust, endogenous readouts of granule → lysosome flux across nutrient contexts in β cells and human islets.</p>
             </div>
             <div>
               <h3>Aim 2: Membrane contacts and lipid logic</h3>
-              <p>Test whether tuning ER-TGN contacts and a TGN lipid code (for example, PI4P ↔ cholesterol) biases nascent granules toward secretion versus lysosomal routing.</p>
+              <p>Test whether tuning ER-TGN contacts and a TGN lipid code biases nascent granules toward secretion versus lysosomal routing.</p>
             </div>
             <div>
               <h3>Aim 3: PKD causality</h3>
@@ -106,6 +118,11 @@
 
   <!-- JS -->
   <script src="assets/nav.js" defer></script>
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/service-worker.js').catch(()=>{});
+}
+</script>
 </body>
 </html>
 

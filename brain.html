@@ -1,19 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="theme-color" content="#0d1220">
+
   <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.png">
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<link rel="shortcut icon" href="assets/favicon.ico">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+  <link rel="alternate" type="application/rss+xml" title="Ricci Lab · News" href="news.xml">
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="sitemap.xml">
+
   <title>Membrane trafficking in hypothalamic neurons — Ricci Lab</title>
-  <link href="assets/style.css" rel="stylesheet">
-  <link rel="icon" href="assets/favicon.png" sizes="32x32">
-  <meta name="description" content="Endosomal and synaptic membrane lipids tune hypothalamic neuron signaling and neuropeptide release governing feeding.">
-  <!-- Open Graph -->
-  <meta property="og:title" content="Ricci Lab — Brain & Neurons">
-  <meta property="og:description" content="Investigating CaMK1D signaling in AgRP neurons and the neural control of metabolism.">
-  <meta property="og:image" content="https://riccilab.org/assets/og-brain.jpg">
-  <meta property="og:type" content="article">
+  <meta name="description" content="Endosomal and synaptic membrane lipids tune hypothalamic neuron signaling and neuropeptide release." />
+  <link rel="canonical" href="https://riccilab.org/brain.html" />
+
+  <link rel="stylesheet" href="/assets/style.css?v=force8">
 </head>
 <body data-page="research">
+  <a href="#main" class="skip">Skip to content</a>
 
   <!-- Canonical header -->
   <header>
@@ -38,9 +48,13 @@
   <main id="main" role="main">
     <!-- Subhero image only (no overlay text) -->
     <section class="subhero subhero--boxed">
-  <div class="subhero-frame">
-      <img class="subhero-img" src="assets/neuron-hero-ricci.png" alt="">
-    </div>
+      <div class="subhero-frame">
+        <img
+          class="subhero-img"
+          src="assets/neuron-hero-ricci.png"
+          width="1500" height="1000" loading="eager"
+          alt="Neuronal endosomes and synapses illustration">
+      </div>
     </section>
 
     <!-- Page content (no emblem sidebar) -->
@@ -53,12 +67,12 @@
           <h2>What we have shown so far</h2>
           <ul class="clean">
             <li><strong>CaMK1D in AgRP neurons mediates ghrelin’s orexigenic action:</strong> Genetic disruption of <em>Camk1d</em> blunts ghrelin-evoked feeding, reduces body-weight gain and protects against high-fat-diet–induced obesity in mice.</li>
-            <li><strong>Neuronal mechanism:</strong> In AgRP/NPY neurons, ghrelin activates CaMK1D; loss of CaMK1D dampens downstream transcriptional responses (e.g. reduced CREB phosphorylation) and the orexigenic program.</li>
+            <li><strong>Neuronal mechanism:</strong> In AgRP/NPY neurons, ghrelin activates CaMK1D; loss of CaMK1D dampens downstream transcriptional responses (e.g., reduced CREB phosphorylation) and the orexigenic program.</li>
             <li><strong>System-level outcome:</strong> The CaMK1D pathway in AgRP neurons connects fasting signals to increased food intake and adiposity in vivo.</li>
           </ul>
 
           <h2>Project</h2>
-          <div class="two-col">
+          <div class="grid-2 cards">
             <div>
               <h3>Aim 1: Endosomal timing of energy-sensing receptors</h3>
               <p>Quantify how endosomal routing and signaling kinetics in ARC neuron classes shape immediate neuronal activity and short-term feeding outcomes.</p>
@@ -101,6 +115,10 @@
 
   <!-- JS -->
   <script src="assets/nav.js" defer></script>
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/service-worker.js').catch(()=>{});
+}
+</script>
 </body>
 </html>
-

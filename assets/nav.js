@@ -1,4 +1,4 @@
-// nav.js — canonical header behavior (toggle + current-page highlight)
+// nav.js — canonical header behavior (toggle + current-page highlight + a11y closes)
 (function () {
   function filename(url) {
     try {
@@ -11,21 +11,53 @@
   }
 
   document.addEventListener('DOMContentLoaded', function () {
-    // Mobile toggle
-    var btn = document.getElementById('navToggle');
-    var nav = document.getElementById('site-nav');
-    if (btn && nav) {
+    const btn = document.getElementById('navToggle');
+    const nav = document.getElementById('site-nav');
+    if (!nav) return;
+
+    // --- Toggle
+    if (btn) {
       btn.addEventListener('click', function () {
-        var open = nav.classList.toggle('open');
+        const open = nav.classList.toggle('open');
         btn.setAttribute('aria-expanded', String(open));
       });
     }
-    if (!nav) return;
 
-    // 1) Primary: filename match (e.g., news.html, team.html, etc.)
-    var here = filename(location.href);
+    // --- Close on Escape
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && nav.classList.contains('open')) {
+        nav.classList.remove('open');
+        if (btn) btn.setAttribute('aria-expanded', 'false');
+        if (btn) btn.focus();
+      }
+    });
+
+    // --- Close on outside click (when open)
+    document.addEventListener('click', function (e) {
+      if (!nav.classList.contains('open')) return;
+      const header = nav.closest('header');
+      if (header && !header.contains(e.target)) {
+        nav.classList.remove('open');
+        if (btn) btn.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    // --- Guard on resize: collapse menu when leaving mobile
+    let lastW = window.innerWidth;
+    window.addEventListener('resize', function () {
+      const w = window.innerWidth;
+      // If we grew (likely leaving the mobile breakpoint), ensure closed
+      if (w > 760 && lastW <= 760 && nav.classList.contains('open')) {
+        nav.classList.remove('open');
+        if (btn) btn.setAttribute('aria-expanded', 'false');
+      }
+      lastW = w;
+    });
+
+    // --- Current page highlight (primary: filename match)
+    const here = filename(location.href);
     nav.querySelectorAll('a[href]').forEach(function (a) {
-      var target = filename(a.getAttribute('href'));
+      const target = filename(a.getAttribute('href'));
       if (target === here) {
         a.setAttribute('aria-current', 'page');
       } else {
@@ -33,12 +65,10 @@
       }
     });
 
-    // 2) Fallback: if nothing matched, map by page “section” (body[data-page])
+    // --- Fallback: map by body[data-page]
     if (!nav.querySelector('[aria-current="page"]')) {
-      var pageKey = (document.body.getAttribute('data-page') || '').toLowerCase();
-      // Map section keys to their parent tab hrefs
-      var parentByKey = {
-        // top-level pages
+      const pageKey = (document.body.getAttribute('data-page') || '').toLowerCase();
+      const parentByKey = {
         home: 'index.html',
         research: 'research.html',
         team: 'team.html',
@@ -48,10 +78,10 @@
         contact: 'contact.html',
         join: 'join.html'
       };
-      var parentHref = parentByKey[pageKey];
+      const parentHref = parentByKey[pageKey];
       if (parentHref) {
-        var parentLink = nav.querySelector('a[href$="' + parentHref + '"]');
-        if (parentLink) parentLink.setAttribute('aria-current', 'page');
+        const link = nav.querySelector('a[href$="' + parentHref + '"]');
+        if (link) link.setAttribute('aria-current', 'page');
       }
     }
   });
