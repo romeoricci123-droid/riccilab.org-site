@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <title>Ricci Lab — Page Title</title>
+  <link href="assets/style.css" rel="stylesheet">
+  <link rel="icon" href="assets/favicon.png" sizes="32x32">
+  <meta name="description" content="Short description for this page.">
+</head>
+<body data-page="publications">  <!-- change to the page key: research, team, sponsors, news, ... -->
+
+  <!-- Canonical header (paste exactly as given in step 2) -->
+  <header>
+  <div class="container wide nav">
+    <div class="brand"></div>
+
+    <!-- Mobile navigation (native toggle) -->
+    <details id="mnav" class="mnav" role="navigation" aria-label="Mobile">
+      <summary class="hamburger" aria-label="Open menu" aria-controls="mnav-panel">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </summary>
+      <nav id="mnav-panel" class="mnav-panel" aria-label="Main">
+        <a href="index.html">Home</a>
+        <a href="research.html">Research</a>
+        <a href="team.html">Team</a>
+        <a href="publications.html">Publications</a>
+        <a href="join.html">Join Us</a>
+        <a href="news.html">News</a>
+        <a href="sponsors.html">Funding</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </details>
+
+    <!-- Desktop navigation -->
+    <nav id="site-nav" aria-label="Main">
+      <a class="cardbox navbox" href="index.html">Home</a>
+      <a class="cardbox navbox" href="research.html">Research</a>
+      <a class="cardbox navbox" href="team.html">Team</a>
+      <a class="cardbox navbox" href="publications.html">Publications</a>
+      <a class="cardbox navbox" href="join.html">Join Us</a>
+      <a class="cardbox navbox" href="news.html">News</a>
+      <a class="cardbox navbox" href="sponsors.html">Funding</a>
+      <a class="cardbox navbox" href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+
+  <main id="main" role="main">
+    <section class="subhero subhero--boxed">
+  <div class="subhero-frame">
+    <img class="subhero-img" src="assets/publications-hero-ricci.png" alt="">
+  </div>
+</section>
+
+    <section class="page" id="pubs">
+  <div class="container">
+    <div id="pub-layout">
+      <!-- LEFT: the ONLY Cell cover -->
+      <aside id="pub-cover">
+        <a class="cover-link" href="https://doi.org/10.1016/j.cell.2008.11.018" target="_blank" rel="noopener">
+          <img class="photo-rim" src="assets/cell_cover.png" alt="Cell cover, A New Route for Insulin Secretion">
+        </a>
+      </aside>
+
+      <!-- RIGHT: publications list from publications.js -->
+      <div id="pub-list" class="paper-list" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Data file -->
+<script src="assets/publications.js?v=7"></script>
+
+<!-- Build the list once -->
+<script>
+(function () {
+  var list = document.getElementById('pub-list');
+  if (!list) return;
+  list.innerHTML = '';
+
+  var DATA = (window.PUBLICATIONS && window.PUBLICATIONS.length) ? window.PUBLICATIONS : [];
+  var AREA = { inflammasome:"Inflammasome", beta:"β-cell", neuron:"Neuroscience" };
+
+  DATA.forEach(function(p){
+    var a = document.createElement('a');
+    a.className = 'paper-card';
+    a.href = p.doi ? ('https://doi.org/' + p.doi) : '#';
+    a.target = '_blank'; a.rel = 'noopener';
+    a.innerHTML =
+      '<div class="paper-title">' + p.title + '</div>' +
+      '<div class="paper-authors">' + (p.authors||'') + '</div>' +
+      '<div class="paper-meta">' + (p.venue||'') + (p.year ? ' (' + p.year + ')' : '') + '</div>' +
+      (p.area ? '<div class="paper-tags"><span class="tag">' + (AREA[p.area] || p.area) + '</span></div>' : '');
+    list.appendChild(a);
+  });
+})();
+</script>
+
+  <footer>
+  <div class="container foot">
+    <div class="foot-meta">
+      ©<span id="y"></span> Ricci Lab ·
+      <a href="legal.html">Legal Notice</a> ·
+      <a href="privacy.html">Privacy</a>
+    </div>
+  </div>
+  <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
+</footer>
+
+
+  <!-- JS -->
+  <script src="assets/nav.js" defer></script>
+</body>
+</html>
+

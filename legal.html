@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="theme-color" content="#0d1220">
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Icons -->
+<link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/assets/icon-512.png">
+
+
+
+  <link rel="alternate" type="application/rss+xml" title="Ricci Lab · News" href="news.xml">
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="sitemap.xml">
+
+  <title>Legal Notice — Ricci Lab</title>
+  <meta name="description" content="Legal information about the Ricci Lab website: site publisher, hosting, intellectual property, liability, applicable law.">
+  <link rel="canonical" href="https://riccilab.org/legal.html" />
+
+  <link rel="stylesheet" href="/assets/style.css?v=force8">
+</head>
+<body data-page="legal">
+  <a href="#main" class="skip">Skip to content</a>
+
+  <!-- Canonical header -->
+  <header>
+  <div class="container wide nav">
+    <div class="brand"></div>
+
+    <!-- Mobile navigation (native toggle) -->
+    <details id="mnav" class="mnav" role="navigation" aria-label="Mobile">
+      <summary class="hamburger" aria-label="Open menu" aria-controls="mnav-panel">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </summary>
+      <nav id="mnav-panel" class="mnav-panel" aria-label="Main">
+        <a href="index.html">Home</a>
+        <a href="research.html">Research</a>
+        <a href="team.html">Team</a>
+        <a href="publications.html">Publications</a>
+        <a href="join.html">Join Us</a>
+        <a href="news.html">News</a>
+        <a href="sponsors.html">Funding</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </details>
+
+    <!-- Desktop navigation -->
+    <nav id="site-nav" aria-label="Main">
+      <a class="cardbox navbox" href="index.html">Home</a>
+      <a class="cardbox navbox" href="research.html">Research</a>
+      <a class="cardbox navbox" href="team.html">Team</a>
+      <a class="cardbox navbox" href="publications.html">Publications</a>
+      <a class="cardbox navbox" href="join.html">Join Us</a>
+      <a class="cardbox navbox" href="news.html">News</a>
+      <a class="cardbox navbox" href="sponsors.html">Funding</a>
+      <a class="cardbox navbox" href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+
+  <!-- Spacer to keep text away from the top rim/fade -->
+  <div aria-hidden="true" style="height:56px"></div>
+
+  <section class="pagehead">
+    <div class="container">
+      <h1>Legal Notice</h1>
+      <p class="meta">Last updated: <time datetime="2025-09-04">4 September 2025</time></p>
+    </div>
+  </section>
+
+  <main id="main" role="main">
+    <section class="page">
+      <div class="container">
+        <!-- Use the same metal-rim card language -->
+        <article class="news-entry" id="publisher">
+          <h3>Site Publisher</h3>
+          <p><strong>Ricci Lab</strong> — IGBMC (CNRS UMR 7104 / Inserm U1258)<br>
+             1 rue Laurent Fries, BP 10142, 67404 Illkirch-Graffenstaden CEDEX, France<br>
+             Email: <a href="mailto:ricci@igbmc.fr">ricci@igbmc.fr</a></p>
+        </article>
+
+        <article class="news-entry" id="editor">
+          <h3>Editorial Responsibility</h3>
+          <p>Ricci Lab communications. Contact: <a href="mailto:ricci@igbmc.fr">ricci@igbmc.fr</a></p>
+        </article>
+
+        <article class="news-entry" id="hosting">
+          <h3>Hosting</h3>
+          <p>This website is hosted by GitHub Pages (GitHub, Inc., USA).</p>
+        </article>
+
+        <article class="news-entry" id="ip">
+          <h3>Intellectual Property</h3>
+          <p>Unless otherwise stated, all content on this site (texts, images, graphics, logo, and layout) is protected by intellectual property laws and is the property of the Ricci Lab or its respective authors. Any reproduction or reuse requires prior written permission.</p>
+        </article>
+
+        <article class="news-entry" id="links">
+          <h3>External Links</h3>
+          <p>Links to third-party websites are provided for convenience. We are not responsible for their content or practices.</p>
+        </article>
+
+        <article class="news-entry" id="liability">
+          <h3>Liability</h3>
+          <p>We strive to keep information accurate and up to date; however, errors or omissions may occur. Use of the site is at your own risk. We accept no liability for any direct or indirect damage resulting from use of the site.</p>
+        </article>
+
+        <article class="news-entry" id="law">
+          <h3>Applicable Law & Jurisdiction</h3>
+          <p>This site is governed by French law. Any dispute falls within the jurisdiction of the competent French courts.</p>
+        </article>
+
+        <article class="news-entry" id="contact">
+          <h3>Contact</h3>
+          <p>For any legal question regarding this website, email <a href="mailto:ricci@igbmc.fr">ricci@igbmc.fr</a>.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container foot">
+      <div class="foot-meta">
+        ©<span id="y"></span> Ricci Lab ·
+        <a href="legal.html" aria-current="page">Legal Notice</a> ·
+        <a href="privacy.html">Privacy</a>
+      </div>
+    </div>
+    <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
+  </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var mnav  = document.getElementById('mnav');              // <details>
+  var panel = document.getElementById('mnav-panel');        // mobile Ziel
+  var src   = document.getElementById('site-nav');          // Desktop-Quelle
+  if (!mnav || !panel) return;
+
+  /* 1) Links automatisch füllen, falls leer */
+  if (panel.children.length === 0 && src) {
+    src.querySelectorAll('a').forEach(function(a){
+      var c = a.cloneNode(true);
+      c.className = '';                                     // neutrale mobile Styles
+      panel.appendChild(c);
+    });
+  }
+
+  /* 2) Body-Klasse steuert Metall-Linie im Header (CSS nutzt .mnav-open) */
+  function syncOpenState(){
+    document.body.classList.toggle('mnav-open', mnav.hasAttribute('open'));
+  }
+  mnav.addEventListener('toggle', syncOpenState);
+  syncOpenState();
+
+  /* 3) Beim Link-Klick Menü schließen */
+  panel.addEventListener('click', function(e){
+    if (e.target && e.target.tagName === 'A') mnav.removeAttribute('open');
+  });
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // aktuelle Datei bestimmen (leer = index.html)
+  const file = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+
+  // Seiten -> welcher Tab soll aktiv sein
+  const tabFor = {
+    'index.html': 'index.html',
+    'research.html': 'research.html',
+    'team.html': 'team.html',
+    'publications.html': 'publications.html',
+    'join.html': 'join.html',
+    'news.html': 'news.html',
+    'sponsors.html': 'sponsors.html',
+    'contact.html': 'contact.html',
+
+    // Detailseiten: Research-Tab aktiv
+    'nlrp3.html': 'research.html',
+    'brain.html': 'research.html',
+    'insulin.html': 'research.html'
+  };
+
+  const target = tabFor[file] || file;
+
+  // aria-current auf Site-Tabs + Mobile-Menü setzen
+  document.querySelectorAll('#site-nav a.navbox, details.mnav .mnav-panel a').forEach(a => {
+    const href = (a.getAttribute('href') || '').toLowerCase();
+    if (href === target) a.setAttribute('aria-current', 'page');
+    else a.removeAttribute('aria-current');
+  });
+});
+</script>
+
+</body>
+</html>
+
+

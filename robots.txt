@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://riccilab.org/sitemap.xml

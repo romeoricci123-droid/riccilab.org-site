@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Ricci Lab — News</title>
+    <link>https://riccilab.org/news.html</link>
+    <description>Latest updates from the Ricci Lab</description>
+    <language>en</language>
+
+    <item>
+      <title>HDR of Karl Vivot</title>
+      <link>https://riccilab.org/news.html#2025-09-30-hdr</link>
+      <guid>https://riccilab.org/news.html#2025-09-30-hdr</guid>
+      <pubDate>Tue, 30 Sep 2025 00:00:00 +0000</pubDate>
+      <description><![CDATA[After receiving a CRCN position at Inserm, Karl will defend his habilitation in autumn of this year.]]></description>
+    </item>
+
+    <item>
+      <title>Minisymposium at IGBMC</title>
+      <link>https://riccilab.org/news.html#2025-09-30-minisymposium</link>
+      <guid>https://riccilab.org/news.html#2025-09-30-minisymposium</guid>
+      <pubDate>Tue, 30 Sep 2025 00:00:00 +0000</pubDate>
+      <description><![CDATA[On the day of Karl's HDR defense, we organize a minisymposium with committee members at the IGBMC.]]></description>
+    </item>
+
+    <item>
+      <title>Chaire d'excellence France 2030</title>
+      <link>https://riccilab.org/news.html#2024-01-23</link>
+      <guid>https://riccilab.org/news.html#2024-01-23</guid>
+      <pubDate>Tue, 23 Jan 2024 00:00:00 +0000</pubDate>
+      <description><![CDATA[Romeo Ricci has been awarded a Chair of Excellence for his ENDOFLAMMASOME project.]]></description>
+    </item>
+
+  </channel>
+</rss>

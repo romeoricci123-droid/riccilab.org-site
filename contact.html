@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="theme-color" content="#0d1220">
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Icons -->
+<link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/assets/icon-512.png">
+
+
+  <link rel="alternate" type="application/rss+xml" title="Ricci Lab · News" href="news.xml">
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="sitemap.xml">
+
+  <title>Contact — Ricci Lab</title>
+  <meta name="description" content="Get in touch with the Ricci Lab at IGBMC. Email and postal address." />
+  <link rel="canonical" href="https://riccilab.org/contact.html" />
+
+  <link rel="stylesheet" href="/assets/style.css?v=force8">
+</head>
+<body data-page="contact">
+  <a href="#main" class="skip">Skip to content</a>
+
+  <!-- Canonical header -->
+  <header>
+  <div class="container wide nav">
+    <div class="brand"></div>
+
+    <!-- Mobile navigation (native toggle) -->
+    <details id="mnav" class="mnav" role="navigation" aria-label="Mobile">
+      <summary class="hamburger" aria-label="Open menu" aria-controls="mnav-panel">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </summary>
+      <nav id="mnav-panel" class="mnav-panel" aria-label="Main">
+        <a href="index.html">Home</a>
+        <a href="research.html">Research</a>
+        <a href="team.html">Team</a>
+        <a href="publications.html">Publications</a>
+        <a href="join.html">Join Us</a>
+        <a href="news.html">News</a>
+        <a href="sponsors.html">Funding</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </details>
+
+    <!-- Desktop navigation -->
+    <nav id="site-nav" aria-label="Main">
+      <a class="cardbox navbox" href="index.html">Home</a>
+      <a class="cardbox navbox" href="research.html">Research</a>
+      <a class="cardbox navbox" href="team.html">Team</a>
+      <a class="cardbox navbox" href="publications.html">Publications</a>
+      <a class="cardbox navbox" href="join.html">Join Us</a>
+      <a class="cardbox navbox" href="news.html">News</a>
+      <a class="cardbox navbox" href="sponsors.html">Funding</a>
+      <a class="cardbox navbox" href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+
+  <main id="main" role="main">
+    <section class="subhero subhero--boxed">
+      <div class="subhero-frame">
+        <img class="subhero-img" src="assets/contact-hero-ricci.png" alt="">
+      </div>
+    </section>
+
+    <section class="page">
+      <div class="container">
+        <div class="contact-wrap">
+          <!-- Left: info card -->
+          <aside class="contact-card" aria-labelledby="contact-info">
+            <h2 id="contact-info">Get in touch</h2>
+            <p><strong>Email:</strong> <a href="mailto:ricci@igbmc.fr">ricci@igbmc.fr</a></p>
+
+            <!-- Postal subcard -->
+            <div class="subcard">
+              <h3 style="margin:0 0 8px">Postal address</h3>
+              <address style="font-style:normal; line-height:1.5; margin:0">
+                <strong>IGBMC — CNRS UMR 7104 / Inserm U1258</strong><br>
+                1 rue Laurent Fries, BP 10142<br>
+                67404 Illkirch-Graffenstaden CEDEX, France
+              </address>
+              <div class="cta" style="margin-top:12px">
+                <a class="mini-btn" href="https://www.google.com/maps/search/?api=1&query=IGBMC%2C+1+rue+Laurent+Fries%2C+67404+Illkirch+CEDEX%2C+France" target="_blank" rel="noopener">
+                  Open in Google Maps
+                </a>
+              </div>
+            </div>
+          </aside>
+
+          <!-- Right: form card -->
+          <div class="contact-card">
+            <form id="contactForm" class="contact-form"
+                  action="https://formspree.io/f/xwpnkrzk" method="POST" novalidate>
+              <!-- honeypot -->
+              <input type="text" name="website" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
+
+              <label for="name">Name</label>
+              <input id="name" name="name" required placeholder="Your name" autocomplete="name">
+
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" required placeholder="your@email" autocomplete="email">
+
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" required placeholder="How can we help?"></textarea>
+
+              <input type="hidden" name="_subject" value="New message from Ricci Lab site">
+              <button class="btn" type="submit">Send</button>
+
+              <!-- neutral status line -->
+              <p id="msg" class="status" aria-live="polite" hidden></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container foot">
+      <div class="foot-meta">
+        ©<span id="y"></span> Ricci Lab ·
+        <a href="legal.html">Legal Notice</a> ·
+        <a href="privacy.html">Privacy</a>
+      </div>
+    </div>
+    <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
+  </footer>
+  <script>
+  (function () {
+    const form = document.getElementById('contactForm');
+    const msg  = document.getElementById('msg');
+    if (!form) return;
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+
+      // honeypot
+      if (data.get('website')) return;
+
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        msg.hidden = false;
+        if (res.ok) {
+          form.reset();
+          msg.textContent = 'Thanks, your message was sent.';
+          msg.classList.remove('error'); msg.classList.add('ok');
+        } else {
+          msg.textContent = 'Sorry, there was a problem. Please try again later.';
+          msg.classList.remove('ok'); msg.classList.add('error');
+        }
+      } catch {
+        msg.hidden = false;
+        msg.textContent = 'Network error. Please try again later.';
+        msg.classList.remove('ok'); msg.classList.add('error');
+      }
+    });
+  }());
+  </script>
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/service-worker.js').catch(()=>{});
+}
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var mnav  = document.getElementById('mnav');              // <details>
+  var panel = document.getElementById('mnav-panel');        // mobile Ziel
+  var src   = document.getElementById('site-nav');          // Desktop-Quelle
+  if (!mnav || !panel) return;
+
+  /* 1) Links automatisch füllen, falls leer */
+  if (panel.children.length === 0 && src) {
+    src.querySelectorAll('a').forEach(function(a){
+      var c = a.cloneNode(true);
+      c.className = '';                                     // neutrale mobile Styles
+      panel.appendChild(c);
+    });
+  }
+
+  /* 2) Body-Klasse steuert Metall-Linie im Header (CSS nutzt .mnav-open) */
+  function syncOpenState(){
+    document.body.classList.toggle('mnav-open', mnav.hasAttribute('open'));
+  }
+  mnav.addEventListener('toggle', syncOpenState);
+  syncOpenState();
+
+  /* 3) Beim Link-Klick Menü schließen */
+  panel.addEventListener('click', function(e){
+    if (e.target && e.target.tagName === 'A') mnav.removeAttribute('open');
+  });
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // aktuelle Datei bestimmen (leer = index.html)
+  const file = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+
+  // Seiten -> welcher Tab soll aktiv sein
+  const tabFor = {
+    'index.html': 'index.html',
+    'research.html': 'research.html',
+    'team.html': 'team.html',
+    'publications.html': 'publications.html',
+    'join.html': 'join.html',
+    'news.html': 'news.html',
+    'sponsors.html': 'sponsors.html',
+    'contact.html': 'contact.html',
+
+    // Detailseiten: Research-Tab aktiv
+    'nlrp3.html': 'research.html',
+    'brain.html': 'research.html',
+    'insulin.html': 'research.html'
+  };
+
+  const target = tabFor[file] || file;
+
+  // aria-current auf Site-Tabs + Mobile-Menü setzen
+  document.querySelectorAll('#site-nav a.navbox, details.mnav .mnav-panel a').forEach(a => {
+    const href = (a.getAttribute('href') || '').toLowerCase();
+    if (href === target) a.setAttribute('aria-current', 'page');
+    else a.removeAttribute('aria-current');
+  });
+});
+</script>
+
+</body>
+</html>
+

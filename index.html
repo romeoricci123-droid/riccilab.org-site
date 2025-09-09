@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- PWA -->
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="theme-color" content="#0d1220">
+
+  <!-- Meta -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Icons -->
+  <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/assets/icon-512.png">
+
+  <!-- Feeds & sitemap -->
+  <link rel="alternate" type="application/rss+xml" title="Ricci Lab · News" href="news.xml">
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="sitemap.xml">
+
+  <!-- SEO -->
+  <title>Ricci Lab</title>
+  <meta name="description" content="Ricci Lab · Organelle crosstalk in disease. Metabolism and innate immunity through the lens of lipids and membranes.">
+  <link rel="canonical" href="https://riccilab.org/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Ricci Lab">
+  <meta property="og:description" content="Metabolism and innate immunity through the lens of lipids and membranes.">
+  <meta property="og:image" content="https://riccilab.org/assets/og-hero.jpg">
+  <meta property="og:type" content="website">
+
+  <!-- Styles (single include only) -->
+  <link rel="stylesheet" href="/assets/style.css?v=force11">
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ResearchOrganization",
+    "name": "Ricci Lab",
+    "url": "https://riccilab.org",
+    "logo": "https://riccilab.org/assets/emblem.webp",
+    "parentOrganization": {
+      "@type": "Organization",
+      "name": "IGBMC",
+      "url": "https://www.igbmc.fr"
+    },
+    "member": [{
+      "@type": "Person",
+      "name": "Romeo Ricci",
+      "jobTitle": "Principal Investigator",
+      "affiliation": { "@type": "Organization", "name": "IGBMC" }
+    }]
+  }
+  </script>
+</head>
+<body data-page="home">
+  <a href="#main" class="skip">Skip to content</a>
+
+<header>
+  <div class="container wide nav">
+    <div class="brand"></div>
+
+    <!-- Mobile navigation (native toggle) -->
+    <details id="mnav" class="mnav" role="navigation" aria-label="Mobile">
+      <summary class="hamburger" aria-label="Open menu" aria-controls="mnav-panel">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </summary>
+      <nav id="mnav-panel" class="mnav-panel" aria-label="Main">
+        <a href="index.html">Home</a>
+        <a href="research.html">Research</a>
+        <a href="team.html">Team</a>
+        <a href="publications.html">Publications</a>
+        <a href="join.html">Join Us</a>
+        <a href="news.html">News</a>
+        <a href="sponsors.html">Funding</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </details>
+
+    <!-- Desktop navigation -->
+    <nav id="site-nav" aria-label="Main">
+      <a class="cardbox navbox" href="index.html">Home</a>
+      <a class="cardbox navbox" href="research.html">Research</a>
+      <a class="cardbox navbox" href="team.html">Team</a>
+      <a class="cardbox navbox" href="publications.html">Publications</a>
+      <a class="cardbox navbox" href="join.html">Join Us</a>
+      <a class="cardbox navbox" href="news.html">News</a>
+      <a class="cardbox navbox" href="sponsors.html">Funding</a>
+      <a class="cardbox navbox" href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+
+<main id="main" role="main">
+  <section class="section orbit-landing">
+    <div class="container wide">
+      <div class="orbit">
+
+        <!-- Center emblem -->
+        <div class="orbit-center">
+          <a id="emblem" class="round-link emblem-link" href="research.html" aria-label="Go to Research">
+            <img
+              src="assets/emblem.webp"
+              alt="Ricci Lab emblem"
+              class="circle-img emblem"
+              loading="eager" decoding="async">
+          </a>
+          <h1 class="tagline">Organelle crosstalk in disease</h1>
+          <p class="tagline-sub">Metabolism and innate immunity through the lens of lipids and membranes.</p>
+        </div>
+
+        <!-- Left: Macrophage -->
+        <div class="orbit-left">
+          <a aria-label="Macrophage" class="round-link circle-card" href="nlrp3.html">
+            <img
+              src="assets/nlrp3v_circle.webp"
+              alt="Macrophage (NLRP3)"
+              class="circle-img"
+              loading="lazy" decoding="async">
+          </a>
+          <div class="body">
+            <h3>Macrophage</h3>
+            <p>Innate immune sensing and inflammasome assembly.</p>
+          </div>
+        </div>
+
+        <!-- Right top: Hypothalamic neuron -->
+        <div class="orbit-rt">
+          <a aria-label="Hypothalamic neuron" class="round-link circle-card" href="brain.html">
+            <img
+              src="assets/brainv_circle.webp"
+              alt="Hypothalamic neuron"
+              class="circle-img"
+              loading="lazy" decoding="async">
+          </a>
+          <div class="body">
+            <h3>Hypothalamic neuron</h3>
+            <p>Membrane trafficking and neuropeptide release.</p>
+          </div>
+        </div>
+
+        <!-- Right bottom: Pancreatic β cell -->
+        <div class="orbit-rb">
+          <a aria-label="Pancreatic β cell" class="round-link circle-card" href="insulin.html">
+            <img
+              src="assets/betav_circle.webp"
+              alt="Pancreatic β cell"
+              class="circle-img"
+              loading="lazy" decoding="async">
+          </a>
+          <div class="body">
+            <h3>Pancreatic β cell</h3>
+            <p>Insulin granule turnover and β-cell function.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Latest publications — now WITHOUT inner container -->
+      <section class="section pubs">
+        <h2>Latest publications</h2>
+        <ul class="pub-grid">
+          <li>
+            <a id="pub-si-link" class="cardbox pub-item" href="publications.html" target="_blank" rel="noopener">
+              <div class="pub-card">
+                <div class="pub-venue">Science Immunology</div>
+                <h3 class="pub-title" id="pub-si-title">Loading…</h3>
+                <div class="pub-meta" id="pub-si-meta"></div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a id="pub-ni-link" class="cardbox pub-item" href="publications.html" target="_blank" rel="noopener">
+              <div class="pub-card">
+                <div class="pub-venue">Nature Immunology</div>
+                <h3 class="pub-title" id="pub-ni-title">Loading…</h3>
+                <div class="pub-meta" id="pub-ni-meta"></div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a id="pub-nm-link" class="cardbox pub-item" href="publications.html" target="_blank" rel="noopener">
+              <div class="pub-card">
+                <div class="pub-venue">Nature Metabolism</div>
+                <h3 class="pub-title" id="pub-nm-title">Loading…</h3>
+                <div class="pub-meta" id="pub-nm-meta"></div>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      <!-- News — WITHOUT inner container -->
+      <section class="page">
+        <h2>News</h2>
+        <ul class="news-list clean">
+          <li>
+            <a class="cardbox news-item" href="news.html#2025-09-30-a">
+              <div class="news-body">
+                <div class="meta"><time datetime="2025-09-30">Upcoming · 30 Sep 2025</time></div>
+                <h3>HDR of Karl Vivot</h3>
+                <p>After receiving a CRCN position at Inserm, Karl will defend his habilitation in autumn of this year.</p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a class="cardbox news-item" href="news.html#2024-01-23">
+              <div class="news-body">
+                <div class="meta"><time datetime="2024-01-23">23 Jan 2024</time></div>
+                <h3>Chaire d'excellence France 2030</h3>
+                <p>Romeo Ricci has been awarded a Chair of Excellence for his ENDOFLAMMASOME project.</p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a class="cardbox news-item" href="news.html#2025-09-30-b">
+              <div class="news-body">
+                <div class="meta"><time datetime="2025-09-30">Upcoming · 30 Sep 2025</time></div>
+                <h3>Minisymposium at IGBMC</h3>
+                <p>On the day of Karl's HDR defense, we organize a minisymposium with committee members at the IGBMC.</p>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Hiring — WITHOUT inner container -->
+      <section class="section">
+        <a class="hiring" href="join.html" aria-label="Open positions">
+          <div class="row">
+            <span class="dot" aria-hidden="true"></span>
+            <div class="copy">We currently have open positions available</div>
+          </div>
+        </a>
+      </section>
+
+    </div> <!-- /.container.wide -->
+  </section> <!-- /.section.orbit-landing -->
+</main>
+
+
+<footer>
+  <div class="container foot">
+    <div class="foot-partners">
+      <a aria-label="IGBMC" class="partner-card" href="https://www.igbmc.fr" target="_blank" rel="noopener">
+        <img alt="IGBMC" src="assets/igbmc.webp" width="220" height="60">
+      </a>
+    </div>
+
+    <div class="foot-meta">
+      ©<span id="y"></span> Ricci Lab ·
+      <a href="legal.html">Legal Notice</a> ·
+      <a href="privacy.html">Privacy</a>
+    </div>
+  </div>
+  <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
+</footer>
+
+<!-- Publications data + builder (no venue matching) -->
+<script src="assets/publications.js?v=3"></script>
+<script>
+(function () {
+  const triplets = [
+    ['pub-si-link','pub-si-title','pub-si-meta'],
+    ['pub-ni-link','pub-ni-title','pub-ni-meta'],
+    ['pub-nm-link','pub-nm-title','pub-nm-meta']
+  ];
+  const DATA = Array.isArray(window.PUBLICATIONS) ? window.PUBLICATIONS.slice() : [];
+  DATA.sort((a,b) => (b.year||0) - (a.year||0)); // newest first
+
+  for (let i = 0; i < triplets.length; i++) {
+    const [aId, tId, mId] = triplets[i];
+    const a = document.getElementById(aId);
+    const t = document.getElementById(tId);
+    const m = document.getElementById(mId);
+    if (!a || !t || !m) continue;
+
+    const p = DATA[i];
+    if (p) {
+      t.textContent = p.title || 'Untitled';
+      const bits = [];
+      if (p.year) bits.push(String(p.year));
+      if (p.authors) bits.push(p.authors);
+      if (p.venue) bits.push(p.venue);
+      m.textContent = bits.join(' · ');
+
+      if (p.doi) { a.href = 'https://doi.org/' + p.doi; a.target = '_blank'; a.rel = 'noopener'; }
+      else if (p.url) { a.href = p.url; a.target = '_blank'; a.rel = 'noopener'; }
+      else { a.href = 'publications.html'; a.removeAttribute('target'); a.removeAttribute('rel'); }
+    } else {
+      t.textContent = 'Recent work from the lab';
+      m.textContent = '';
+      a.href = 'publications.html';
+      a.removeAttribute('target'); a.removeAttribute('rel');
+    }
+  }
+})();
+</script>
+
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/service-worker.js').catch(()=>{});
+}
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var mnav  = document.getElementById('mnav');              // <details>
+  var panel = document.getElementById('mnav-panel');        // mobile Ziel
+  var src   = document.getElementById('site-nav');          // Desktop-Quelle
+  if (!mnav || !panel) return;
+
+  if (panel.children.length === 0 && src) {
+    src.querySelectorAll('a').forEach(function(a){
+      var c = a.cloneNode(true);
+      c.className = '';
+      panel.appendChild(c);
+    });
+  }
+
+  function syncOpenState(){
+    document.body.classList.toggle('mnav-open', mnav.hasAttribute('open'));
+  }
+  mnav.addEventListener('toggle', syncOpenState);
+  syncOpenState();
+
+  panel.addEventListener('click', function(e){
+    if (e.target && e.target.tagName === 'A') mnav.removeAttribute('open');
+  });
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const file = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+  const tabFor = {
+    'index.html': 'index.html',
+    'research.html': 'research.html',
+    'team.html': 'team.html',
+    'publications.html': 'publications.html',
+    'join.html': 'join.html',
+    'news.html': 'news.html',
+    'sponsors.html': 'sponsors.html',
+    'contact.html': 'contact.html',
+    'nlrp3.html': 'research.html',
+    'brain.html': 'research.html',
+    'insulin.html': 'research.html'
+  };
+  const target = tabFor[file] || file;
+  document.querySelectorAll('#site-nav a.navbox, details.mnav .mnav-panel a').forEach(a => {
+    const href = (a.getAttribute('href') || '').toLowerCase();
+    if (href === target) a.setAttribute('aria-current', 'page');
+    else a.removeAttribute('aria-current');
+  });
+});
+</script>
+
+</body>
+</html>
+
+
+
