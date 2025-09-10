@@ -981,9 +981,3 @@ details.mnav > summary{ list-style: none; }
 }
 }
 
-/* ===== UI override: sichtbaren Hero-Text ausblenden ===== */
-.orbit .body,
-.orbit-center .tagline,
-.orbit-center .tagline-sub {
-  display: none !important;
-}
