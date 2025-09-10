@@ -987,7 +987,3 @@ details.mnav > summary{ list-style: none; }
 .orbit-center .tagline-sub {
   display: none !important;
 }
-/* === crumb-home styles === */
-.crumb{margin:1rem 0;font-size:.95rem}
-.crumb a{text-decoration:none}
-.crumb a:hover{text-decoration:underline}
