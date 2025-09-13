@@ -980,12 +980,23 @@ details.mnav > summary{ list-style: none; }
   width: min(92vw, 360px);
 }
 }
-.brand a.social.linkedin svg {
-  fill: #0a66c2; /* LinkedIn-Blau */
-}
 .brand {
   display: flex;
   align-items: center;
-  padding-left: 0.5rem;
+  padding-left: 1.5rem;   /* mehr Abstand zum linken Rand */
+  margin-right: auto;     /* schiebt es von den Tabs weg */
 }
+
+a.social.linkedin svg {
+  width: 28px;
+  height: 28px;
+  fill: #0A66C2;          /* offizielles LinkedIn-Blau */
+}
+
+a.social.disabled {
+  opacity: 0.9;
+  pointer-events: none;
+  cursor: default;
+}
+
 
