@@ -980,16 +980,16 @@ details.mnav > summary{ list-style: none; }
   width: min(92vw, 360px);
 }
 }
-/* LinkedIn Box links im Header */
-.brand{
+/* LinkedIn-Box fix links im Header */
+header .brand{
   display:flex; align-items:center;
-  padding-left:0;              /* näher an den linken Rand */
-  margin-left:-8px;            /* noch 8px weiter nach links */
-  margin-right:auto;           /* Tabs rücken weg */
+  margin-left:-12px;    /* weiter an den linken Rand */
+  margin-right:auto;    /* Tabs nach rechts gedrückt */
+  padding-left:0;
+  z-index:4;
 }
 
-/* Kleine Karte wie deine Boxen (Metall-Rand + Schatten) */
-.li-card{
+header .brand .li-card{
   display:inline-flex; align-items:center; justify-content:center;
   width:44px; height:44px;
   background:#fff;
@@ -998,18 +998,15 @@ details.mnav > summary{ list-style: none; }
   box-shadow:var(--shadow-1);
   transition:transform .12s ease, box-shadow .12s ease, filter .12s ease;
 }
-.li-card:hover,
-.li-card:focus-visible{
+
+header .brand .li-card:hover,
+header .brand .li-card:focus-visible{
   transform:translateY(-1px);
   box-shadow:var(--shadow-2);
   filter:brightness(1.02);
 }
 
-/* Emblem-Größe in der Box */
-.li-card svg{ width:26px; height:26px; }
-
-/* Vorläufig deaktiviert, später aktivieren wenn URL live ist */
-.li-card.disabled{ pointer-events:none; opacity:.95; cursor:default; }
-
-
-
+header .brand .li-card svg{
+  width:26px; height:26px;
+  display:block;
+}
