@@ -980,4 +980,6 @@ details.mnav > summary{ list-style: none; }
   width: min(92vw, 360px);
 }
 }
+a.social { display:inline-flex; align-items:center; text-decoration:none; }
+a.social.linkedin svg { width:20px; height:20px; vertical-align:middle; }
 
