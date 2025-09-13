@@ -980,22 +980,24 @@ details.mnav > summary{ list-style: none; }
   width: min(92vw, 360px);
 }
 }
-/* LinkedIn-Icon direkt mit Metall-Rand um das blaue Quadrat */
+/* LinkedIn Box bündig zu den Tabs im Header */
 header .brand{
-  display:flex; align-items:center;
-  margin-left:-12px;   /* dicht an linken Rand */
-  margin-right:auto;   /* Tabs rutschen weg */
+  display:flex; align-items:flex-end;   /* an Unterkante der Tabs ausrichten */
+  margin-left:-12px;
+  margin-right:auto;
+  padding:0;
 }
 
 header .brand .li-card{
   display:inline-flex; align-items:center; justify-content:center;
-  width:44px; height:44px;
+  height:52px;   /* gleiche Gesamthöhe wie Tabs mit padding */
+  width:52px;
   border:2px solid #b0b5bd;   /* Metall-Rand */
   border-radius:12px;
   box-shadow:var(--shadow-1);
   transition:transform .12s ease, box-shadow .12s ease, filter .12s ease;
-  background:none;             /* kein weißer Hintergrund */
-  padding:0;                   /* Icon bündig */
+  background:none;
+  padding:0;
 }
 
 header .brand .li-card:hover,
@@ -1008,6 +1010,5 @@ header .brand .li-card:focus-visible{
 header .brand .li-card svg{
   width:28px; height:28px;
   display:block;
-  border-radius:4px;           /* runde Ecken wie Original */
+  border-radius:4px;
 }
-
