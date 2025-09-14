@@ -253,12 +253,6 @@
     <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
   </footer>
 <script>
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/service-worker.js').catch(()=>{});
-}
-</script>
-
-<script>
 document.addEventListener('DOMContentLoaded', function () {
   var mnav  = document.getElementById('mnav');              // <details>
   var panel = document.getElementById('mnav-panel');        // mobile Ziel
