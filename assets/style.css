@@ -1010,13 +1010,24 @@ header .brand .li-link svg{
   width:32px; height:32px;         /* kompakt, kein Weiß außen */
   filter: drop-shadow(0 1px 2px rgba(0,0,0,.06)) drop-shadow(0 1px 1px rgba(0,0,0,.04));
 }
-/* Join page apply row */
-.apply-cta {
-  margin: 12px 0 20px;
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
+
 /* Ensure anchors aren't hidden under the sticky header */
 .page h3[id],
 section#apply { scroll-margin-top: 86px; }
+
+/* Ricci Lab – primary Apply button with metal rim */
+.btn.btn-metal{
+  border: 2px solid #b0b5bd;     /* metal rim */
+  border-radius: 12px;
+  background: #000;
+  color: #fff;
+  box-shadow: var(--shadow-1);
+}
+.btn.btn-metal:hover,
+.btn.btn-metal:focus-visible{
+  background:#222;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-2);
+}
+
+
