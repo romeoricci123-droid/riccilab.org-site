@@ -1017,3 +1017,6 @@ header .brand .li-link svg{
   gap: 10px;
   flex-wrap: wrap;
 }
+/* Ensure anchors aren't hidden under the sticky header */
+.page h3[id],
+section#apply { scroll-margin-top: 86px; }
