@@ -1171,6 +1171,16 @@ section#apply { scroll-margin-top: 86px; }
     width: var(--orbit-side-m);
   }
 }
+/* Align emblem text block to the emblem width */
+.orbit-center .tagline,
+.orbit-center .tagline-sub,
+.orbit-center .mission,
+.orbit-center .affil{
+  max-width: var(--orbit-center);
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
 
 
 
