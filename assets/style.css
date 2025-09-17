@@ -1102,12 +1102,13 @@ section#apply { scroll-margin-top: 86px; }
   border-color: #0b0d12; /* slightly darker accent */
 }
 .mission {
-  max-width: 60ch;
+  max-width: 65ch;
   margin: 24px auto 0;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   line-height: 1.55;
   text-align: center;
-  color: var(--ink);
+  color: var(--muted);
 }
+
 
 
