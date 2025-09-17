@@ -300,6 +300,9 @@
       a.removeAttribute('target'); a.removeAttribute('rel');
     }
   }
+    const pubsSection = document.querySelector('.section.pubs');
+    if (pubsSection) pubsSection.setAttribute('aria-busy', 'false');
+
 })();
 </script>
 
