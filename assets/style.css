@@ -1042,5 +1042,34 @@ section#apply { scroll-margin-top: 86px; }
   box-shadow: 0 18px 32px rgba(0,0,0,0.24);
   outline: none;
 }
+/* Subtle halo behind the center emblem for depth */
+.orbit {
+  position: relative;
+}
+.orbit::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: calc(120px + var(--orbit-center) / 2);
+  transform: translate(-50%, -50%);
+  width: calc(var(--orbit-center) * 1.3);
+  height: calc(var(--orbit-center) * 1.3);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(0,0,0,0.10) 0%,
+    rgba(0,0,0,0.06) 30%,
+    rgba(0,0,0,0.00) 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+@media (max-width: 1100px){
+  .orbit::before {
+    top: calc(100px + var(--orbit-center-m) / 2);
+    width: calc(var(--orbit-center-m) * 1.3);
+    height: calc(var(--orbit-center-m) * 1.3);
+  }
+}
 
 
