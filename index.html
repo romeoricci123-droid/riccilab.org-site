@@ -305,9 +305,9 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-  var mnav  = document.getElementById('mnav');              // <details>
-  var panel = document.getElementById('mnav-panel');        // mobile Ziel
-  var src   = document.getElementById('site-nav');          // Desktop-Quelle
+  var mnav  = document.getElementById('mnav');
+  var panel = document.getElementById('mnav-panel');
+  var src   = document.getElementById('site-nav');
   if (!mnav || !panel) return;
 
   if (panel.children.length === 0 && src) {
@@ -319,7 +319,10 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function syncOpenState(){
-    document.body.classList.toggle('mnav-open', mnav.hasAttribute('open'));
+    var summary = mnav.querySelector('summary');
+    var isOpen = mnav.hasAttribute('open');
+    document.body.classList.toggle('mnav-open', isOpen);
+    if (summary) summary.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
   }
   mnav.addEventListener('toggle', syncOpenState);
   syncOpenState();
@@ -329,6 +332,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 </script>
+
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   const file = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
