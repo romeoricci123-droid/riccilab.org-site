@@ -1094,5 +1094,12 @@ section#apply { scroll-margin-top: 86px; }
   pointer-events: none;
   z-index: -1;
 }
+/* Subtle accent rim on hover/focus for cards */
+.pub-card:hover,
+.pub-card:focus-visible,
+.news-list.clean > li > a.cardbox.news-item:hover,
+.news-list.clean > li > a.cardbox.news-item:focus-visible {
+  border-color: #0b0d12; /* slightly darker accent */
+}
 
 
