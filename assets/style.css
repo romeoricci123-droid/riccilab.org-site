@@ -1101,5 +1101,13 @@ section#apply { scroll-margin-top: 86px; }
 .news-list.clean > li > a.cardbox.news-item:focus-visible {
   border-color: #0b0d12; /* slightly darker accent */
 }
+.mission {
+  max-width: 60ch;
+  margin: 24px auto 0;
+  font-size: 1.1rem;
+  line-height: 1.55;
+  text-align: center;
+  color: var(--ink);
+}
 
 
