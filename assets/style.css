@@ -1154,16 +1154,6 @@ section#apply { scroll-margin-top: 86px; }
   line-height: 1.4;
   color: var(--muted);
 }
-/* Allow a tiny vertical offset inside any circle, default 0 */
-.round-link.circle-card > img.circle-img{
-  transform: translateY(var(--circle-shift, 0));
-}
-
-/* Macrophage only: nudge image a bit */
-.orbit-left .round-link.circle-card > img.circle-img{
-  --circle-shift: -6px; /* try -6px or -8px if needed */
-}
-
 
 
 
