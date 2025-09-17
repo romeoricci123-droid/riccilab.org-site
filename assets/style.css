@@ -1029,5 +1029,18 @@ section#apply { scroll-margin-top: 86px; }
   transform: translateY(-1px);
   box-shadow: var(--shadow-2);
 }
+.round-link.emblem-link:focus-visible{
+  transform: translateY(-2px);
+  box-shadow:
+    0 34px 100px 12px rgba(0,0,0,.42),
+    0 16px 36px rgba(0,0,0,.24);
+  outline: none;
+}
+
+.round-link.circle-card:focus-visible{
+  transform: translateY(-2px);
+  box-shadow: 0 18px 32px rgba(0,0,0,0.24);
+  outline: none;
+}
 
 
