@@ -1148,6 +1148,12 @@ section#apply { scroll-margin-top: 86px; }
   object-fit: contain;
   display: block;
 }
+.orbit .body .micro{
+  margin-top: 6px;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: var(--muted);
+}
 
 
 
