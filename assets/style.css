@@ -1138,22 +1138,17 @@ section#apply { scroll-margin-top: 86px; }
   margin: 0;
   padding: 0;
 }
+
 .recognition-logos li{
   flex: 0 0 auto;
 }
+
 .recognition-logos img{
   max-height: 44px;
   object-fit: contain;
   display: block;
-  opacity: 0.95;
-transition: opacity .2s ease, transform .2s ease;
+}
 
-}
-.recognition-logos img:hover,
-.recognition-logos img:focus-visible {
-  opacity: 1;
-  transform: translateY(-2px);
-}
 
 
 
