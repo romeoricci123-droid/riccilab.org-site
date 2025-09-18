@@ -135,42 +135,57 @@
     <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
   </footer>
   <script>
-  (function () {
-    const form = document.getElementById('contactForm');
-    const msg  = document.getElementById('msg');
-    if (!form) return;
+(function () {
+  const form = document.getElementById('contactForm');
+  const msg  = document.getElementById('msg');
+  const btn  = form ? form.querySelector('button[type="submit"]') : null;
+  if (!form || !btn) return;
 
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const data = new FormData(form);
+  // Associate the status line with the form for screen readers
+  form.setAttribute('aria-describedby', 'msg');
 
-      // honeypot
-      if (data.get('website')) return;
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
 
-      try {
-        const res = await fetch(form.action, {
-          method: 'POST',
-          body: data,
-          headers: { 'Accept': 'application/json' }
-        });
+    // Honeypot
+    if (data.get('website')) return;
 
-        msg.hidden = false;
-        if (res.ok) {
-          form.reset();
-          msg.textContent = 'Thanks, your message was sent.';
-          msg.classList.remove('error'); msg.classList.add('ok');
-        } else {
-          msg.textContent = 'Sorry, there was a problem. Please try again later.';
-          msg.classList.remove('ok'); msg.classList.add('error');
-        }
-      } catch {
-        msg.hidden = false;
-        msg.textContent = 'Network error. Please try again later.';
-        msg.classList.remove('ok'); msg.classList.add('error');
+    // Lock UI
+    btn.disabled = true;
+    const oldLabel = btn.textContent;
+    btn.textContent = 'Sending…';
+
+    // Reset status
+    msg.hidden = false;
+    msg.classList.remove('ok', 'error');
+    msg.textContent = 'Sending…';
+
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (res.ok) {
+        form.reset();
+        msg.textContent = 'Thanks, your message was sent.';
+        msg.classList.add('ok');
+      } else {
+        msg.textContent = 'Sorry, there was a problem. Please try again later.';
+        msg.classList.add('error');
       }
-    });
-  }());
-  </script>
+    } catch {
+      msg.textContent = 'Network error. Please try again later.';
+      msg.classList.add('error');
+    } finally {
+      btn.disabled = false;
+      btn.textContent = oldLabel;
+    }
+  });
+}());
+</script>
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
