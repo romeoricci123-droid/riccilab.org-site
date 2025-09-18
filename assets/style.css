@@ -1218,6 +1218,27 @@ body[data-page="team"] li.person a{
   overflow-wrap: anywhere;
   word-break: break-word;
 }
+/* Team page: hard-lock avatar box to identical size on all devices */
+body[data-page="team"] img.avatar{
+  inline-size: 140px;     /* width */
+  block-size: 140px;      /* height */
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center 30%;
+  display: block;
+  flex: 0 0 140px;        /* never shrink in the flex row */
+}
+
+/* Make sure the text block can shrink instead of pushing the image */
+body[data-page="team"] li.person > div{
+  min-width: 0;
+}
+
+/* Safari/iPhone: ensure SVG placeholders obey the same box */
+body[data-page="team"] img.avatar[src$=".svg"]{
+  width: 140px;
+  height: 140px;
+}
 
 
 
