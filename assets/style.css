@@ -1201,15 +1201,6 @@ section#apply { scroll-margin-top: 86px; }
   text-align: center;
   line-height: 1.4;
 }
-/* Team page: hide placeholder headshots so text recenters */
-body[data-page="team"] img.avatar[src$="placeholder.svg"]{
-  display: none;
-}
-/* Team page: center and limit the width of the list */
-body[data-page="team"] .page .container > ul.clean{
-  max-width: 820px;
-  margin-left: auto;
-  margin-right: auto;
-}
+
 
 
