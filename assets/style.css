@@ -1184,26 +1184,5 @@ section#apply { scroll-margin-top: 86px; }
   margin-right: auto;
   text-align: center;
 }
-.section.orbit-landing{
-  position: relative;
-  overflow: hidden;
-  isolation: isolate;
-}
-.section.orbit-landing::before{
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  background: url("/assets/hero-lab.webp") center/cover no-repeat;
-  opacity: 0.10;                        /* super subtle */
-  filter: grayscale(100%) contrast(1.05) brightness(1.02);
-  pointer-events: none;
-}
-.section.orbit-landing > .container{
-  position: relative;
-  z-index: 1;                             /* ensures circles/emblem sit above */
-}
-
-
 
 
