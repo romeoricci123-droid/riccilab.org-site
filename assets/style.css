@@ -1201,6 +1201,22 @@ section#apply { scroll-margin-top: 86px; }
   text-align: center;
   line-height: 1.4;
 }
+/* Team page: lay out people in responsive columns (no HTML change) */
+body[data-page="team"] .page .container > ul.clean{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  gap: 16px;
+}
+
+/* Keep each person row as-is: photo + text side-by-side */
+body[data-page="team"] li.person{
+  margin: 0;              /* grid gap handles spacing */
+}
+
+/* Make sure the avatar never shrinks weirdly inside the grid cell */
+body[data-page="team"] img.avatar{
+  flex-shrink: 0;
+}
 
 
 
