@@ -1186,7 +1186,7 @@ section#apply { scroll-margin-top: 86px; }
 }
 .featured-figure{ margin: 40px auto; }
 .featured-figure .photo-rim{
-  border:2px solid #b0b5bd; border-radius:12px; box-shadow:var(--shadow-1);
+  border: 3px solid #b0b5bd; border-radius:12px; box-shadow:var(--shadow-1);
   overflow:hidden; background:#fff;
 }
 .featured-figure img{
