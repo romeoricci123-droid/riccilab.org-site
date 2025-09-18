@@ -1184,6 +1184,20 @@ section#apply { scroll-margin-top: 86px; }
   margin-right: auto;
   text-align: center;
 }
+.featured-figure{ margin: 40px auto; }
+.featured-figure .photo-rim{
+  border:2px solid #b0b5bd; border-radius:12px; box-shadow:var(--shadow-1);
+  overflow:hidden; background:#fff;
+}
+.featured-figure img{
+  display:block; width:100%; height:auto;
+}
+.featured-figure figcaption{
+  margin: 10px 14px 14px;
+  font-size:.95rem;
+  color: var(--muted);
+  text-align: center;
+}
 
 
 
