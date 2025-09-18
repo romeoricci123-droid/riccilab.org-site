@@ -1184,28 +1184,26 @@ section#apply { scroll-margin-top: 86px; }
   margin-right: auto;
   text-align: center;
 }
-/* Scientific backdrop, very discreet */
+.section.orbit-landing{
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
 .section.orbit-landing::before{
   content: "";
   position: absolute;
   inset: 0;
   z-index: 0;
-  background-image: url("/assets/hero-lab.webp");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  opacity: 0.12;              /* dial the visibility */
-  filter: grayscale(100%) contrast(1.1); /* keep neutral */
+  background: url("/assets/hero-lab.webp") center/cover no-repeat;
+  opacity: 0.10;                        /* super subtle */
+  filter: grayscale(100%) contrast(1.05) brightness(1.02);
+  pointer-events: none;
+}
+.section.orbit-landing > .container{
+  position: relative;
+  z-index: 1;                             /* ensures circles/emblem sit above */
 }
 
-/* Soft overlay keeps emblem/text readable */
-.section.orbit-landing::after{
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  background: rgba(250,249,247,0.85);
-}
 
 
 
