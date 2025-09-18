@@ -1198,6 +1198,35 @@ section#apply { scroll-margin-top: 86px; }
   color: var(--muted);
   text-align: center;
 }
+/* Home-only: tighten the orbit layout so it feels intentional, not empty */
+body[data-page="home"]{
+  /* slightly larger side circles */
+  --orbit-side: 280px;
+  --orbit-side-m: min(44vw, 220px);
+}
+
+body[data-page="home"] .orbit{
+  /* less empty sky above; narrower gaps */
+  padding-top: 80px;            /* was 120px */
+  gap: 28px 40px;               /* was 28px 56px */
+}
+
+/* keep the text blocks aligned to circle width (we added this earlier) */
+.orbit-left .body,
+.orbit-rt .body,
+.orbit-rb .body{
+  width: var(--orbit-side);
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+@media (max-width: 1100px){
+  body[data-page="home"] .orbit{
+    padding-top: 90px;          /* a bit tighter on mobile too */
+    gap: 20px 28px;
+  }
+}
 
 
 
