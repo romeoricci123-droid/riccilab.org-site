@@ -1192,11 +1192,14 @@ section#apply { scroll-margin-top: 86px; }
 .featured-figure img{
   display:block; width:100%; height:auto;
 }
+
 .featured-figure figcaption{
   margin: 10px 14px 14px;
-  font-size:.95rem;
+  font-size: .92rem;
+  font-style: italic;
   color: var(--muted);
   text-align: center;
+  line-height: 1.4;
 }
 
 
