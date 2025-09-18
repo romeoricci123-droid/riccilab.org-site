@@ -1184,5 +1184,29 @@ section#apply { scroll-margin-top: 86px; }
   margin-right: auto;
   text-align: center;
 }
+/* homepage-only scientific backdrop, ultra subtle */
+body[data-page="home"] .section.orbit-landing{
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+body[data-page="home"] .section.orbit-landing::before{
+  content:"";
+  position:absolute; inset:0; z-index:0;
+  background-image: -webkit-image-set(url("/assets/hero-lab.webp") 1x, url("/assets/hero-lab@2x.webp") 2x);
+  background-image: image-set(url("/assets/hero-lab.webp") 1x, url("/assets/hero-lab@2x.webp") 2x);
+  background-size: cover; background-position: center; background-repeat: no-repeat;
+  opacity: 0.08;               /* ↓ barely there */
+  filter: grayscale(100%) contrast(1.05);
+  pointer-events: none;
+}
+body[data-page="home"] .section.orbit-landing > .container{
+  position: relative; z-index: 1;
+}
+
+/* Phones: turn it off (stay perfectly clean) */
+@media (max-width: 900px){
+  body[data-page="home"] .section.orbit-landing::before{ opacity: 0; }
+}
 
 
